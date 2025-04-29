@@ -78,7 +78,7 @@ const Menu = () => {
         </div>
 
         {/* Adjusted menu-close-icon and menu-copy for better flex behavior */}
-        <div className="flex flex-grow w-full items-end "> {/* Container to align content horizontally */}
+        <div className="flex flex-grow w-full h-full items-end "> {/* Container to align content horizontally */}
           {/* Adjusted menu-close-icon for positioning */}
           <div className="menu-close-icon flex-grow-[2] items-start cursor-pointer hidden md:flex " >
             {/* Removed text-black class here if you want the stroke effect */}
@@ -88,7 +88,7 @@ const Menu = () => {
           
 
           {/* Adjusted menu-copy to take available space and align items-start */}
-          <div className="menu-copy flex-grow-[4] flex flex-col  h-full justify-between md:pt-[1em] pt-[8em] items-start">
+          <div className="menu-copy flex-grow-[4] flex flex-col h-full justify-between md:pt-[1em] pt-[8em] items-start">
             <div className="menu-links">
               {
                 menuLinks.map((link, index) => (
@@ -110,8 +110,8 @@ const Menu = () => {
                 <a href="https://www.instagram.com/anzi_f7/" target="_blank" rel="noopener noreferrer">Instagram</a>
                 {/* <a href="">X</a> */}
               </div>
-              <div className="menu-info-col flex-grow-[1] flex flex-col justify-end">
-                <p>ansifpta2003@gmail.com</p>
+              <div className="menu-info-col flex-grow-[1] flex flex-col justify-end ">
+                <p className='!lowercase'>ansifpta2003@gmail.com</p>
                 {/* <p>+123 456 7890</p> */}
               </div>
             </div>
