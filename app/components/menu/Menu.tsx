@@ -1,0 +1,129 @@
+"use client"
+import React, { useEffect, useRef, useState } from 'react'
+import './menu.css'
+import Link from 'next/link'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+
+const menuLinks = [
+  { path: '/hero', label: 'Home' },
+  { path: '/about', label: 'About Me' },
+  { path: '/skills', label: 'Skills' },
+  { path: '/projects', label: 'Projects' },
+  { path: '/contact', label: 'Contact' },
+]
+
+const Menu = () => {
+  const container = useRef(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const tl = useRef<gsap.core.Timeline | null>(null)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  useGSAP(() => {
+    gsap.set(".menu-link-item-holder", { y: 75 })
+
+    tl.current = gsap.timeline({ paused: true })
+      .to(".menu-overlay", {
+        duration: 1.25,
+        clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
+        ease: "power4.inOut",
+      })
+      .to(".menu-link-item-holder", {
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power4.inOut",
+        delay: -0.75,
+      })
+
+  }, { scope: container })
+
+  useEffect(() => {
+    if (tl.current) {
+      if (isMenuOpen) {
+        tl.current.play()
+      } else {
+        tl.current.reverse()
+      }
+    }
+  }, [isMenuOpen])
+
+  return (
+    <div className='menu-container' ref={container}>
+
+      <div className="menu-bar fixed top-0 left-0 w-[100vw] p-[2em] flex justify-between items-center z-10 text-white">
+        <div className="menu-logo">
+          <Link href="/hero" className=" cursor-pointer">Ansif</Link>
+        </div>
+        <div className="menu-open" onClick={toggleMenu}>
+          <p className=" cursor-pointer">Menu</p>
+        </div>
+      </div>
+
+
+      {/* Added justify-between and items-start to menu-overlay */}
+      <div className="menu-overlay [clip-path:polygon(0%_0%,100%_0,100%_0%,0%_0%)] fixed top-0 left-0 w-[100vw] h-[100vh] p-[2em] flex flex-col justify-between items-start z-10 bg-[#E85102]">
+        {/* Adjusted menu-overlay-bar for full width and centering content */}
+        <div className="menu-overlay-bar w-full flex justify-between items-center">
+          <div className="menu-logo ">
+            <Link href="/hero">Ansif</Link>
+          </div>
+          <div className="menu-close " onClick={toggleMenu}>
+            <p className='text-black cursor-pointer'>Close</p>
+          </div>
+        </div>
+
+        {/* Adjusted menu-close-icon and menu-copy for better flex behavior */}
+        <div className="flex flex-grow w-full items-end "> {/* Container to align content horizontally */}
+          {/* Adjusted menu-close-icon for positioning */}
+          <div className="menu-close-icon flex-grow-[2] items-start cursor-pointer hidden md:flex " >
+            {/* Removed text-black class here if you want the stroke effect */}
+            <p className='text-[100px] [-webkit-text-stroke:3px_#E85102] ' onClick={toggleMenu}>&#x2715;</p>
+          </div>
+          
+          
+
+          {/* Adjusted menu-copy to take available space and align items-start */}
+          <div className="menu-copy flex-grow-[4] flex flex-col  h-full justify-between md:pt-[1em] pt-[8em] items-start">
+            <div className="menu-links">
+              {
+                menuLinks.map((link, index) => (
+                  <div className="menu-link-item w-max [clip-path:polygon(0_0,100%_0,100%_100%,0%_100%)] " key={index}>
+                    <div className="menu-link-item-holder relative " onClick={toggleMenu}>
+                      <Link href={link.path} className='text-black md:text-[80px] font-normal text-[60px] tracking-tight leading-[85%]'>
+                        {link.label}
+                      </Link>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+            {/* Adjusted menu-info to align items-start */}
+            <div className="menu-info flex w-full items-end">
+              <div className="menu-info-col flex-grow-[1] flex flex-col justify-end">
+                <a href="https://github.com/mransif" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/ansif1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.instagram.com/anzi_f7/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                {/* <a href="">X</a> */}
+              </div>
+              <div className="menu-info-col flex-grow-[1] flex flex-col justify-end">
+                <p>ansifpta2003@gmail.com</p>
+                {/* <p>+123 456 7890</p> */}
+              </div>
+            </div>
+          </div>
+          {/* Adjusted menu-preview to align items-end */}
+          <div className="menu-preview flex-grow-[4] md:flex justify-end items-end hidden">
+            <p>View something</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Menu
