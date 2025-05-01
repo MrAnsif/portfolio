@@ -34,7 +34,7 @@ const page = () => {
 
     cubesFaces.forEach((face) => {
       const img = document.createElement("img")
-      img.src = `/images/img${imageCounter}.jpg`
+      img.src = `/images/img (${imageCounter}).jpg`
       img.alt = `cube image ${imageCounter}`
       face.appendChild(img)
       imageCounter++
