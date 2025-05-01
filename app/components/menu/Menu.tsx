@@ -1,6 +1,5 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
-import './menu.css'
 import Link from 'next/link'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
