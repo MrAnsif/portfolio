@@ -1,12 +1,12 @@
 export const CubesData = {
     "cube-1": {
       initial: {
-        top: -55,
-        left: 37.5,
+        top: -100,
+        left: 44,
         rotateX: 360,
         rotateY: -360,
         rotateZ: -48,
-        Z: -30000
+        Z: -35000
       },
       final: {
         top: 50,
@@ -19,29 +19,31 @@ export const CubesData = {
     },
     "cube-2": {
       initial: {
-        top: -35,
-        left: 32.5,
+        top: -64,
+        left: 29,
         rotateX: -360,
         rotateY: 360,
         rotateZ: 90,
-        Z: -30000
+        Z: -35000
       },
       final: {
         top: 75,
         left: 25,
         rotateX: 1,
         rotateY: 2,
-        rotateZ: 0
+        rotateZ: 0,
+        Z: 0
+
       }
     },
     "cube-3": {
       initial: {
-        top: -65,
-        left: 50,
+        top: -75,
+        left: 53,
         rotateX: -360,
         rotateY: -360,
         rotateZ: -180,
-        Z: -30000
+        Z: -35000
       },
       final: {
         top: 25,
@@ -54,12 +56,12 @@ export const CubesData = {
     },
     "cube-4": {
       initial: {
-        top: -35,
-        left: 50,
+        top: -64,
+        left: 41,
         rotateX: -360,
         rotateY: -360,
         rotateZ: -180,
-        Z: -30000
+        Z: -35000
       },
       final: {
         top: 75,
@@ -73,11 +75,11 @@ export const CubesData = {
     "cube-5": {
       initial: {
         top: -55,
-        left: 62.5,
+        left: 57,
         rotateX: 360,
         rotateY: 360,
         rotateZ: -135,
-        Z: -30000
+        Z: -35000
       },
       final: {
         top: 25,
@@ -91,11 +93,11 @@ export const CubesData = {
     "cube-6": {
       initial: {
         top: -35,
-        left: 67.5,
+        left: 64,
         rotateX: -180,
         rotateY: -360,
         rotateZ: -180,
-        Z: -30000
+        Z: -35000
       },
       final: {
         top: 50,
