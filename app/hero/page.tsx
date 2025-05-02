@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import React, { useEffect } from 'react'
 import './page.css'
 import { CubesData } from '../components/CubesData.js'
@@ -78,7 +79,7 @@ const page = () => {
 
         header2.style.transform = `translate(-50%, -50%) scale(${header2Scale})`;
         header2.style.filter = `blur(${header2Blur}px)`;
-        header2.style.opacity = `${header2Progress}`;
+        header2.style.opacity = `${ header2Progress}`;
 
         
         const firstPhaseProgress = Math.min(self.progress * 2, 1)
