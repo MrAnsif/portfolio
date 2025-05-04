@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './page.css'
 import { CubesData } from '../components/CubesData.js'
 import gsap from 'gsap';
@@ -79,9 +79,9 @@ const page = () => {
 
         header2.style.transform = `translate(-50%, -50%) scale(${header2Scale})`;
         header2.style.filter = `blur(${header2Blur}px)`;
-        header2.style.opacity = `${ header2Progress}`;
+        header2.style.opacity = `${header2Progress}`;
 
-        
+
         const firstPhaseProgress = Math.min(self.progress * 2, 1)
         const secondPhaseProgress = self.progress >= 0.5 ? (self.progress - 0.5) * 2 : 0
         Object.entries(CubesData).forEach(([cubeclass, data]) => {
@@ -147,9 +147,9 @@ const page = () => {
   }, [])
 
   return (
-    <div className='w-screen h-[600vh]'>
-
-      <section className='sticky-1 relative w-screen h-screen overflow-hidden bg-[#190001] text-white'>
+    <div className='w-screen h-[350vh]  bg-[linear-gradient(10deg,_#c1390b_30%,_#000000_100%)]'>
+      
+      <section className='sticky-1 relative w-screen h-screen overflow-hidden  text-white'>
         <div className="logo absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-[24px] ">
           <div className=' w-80'>
             <img src="/images/logo-nobg.png" alt="" />
@@ -212,20 +212,46 @@ const page = () => {
           </div>
         </div>
 
-        <div className="header-1 absolute top-1/2 left-1/2 -translate-1/2">
-          <h1 className='font-extrabold text-5xl leading-1'>Hello world</h1>
-        </div>
+        <div className="header-1 absolute top-1/2 md:top-4/6 left-1/2 w-full px-4">
+          <div className="max-w-5xl mx-auto relative">
+            <div className="flex flex-col items-start">
+              <div className="self-start">
+                <span className="block text-sm md:text-base lg:text-lg font-medium text-gray-300">
+                  Hey, this is
+                </span>
+              </div>
 
-        <div className="header-2  absolute top-3/4 left-1/2 -translate-1/2">
-          <p>how are you</p>
+              <div className="w-full -mt-1 md:-mt-2">
+                <span className="block text-8xl  md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tight font-myfont text-transparent bg-clip-text bg-gradient-to-r from-[#cbcbcb] to-[#fff] animate-gradient-shift leading-none">
+                  Ansif
+                </span>
+              </div>
+
+              <div className="self-end mt-2 md:-mt-6">
+                <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-gray-400">
+                  a software developer
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="header-2 absolute top-1/2 left-1/2 text-center w-full">
+          <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
+            welcome to my corner<br className="hidden sm:block" /> of the internet.
+          </h1>
+          <p className="mt-4 text-xl md:text-2xl font-medium opacity-80 italic">
+            <span className="font-bold">Build</span> ·
+            <span className="font-light"> Break</span> ·
+            <span className="font-bold"> Repeat</span>
+          </p>
         </div>
 
       </section>
 
 
-      <section className='about relative w-screen h-screen overflow-hidden flex justify-center items-center text-center bg-[#a44a26] text-black'>
+      {/* <section className='about relative w-screen h-screen overflow-hidden flex justify-center items-center text-center bg-[#a44a26] text-black'>
         <p>Hello, i am a placeholder text</p>
-      </section>
+      </section> */}
 
     </div>
   )

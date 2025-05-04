@@ -24,3 +24,6 @@ lenis lenis-smooth iframe {
     pointer-events: none;
 }
 
+body {
+    font-family: 'MyFont1', sans-serif;
+  }
