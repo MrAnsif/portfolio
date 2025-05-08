@@ -2,15 +2,16 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { Link as ScrollLink } from 'react-scroll';
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 const menuLinks = [
-  { path: '/hero', label: 'Home' },
-  { path: '/about', label: 'About Me' },
-  { path: '/skills', label: 'Skills' },
-  { path: '/projects', label: 'Projects' },
-  { path: '/contact', label: 'Contact' },
+  { path: 'hero', label: 'Home' },
+  { path: 'about', label: 'About Me' },
+  { path: 'skills', label: 'Skills' },
+  { path: 'projects', label: 'Projects' },
+  { path: 'contact', label: 'Contact' },
 ]
 
 const Menu = () => {
@@ -57,7 +58,7 @@ const Menu = () => {
 
       <div className="menu-bar fixed top-0 left-0 w-screen p-8 flex justify-between items-center z-10 text-white">
         <div className="menu-logo">
-          <Link href="/hero" className=" cursor-pointer">Ansif</Link>
+          <Link href="/" className=" cursor-pointer">Ansif</Link>
         </div>
         <div className="menu-open" onClick={toggleMenu}>
           <p className=" cursor-pointer">Menu</p>
@@ -70,7 +71,7 @@ const Menu = () => {
         {/* Adjusted menu-overlay-bar for full width and centering content */}
         <div className="menu-overlay-bar w-full flex justify-between items-center">
           <div className="menu-logo ">
-            <Link href="/hero">Ansif</Link>
+            <Link href="/">Ansif</Link>
           </div>
           <div className="menu-close " onClick={toggleMenu}>
             <p className='text-black cursor-pointer'>Close</p>
@@ -84,8 +85,8 @@ const Menu = () => {
             {/* Removed text-black class here if you want the stroke effect */}
             <p className='text-[100px] [-webkit-text-stroke:3px_#E85102] ' onClick={toggleMenu}>&#x2715;</p>
           </div>
-          
-          
+
+
 
           {/* Adjusted menu-copy to take available space and align items-start */}
           <div className="menu-copy flex-grow-[4] flex flex-col h-full justify-between md:pt-2 pt-24 items-start">
@@ -94,9 +95,16 @@ const Menu = () => {
                 menuLinks.map((link, index) => (
                   <div className="menu-link-item w-max [clip-path:polygon(0_0,100%_0,100%_100%,0%_100%)] " key={index}>
                     <div className="menu-link-item-holder relative " onClick={toggleMenu}>
-                      <Link href={link.path} className='text-black md:text-[80px] font-normal text-[60px] tracking-tight leading-[85%]'>
+                      <ScrollLink
+                        to={link.path}
+                        smooth={true}
+                        duration={500}
+                        offset={-50} 
+                        className='text-black md:text-[80px] font-normal text-[60px] tracking-tight leading-[85%] cursor-pointer'
+                      >
                         {link.label}
-                      </Link>
+                      </ScrollLink>
+
                     </div>
                   </div>
                 ))

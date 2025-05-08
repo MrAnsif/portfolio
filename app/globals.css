@@ -32,6 +32,10 @@ a, p {
     font-display: swap;
   }
 
+  .font-myfont2 {
+    font-family: 'myfont2', sans-serif;
+  }
+
 @font-face {
     font-family: 'myfont1';
     src: url('../public/fonts/Lack-Regular.woff2') format('woff2');

@@ -1,15 +1,14 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react'
-import './page.css'
+import './Hero.css'
 import { CubesData } from '../components/CubesData.js'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis'
 
 
-
-const page = () => {
+const Hero = () => {
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -135,11 +134,11 @@ const page = () => {
           cube.style.top = `${currentTop}%`;
           cube.style.left = `${currentLeft}%`;
           cube.style.transform = `
-              translate3d(-50%, -50%, ${currentZ}px)
-              rotateX(${currentRotateX}deg)
-              rotateY(${currentRotateY + additionalRotation}deg)
-              rotateZ(${currentRotateZ}deg)
-            `;
+                  translate3d(-50%, -50%, ${currentZ}px)
+                  rotateX(${currentRotateX}deg)
+                  rotateY(${currentRotateY + additionalRotation}deg)
+                  rotateZ(${currentRotateZ}deg)
+                `;
         })
       }
     })
@@ -147,11 +146,11 @@ const page = () => {
   }, [])
 
   return (
-    <div className='w-screen h-[350vh]  bg-[linear-gradient(10deg,_#c1390b_30%,_#000000_100%)]'>
-      
-      <section className='sticky-1 relative w-screen h-screen overflow-hidden  text-white'>
-        <div className="logo absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-[24px] ">
-          <div className=' w-80'>
+    <div className='w-screen h-[500vh]  bg-[linear-gradient(10deg,_#c1390b_30%,_#000000_100%)]'>
+
+      <section className='sticky-1 relative w-screen h-screen overflow-hidden text-white'>
+        <div className="logo absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 md:-translate-y-1/2 flex gap-[24px] ">
+          <div className=' w-[50vh] md:w-80'>
             <img src="/images/logo-nobg.png" alt="" />
           </div>
         </div>
@@ -212,7 +211,7 @@ const page = () => {
           </div>
         </div>
 
-        <div className="header-1 absolute top-1/2 md:top-4/6 left-1/2 w-full px-4">
+        <div className="header-1 absolute top-4/6 left-1/2 w-full px-4">
           <div className="max-w-5xl mx-auto relative">
             <div className="flex flex-col items-start">
               <div className="self-start">
@@ -234,6 +233,9 @@ const page = () => {
               </div>
             </div>
           </div>
+          <div className='flex items-center justify-end flex-col '>
+            <p className='text-[10px] !font-light tracking-wide pt-16'>- scroll carefully, its smooth -</p>
+          </div>
         </div>
         <div className="header-2 absolute top-1/2 left-1/2 text-center w-full">
           <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
@@ -250,11 +252,14 @@ const page = () => {
 
 
       {/* <section className='about relative w-screen h-screen overflow-hidden flex justify-center items-center text-center bg-[#a44a26] text-black'>
-        <p>Hello, i am a placeholder text</p>
-      </section> */}
+      <p>Hello, i am a placeholder text</p>
+    </section> */}
 
     </div>
   )
 }
 
-export default page
+
+
+
+export default Hero
