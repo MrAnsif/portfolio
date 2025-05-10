@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html >
       <body>
-        <Preload />
+        {/* <Preload /> */}
         <Menu />
         {children}
         <Footer />

@@ -54,6 +54,8 @@ const Menu = () => {
     }
   }, [isMenuOpen])
 
+  
+
   return (
     <div className='menu-container ' ref={container}>
 
@@ -62,7 +64,7 @@ const Menu = () => {
           <Link href="/" className=" cursor-pointer">
             <Image
               src="/images/name.webp"
-              alt="Go to Home"
+              alt="Home"
               width={64}
               height={64}
               className=""
