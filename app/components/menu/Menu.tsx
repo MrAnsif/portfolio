@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Link as ScrollLink } from 'react-scroll';
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import Image from 'next/image';
 
 const menuLinks = [
   { path: 'hero', label: 'Home' },
@@ -57,8 +58,16 @@ const Menu = () => {
     <div className='menu-container' ref={container}>
 
       <div className="menu-bar fixed top-0 left-0 w-screen p-8 flex justify-between items-center z-10 text-white">
-        <div className="menu-logo">
-          <Link href="/" className=" cursor-pointer">Ansif</Link>
+        <div className="menu-logo" >
+          <Link href="/" className=" cursor-pointer">
+            <Image
+              src="/images/name.webp"
+              alt="Go to Home"
+              width={64}
+              height={64}
+              className=""
+            />
+          </Link>
         </div>
         <div className="menu-open" onClick={toggleMenu}>
           <p className=" cursor-pointer">Menu</p>
@@ -70,37 +79,42 @@ const Menu = () => {
       <div className="menu-overlay [clip-path:polygon(0%_0%,100%_0,100%_0%,0%_0%)] fixed top-0 left-0 w-screen h-screen p-8 flex flex-col justify-between items-start z-10 bg-[#E85102]">
         {/* Adjusted menu-overlay-bar for full width and centering content */}
         <div className="menu-overlay-bar w-full flex justify-between items-center">
-          <div className="menu-logo ">
-            <Link href="/">Ansif</Link>
+          <div className="menu-logo " onClick={toggleMenu}>
+            <Link href="/" className=" cursor-pointer">
+              <Image
+                src="/images/name.webp"
+                alt="Go to Home"
+                width={64}
+                height={64}
+                className="brightness-0"
+              />
+            </Link>
           </div>
           <div className="menu-close " onClick={toggleMenu}>
             <p className='text-black cursor-pointer'>Close</p>
           </div>
         </div>
 
-        {/* Adjusted menu-close-icon and menu-copy for better flex behavior */}
-        <div className="flex flex-grow w-full h-full items-end "> {/* Container to align content horizontally */}
-          {/* Adjusted menu-close-icon for positioning */}
+        <div className="flex flex-grow w-full h-full items-end "> 
           <div className="menu-close-icon flex-grow-[2] items-start cursor-pointer hidden md:flex " >
-            {/* Removed text-black class here if you want the stroke effect */}
             <p className='text-[100px] [-webkit-text-stroke:3px_#E85102] ' onClick={toggleMenu}>&#x2715;</p>
           </div>
 
 
 
-          {/* Adjusted menu-copy to take available space and align items-start */}
           <div className="menu-copy flex-grow-[4] flex flex-col h-full justify-between md:pt-2 pt-24 items-start">
             <div className="menu-links">
               {
                 menuLinks.map((link, index) => (
                   <div className="menu-link-item w-max [clip-path:polygon(0_0,100%_0,100%_100%,0%_100%)] " key={index}>
-                    <div className="menu-link-item-holder relative " onClick={toggleMenu}>
+                    <div className="menu-link-item-holder relative " >
                       <ScrollLink
                         to={link.path}
                         smooth={true}
                         duration={500}
-                        offset={-50} 
+                        offset={-50}
                         className='text-black md:text-[80px] font-normal text-[60px] tracking-tight leading-[85%] cursor-pointer'
+                        onClick={toggleMenu}
                       >
                         {link.label}
                       </ScrollLink>
@@ -110,13 +124,11 @@ const Menu = () => {
                 ))
               }
             </div>
-            {/* Adjusted menu-info to align items-start */}
             <div className="menu-info flex w-full items-end">
               <div className="menu-info-col flex-grow-[1] flex flex-col justify-end">
                 <a href="https://github.com/mransif" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://www.linkedin.com/in/ansif1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://www.instagram.com/anzi_f7/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                {/* <a href="">X</a> */}
               </div>
               <div className="menu-info-col flex-grow-[1] flex flex-col justify-end ">
                 <p className='!lowercase'>ansifpta2003@gmail.com</p>

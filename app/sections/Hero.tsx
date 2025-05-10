@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import './Hero.css'
 import { CubesData } from '../components/CubesData.js'
 import gsap from 'gsap';
@@ -35,7 +35,7 @@ const Hero = () => {
 
     cubesFaces.forEach((face) => {
       const img = document.createElement("img")
-      img.src = `/images/img (${imageCounter}).jpg`
+      img.src = `/images/img (${imageCounter}).webp`
       img.alt = `cube image ${imageCounter}`
       face.appendChild(img)
       imageCounter++
@@ -151,7 +151,7 @@ const Hero = () => {
       <section className='sticky-1 relative w-screen h-screen overflow-hidden text-white'>
         <div className="logo absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 md:-translate-y-1/2 flex gap-[24px] ">
           <div className=' w-[50vh] md:w-80'>
-            <img src="/images/logo-nobg.png" alt="" />
+            <img src="/images/logo-nobg.webp" alt="" />
           </div>
         </div>
 

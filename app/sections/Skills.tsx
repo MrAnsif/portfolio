@@ -280,20 +280,20 @@ const Skills = () => {
             {gridContent.slice(4).map((item, index) => (
               <div
                 key={`row2-${index}`}
-                onClick={() => handleItemClick(index + 4)}
+                onClick={() => handleItemClick(index + 3)}
                 className={`grid-item w-full px-6 py-8 flex flex-col justify-center items-center cursor-pointer transition-all duration-300
                   ${index < 3 ? 'md:border-r border-b md:border-b-0 border-gray-800' : ''}`}
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (index + 4) * 0.1 }}
+                  transition={{ delay: (index + 3) * 0.1 }}
                   className="relative z-10 text-center group"
                 >
                   {item.icon}
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className={`text-sm text-gray-400 transition-all duration-300 
-                    ${(isMobile && activeIndex === index + 4) || (!isMobile && (isHovering ? activeIndex === index + 4 : true))
+                    ${(isMobile && activeIndex === index + 3) || (!isMobile && (isHovering ? activeIndex === index + 3 : true))
                       ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}
                   >
                     {item.desc}
@@ -310,16 +310,8 @@ const Skills = () => {
           ref={highlightRef}
         ></div>
 
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="text-center mt-8 md:mt-12 text-gray-400 text-sm"
-        >
-          <p>Interested in working together? Let's create something amazing.</p>
-        </motion.div>
       </div>
+      
     </div>
   );
 };
