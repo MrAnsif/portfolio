@@ -6,6 +6,7 @@ import { CubesData } from '../components/CubesData.js'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis'
+import Image from 'next/image';
 
 
 const Hero = () => {
@@ -146,9 +147,9 @@ const Hero = () => {
   }, [])
 
   return (
-    <div className='w-screen h-[500vh]  bg-[linear-gradient(10deg,_#c1390b_30%,_#000000_100%)]'>
+    <div className=' relative w-screen h-[500vh]  bg-[linear-gradient(0deg,_#ffffff_80%,_#000000_80%)] md:bg-[linear-gradient(0deg,_#ffffff_73%,_#000000_74%)]'>
 
-      <section className='sticky-1 relative w-screen h-screen overflow-hidden text-white'>
+      <section className='sticky-1 relative w-screen h-screen overflow-hidden  z-10'>
         <div className="logo absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 md:-translate-y-1/2 flex gap-[24px] ">
           <div className=' w-[50vh] md:w-80'>
             <img src="/images/logo-nobg.webp" alt="" />
@@ -220,24 +221,24 @@ const Hero = () => {
                 </span>
               </div>
 
-              <div className="w-full -mt-1 md:-mt-2">
-                <span className="block text-8xl  md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tight font-myfont text-transparent bg-clip-text bg-gradient-to-r from-[#cbcbcb] to-[#fff] animate-gradient-shift leading-none">
+              <div className="w-full -mt-1 md:-mt-2 ">
+                <span className="block text-8xl md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tight font-myfont text-transparent bg-clip-text bg-gradient-to-r from-[#cbcbcb] to-[#fff] animate-gradient-shift leading-none">
                   Ansif
                 </span>
               </div>
 
               <div className="self-end mt-2 md:-mt-6">
-                <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-gray-400">
+                <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-[#EFB6A4]">
                   a software developer
                 </span>
               </div>
             </div>
           </div>
           <div className='flex items-center justify-end flex-col '>
-            <p className='text-[10px] !font-light tracking-wide pt-16'>- scroll carefully, its smooth -</p>
+            <p className='text-[10px] !font-light tracking-wide pt-16 text-[#e4bfb4]'>- scroll carefully, its smooth -</p>
           </div>
         </div>
-        <div className="header-2 absolute top-1/2 left-1/2 text-center w-full">
+        <div className="header-2 absolute top-1/2 left-1/2 text-center w-full text-black">
           <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
             welcome to my corner<br className="hidden sm:block" /> of the internet.
           </h1>
@@ -250,6 +251,15 @@ const Hero = () => {
 
       </section>
 
+      <div className="w-screen h-[500vh] absolute top-[60vh] md:top-[40vh] left-0">
+        <Image
+          src='/images/orange-wave.svg'
+          alt='orange-wave'
+          layout="responsive"
+          width={1200} 
+          height={100} 
+        />
+      </div>
 
       {/* <section className='about relative w-screen h-screen overflow-hidden flex justify-center items-center text-center bg-[#a44a26] text-black'>
       <p>Hello, i am a placeholder text</p>

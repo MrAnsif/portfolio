@@ -55,9 +55,9 @@ const Menu = () => {
   }, [isMenuOpen])
 
   return (
-    <div className='menu-container' ref={container}>
+    <div className='menu-container ' ref={container}>
 
-      <div className="menu-bar fixed top-0 left-0 w-screen p-8 flex justify-between items-center z-10 text-white">
+      <div className="menu-bar fixed top-0 left-0 w-screen p-8 flex justify-between items-center z-40 text-white">
         <div className="menu-logo" >
           <Link href="/" className=" cursor-pointer">
             <Image
@@ -76,7 +76,7 @@ const Menu = () => {
 
 
       {/* Added justify-between and items-start to menu-overlay */}
-      <div className="menu-overlay [clip-path:polygon(0%_0%,100%_0,100%_0%,0%_0%)] fixed top-0 left-0 w-screen h-screen p-8 flex flex-col justify-between items-start z-10 bg-[#E85102]">
+      <div className="menu-overlay [clip-path:polygon(0%_0%,100%_0,100%_0%,0%_0%)] fixed top-0 left-0 w-screen h-screen p-8 flex flex-col justify-between items-start z-40 bg-[#E85102]">
         {/* Adjusted menu-overlay-bar for full width and centering content */}
         <div className="menu-overlay-bar w-full flex justify-between items-center">
           <div className="menu-logo " onClick={toggleMenu}>
