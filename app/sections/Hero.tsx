@@ -158,57 +158,57 @@ const Hero = () => {
 
         <div className="cubes absolute top-0 left-0 w-screen h-screen  " style={{ transformStyle: 'preserve-3d', perspective: '10000px' }}>
           <div className="cube cube-1 absolute w-[150px] h-[150px] top-[-55%] left-[37.5%]" style={{ transformStyle: 'preserve-3d', transform: 'translate3d(-50%, -50%, -30000px) rotateX(360deg) rotateY(-360deg) rotateZ(-48deg)' }}>
-            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)', backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
+            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)'}}></div>
+            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)'}}></div>
+            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)'}}></div>
+            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)'}}></div>
+            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)'}}></div>
+            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)'}}></div>
           </div>
 
           <div className="cube cube-2 absolute w-[150px] h-[150px] top-[-35%] left-[32.5%]" style={{ transformStyle: 'preserve-3d', transform: 'translate3d(-50%, -50%, -30000px) rotateX(-180deg) rotateY(180deg) rotateZ(90deg)' }}>
-            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
+            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)'}}></div>
+            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)'}}></div>
+            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)'}}></div>
+            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)'}}></div>
+            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)'}}></div>
+            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)'}}></div>
           </div>
 
           <div className="cube cube-3 absolute w-[150px] h-[150px] top-[65%] left-[50%]" style={{ transformStyle: 'preserve-3d', transform: 'translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(90deg) rotateZ(-180deg)' }}>
-            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
+            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)' }}></div>
+            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)' }}></div>
+            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)' }}></div>
+            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)' }}></div>
+            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)' }}></div>
+            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)' }}></div>
           </div>
 
           <div className="cube cube-4 absolute w-[150px] h-[150px] top-[-35%] left-[50%]" style={{ transformStyle: 'preserve-3d', transform: 'translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(90deg) rotateZ(-180deg)' }}>
-            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
+            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)' }}></div>
+            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)' }}></div>
+            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)' }}></div>
+            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)' }}></div>
+            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)' }}></div>
+            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)' }}></div>
           </div>
 
           <div className="cube cube-5 absolute w-[150px] h-[150px] top-[-55%] left-[62.5%]" style={{ transformStyle: 'preserve-3d', transform: 'translate3d(-50%, -50%, -30000px) rotateX(180deg) rotateY(180deg) rotateZ(-135deg)' }}>
-            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
+            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)' }}></div>
+            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)' }}></div>
+            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)' }}></div>
+            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)' }}></div>
+            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)' }}></div>
+            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)' }}></div>
           </div>
 
           <div className="cube cube-6 absolute w-[150px] h-[150px] top-[-35%] left-[67.5%]" style={{ transformStyle: 'preserve-3d', transform: 'translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-180deg) rotateZ(-180deg)' }}>
-            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
-            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)',  backgroundImage: 'url(/images/cube-bg.jpg)' }}></div>
+            <div className="front absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'translateZ(75px)' }}></div>
+            <div className="back absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)' }}></div>
+            <div className="right absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)' }}></div>
+            <div className="left absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)' }}></div>
+            <div className="top absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)' }}></div>
+            <div className="bottom absolute w-full h-full bg-amber-50/80 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)' }}></div>
           </div>
         </div>
 
@@ -242,16 +242,12 @@ const Hero = () => {
           <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
             welcome to my corner<br className="hidden sm:block" /> of the internet.
           </h1>
-          <p className="mt-4 text-xl md:text-2xl font-medium opacity-80 italic">
-            <span className="font-bold">Build</span> ·
-            <span className="font-light"> Break</span> ·
-            <span className="font-bold"> Repeat</span>
-          </p>
+          
         </div>
 
       </section>
 
-      <div className="w-screen h-[500vh] absolute top-[60vh] md:top-[40vh] left-0">
+      <div className="w-screen h-[500vh] absolute top-[60vh] lg:top-[40vh] left-0">
         <Image
           src='/images/orange-wave.svg'
           alt='orange-wave'

@@ -1,0 +1,11 @@
+
+
+
+svg path {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    stroke-width: .4;
+    stroke: #ffffff;
+    fill: none;
+    /* transition: stroke-dashoffset 1s; */
+}
