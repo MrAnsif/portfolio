@@ -88,7 +88,7 @@ const About = () => {
 
       <div className="h-[75vh]  md:h-[90vh]  relative z-10 text-white mx-10 ">
         <p className=' max-w-96 text-balance text-2xl ml-10 '><span className='font-serif italic'>Hi, Myself Ansif Muhammed.</span>  <br />I build websites, explore ideas, and enjoy turning tech into things that  <span className='font-serif italic'> actually work.</span> <br /> Right now, I’m diving deeper into backend and AI—  <span className='font-serif italic'>always learning, always creating.</span></p>
-        <p className='font-myfont3 text-xl absolute -bottom-10 md:bottom-5 left-1/2 -translate-x-1/2'>This is just me, doing what I do.</p>
+        <p className='font-myfont3 text-2xl absolute -bottom-10 md:bottom-5 left-1/2 md:-translate-x-1/2'>This is just me, doing what I do.</p>
       </div>
 
 

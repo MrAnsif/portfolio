@@ -52,8 +52,17 @@ p {
   font-style: normal;
   font-display: swap;
 }
+
 .font-myfont3 {
   font-family: 'myfont3', sans-serif;
+}
+
+
+
+
+::selection {
+  background-color: #ff4000;
+  color: white;
 }
 
 
