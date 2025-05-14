@@ -1,4 +1,4 @@
-import Image from 'next/image'
+
 import React, { useEffect } from 'react'
 import slides from '../components/slides.js'
 import gsap from 'gsap'
