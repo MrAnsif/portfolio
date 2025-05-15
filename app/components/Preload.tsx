@@ -77,7 +77,7 @@ const Preload = () => {
 
     return (
         <div className="relative">
-            <div className="loading-screen fixed top-0 left-0 w-screen h-screen bg-black text-white pointer-events-none z-20">
+            <div className="loading-screen fixed top-0 left-0 w-screen h-screen bg-black text-white pointer-events-none z-50">
                 <div className="loader absolute top-1/2 left-1/2 w-[350px] h-[40px] -translate-x-1/2 -translate-y-1/2 transform flex ">
                     <div className="loader-1 bar h-[40px] relative bg-white -mr-0.5 w-[100px]" ></div>
                     <div className="loader-2 bar h-[40px] relative bg-white  w-[250px]" ></div>

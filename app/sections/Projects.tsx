@@ -1,3 +1,4 @@
+'use client'
 
 import React, { useEffect } from 'react'
 import slides from '../components/slides.js'
@@ -28,7 +29,7 @@ const Projects = () => {
 
     const totalSlides = slides.length
     const stripsCount = 25
-    let currentTitleIndex = 0
+    let currentTitleIndex = 1
     let queuedTitleIndex: number | null = null;
     const titleChangeThreshold = 0.5
     let isAnimating = false
@@ -39,6 +40,8 @@ const Projects = () => {
       const imgContainer = document.createElement("div");
       imgContainer.className = "img-container";
       imgContainer.id = `img-container-${i + 1}`;
+      imgContainer.style.opacity = "0"; // Hide initially
+      imgContainer.style.display = "none"; // Also hide from DOM flow
 
 
       for (let j = 0; j < stripsCount; j++) {
@@ -61,12 +64,19 @@ const Projects = () => {
         const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
         const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
 
-        strip.style.clipPath = `polygon(0% ${stripLowerBound}%, 100% ${stripLowerBound}%, 100% ${stripUpperBound - 0.1}%, 0% ${stripUpperBound - 0.1}%)`;
+        (strip as HTMLElement).style.clipPath = `polygon(0% ${stripLowerBound}%, 100% ${stripLowerBound}%, 100% ${stripUpperBound - 0.1}%, 0% ${stripUpperBound - 0.1}%)`;
 
         strip.appendChild(img)
         imgContainer.appendChild(strip)
       }
-      slideImages?.appendChild(imgContainer)
+
+
+      if (slideImages) {
+        console.log(`Appending container ${i} with image ${slides[i].image}`);
+        slideImages.appendChild(imgContainer);
+      } else {
+        console.error("slideImages container not found!");
+      }
     }
 
     const transitionCount = totalSlides - 1;
@@ -224,6 +234,7 @@ const Projects = () => {
       pinSpacing: true,
       scrub: 1,
       invalidateOnRefresh: true,
+
       onUpdate: (self) => {
         const imageProgress = calculateImageProgress(self.progress);
 
@@ -234,12 +245,53 @@ const Projects = () => {
 
           const correctTitleIndex = getTitleIndexForProgress(imageProgress);
 
+
           if (correctTitleIndex !== currentTitleIndex) {
             queuedTitleIndex = correctTitleIndex;
             if (!isAnimating) {
               animateTitleChange(correctTitleIndex, scrollDirection);
             }
           }
+          if (scrollDirection === "down") {
+            // Scrolling down - show current and next containers
+            if (currentImageIndex > 0) {
+              const currentContainer = document.getElementById(`img-container-${currentImageIndex + 1}`);
+              if (currentContainer) {
+                currentContainer.style.display = "block";
+                currentContainer.style.opacity = "1";
+              }
+            }
+            if (currentImageIndex < totalSlides - 1) {
+              const nextContainer = document.getElementById(`img-container-${currentImageIndex + 2}`);
+              if (nextContainer) {
+                nextContainer.style.display = "block";
+              }
+            }
+          } else {
+            // Scrolling up - hide the container that's being scrolled away from
+            if (currentImageIndex < totalSlides - 2) {
+              const nextContainer = document.getElementById(`img-container-${currentImageIndex + 3}`);
+              if (nextContainer) {
+                nextContainer.style.display = "none";
+                nextContainer.style.opacity = "0";
+              }
+            }
+            // Ensure current and previous containers are visible
+            if (currentImageIndex > 0) {
+              const currentContainer = document.getElementById(`img-container-${currentImageIndex + 1}`);
+              if (currentContainer) {
+                currentContainer.style.display = "block";
+                currentContainer.style.opacity = "1";
+              }
+            }
+            if (currentImageIndex > 1) {
+              const prevContainer = document.getElementById(`img-container-${currentImageIndex}`);
+              if (prevContainer) {
+                prevContainer.style.display = "block";
+              }
+            }
+          } 
+
 
           const firstSlideImgScale = getScaleForImage(0, currentImageIndex, imageSpecificProgress);
 
@@ -262,19 +314,21 @@ const Projects = () => {
 
 
             if (transitionIndex < currentImageIndex) {
+              // Fully reveal the strip for images before the current image
               strips.forEach((strip, stripIndex) => {
                 const stripPositionFromBottom = stripsCount - stripIndex - 1;
                 const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
                 const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
 
                 (strip as HTMLElement).style.clipPath = `polygon(
-            0% ${stripLowerBound}%,
-            100% ${stripLowerBound}%,
-            100% ${stripUpperBound - 0.1}%,
-            0% ${stripUpperBound - 0.1}%
-        )`;
-              });
+              0% ${stripLowerBound}%,
+              100% ${stripLowerBound}%,
+              100% ${stripUpperBound - 0.1}%,
+              0% ${stripUpperBound - 0.1}%
+            )`;
+              })
             } else if (transitionIndex > currentImageIndex) {
+              // Apply strip animation for images after the current image
               strips.forEach((strip, stripIndex) => {
                 const stripPositionFromBottom = stripsCount - stripIndex - 1;
                 const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
@@ -287,19 +341,33 @@ const Projects = () => {
                 const currentStripUpperBound =
                   stripLowerBound - (stripLowerBound - (stripUpperBound - 0.1)) * adjustedProgress;
 
-                (strip as HTMLElement).style.clipPath = `polygon(0% ${stripLowerBound}%, 100% ${stripLowerBound}%, 100% ${currentStripUpperBound}%, 0% ${currentStripUpperBound}%)`;
+                (strip as HTMLElement).style.clipPath = `polygon(
+              0% ${stripLowerBound}%,
+              100% ${stripLowerBound}%,
+              100% ${currentStripUpperBound}%,
+              0% ${currentStripUpperBound}%
+            )`;
               });
             } else {
+              // Apply strip animation for the current image
               strips.forEach((strip, stripIndex) => {
                 const stripPositionFromBottom = stripsCount - stripIndex - 1;
                 const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
+                const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
+                const stripDelay = (stripIndex / stripsCount) * 0.5;
+                const adjustedProgress = Math.max(
+                  0,
+                  Math.min(1, (imageSpecificProgress - stripDelay) * 2)
+                );
+                const currentStripUpperBound =
+                  stripLowerBound - (stripLowerBound - (stripUpperBound - 0.1)) * adjustedProgress;
 
                 (strip as HTMLElement).style.clipPath = `polygon(
-            0% ${stripLowerBound}%,
-            100% ${stripLowerBound}%,
-            100% ${stripLowerBound}%,
-            0% ${stripLowerBound}%
-        )`;
+              0% ${stripLowerBound}%,
+              100% ${stripLowerBound}%,
+              100% ${currentStripUpperBound}%,
+              0% ${currentStripUpperBound}%
+            )`;
               });
             }
 

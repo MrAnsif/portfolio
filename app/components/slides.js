@@ -1,27 +1,27 @@
 
 const slides = [
   {
-    title: "Desert Oasis Pool",
+    title: "1",
     image: "/images/img-prj (1).webp",
     url: "/projects/desert-oasis"
   },
   {
-    title: "Domed Sanctuary",
+    title: "2",
     image: "/images/img-prj (2).webp",
     url: "/projects/domed-sanctuary"
   },
   {
-    title: "Courtyard Retreat",
+    title: "3",
     image: "/images/img-prj (3).webp",
     url: "/projects/courtyard-retreat"
   },
   {
-    title: "Arched Corridor",
+    title: "4",
     image: "/images/img-prj (4).webp",
     url: "/projects/arched-corridor"
   },
   {
-    title: "Illuminated Grotto",
+    title: "5",
     image: "/images/img-prj (5).webp",
     url: "/projects/illuminated-grotto"
   }
