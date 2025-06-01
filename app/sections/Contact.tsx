@@ -4,7 +4,6 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Github, Linkedin, Mail } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 import React, { useEffect } from 'react'
 
 const Contact = () => {
