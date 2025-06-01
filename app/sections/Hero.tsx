@@ -29,7 +29,7 @@ const Hero = () => {
     const header1 = document.querySelector(".header-1") as HTMLElement;
     const header2 = document.querySelector(".header-2") as HTMLElement;
 
-    const stickyHeight = window.innerHeight * 4
+    const stickyHeight = window.innerHeight * 2
 
     const cubesFaces = document.querySelectorAll('.cube > div')
     let imageCounter = 1
@@ -147,7 +147,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <div className=' relative w-screen h-[500vh]  bg-[linear-gradient(0deg,_#ffffff_80%,_#000000_80%)] md:bg-[linear-gradient(0deg,_#ffffff_73%,_#000000_74%)]'>
+    <div className=' relative w-screen h-[300vh]  bg-[linear-gradient(0deg,_#ffffff_67%,_#000000_67%)] md:bg-[linear-gradient(0deg,_#ffffff_60%,_#000000_60%)] lg:bg-[linear-gradient(0deg,_#ffffff_54%,_#000000_54%)]'>
 
       <section className='sticky-1 relative w-screen h-screen overflow-hidden  z-10'>
         <div className="logo absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 md:-translate-y-1/2 flex gap-[24px] ">
@@ -222,7 +222,7 @@ const Hero = () => {
               </div>
 
               <div className="w-full -mt-1 md:-mt-2 ">
-                <span className="block text-8xl md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tight font-myfont text-transparent bg-clip-text bg-gradient-to-r from-[#cbcbcb] to-[#fff] animate-gradient-shift leading-none">
+                <span className="block text-8xl md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tight font-myfont text-transparent bg-gradient-to-b from-gray-100 to-gray-300/80 bg-clip-text animate-gradient-shift leading-none">
                   Ansif
                 </span>
               </div>
@@ -247,19 +247,16 @@ const Hero = () => {
 
       </section>
 
-      <div className="w-screen h-[500vh] absolute top-[60vh] lg:top-[40vh] left-0">
+      <div className="w-screen h-[500dvh] absolute top-[60dvh] lg:top-[40dvh] left-0">
         <Image
           src='/images/orange-wave.svg'
           alt='orange-wave'
           layout="responsive"
-          width={1200}
+          width={100}
           height={100}
         />
       </div>
 
-      {/* <section className='about relative w-screen h-screen overflow-hidden flex justify-center items-center text-center bg-[#a44a26] text-black'>
-      <p>Hello, i am a placeholder text</p>
-    </section> */}
 
     </div>
   )

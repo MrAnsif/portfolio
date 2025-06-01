@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision';
 
 const Skills = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -211,108 +212,95 @@ const Skills = () => {
 
   return (
     <div className="relative w-full min-h-[100svh] bg-black overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_20%,rgba(255,69,0,0.15)_0%,rgba(0,0,0,0)_80%)]"></div>
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_90%_90%,rgba(255,69,0,0.1)_0%,rgba(0,0,0,0)_80%)]"></div>
+      <BackgroundBeamsWithCollision>
 
-        {/* Abstract mesh lines */}
-        <svg className="absolute w-full h-full opacity-10" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,69,0,0.3)" strokeWidth="1" />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+        {/* Main content */}
+        <div className="container relative  w-full min-h-[100svh] flex flex-col justify-center items-center px-4 md:px-8 py-12 md:py-16" ref={containerRef}>
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 md:mb-16 w-full"
+          >
+            <div className=" flex ">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-end leading-6  flex">
+                <span className=''>
+                  what <span className="text-orange-500 font-extrabold">SKILLS</span> <br /> <span className='text-2xl font-myfont2'>can i have</span>
+                </span>
+                <p className='text-white  text-9xl font-light font-myfont2 -translate-y-9 rotate-15'>?</p>
+              </h1>
+            </div>
+          </motion.div>
 
-        {/* Accent circles */}
-        <div className="absolute top-[-10%] left-[-5%] w-1/3 h-1/3 rounded-full bg-gradient-to-br from-orange-600/10 to-transparent blur-3xl"></div>
-        <div className="absolute bottom-[-15%] right-[-10%] w-2/3 h-2/3 rounded-full bg-gradient-to-tl from-orange-600/10 to-transparent blur-3xl"></div>
-      </div>
-
-      {/* Main content */}
-      <div className="container relative  w-full min-h-[100svh] flex flex-col justify-center items-center px-4 md:px-8 py-12 md:py-16" ref={containerRef}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16 w-full"
-        >
-          <div className=" flex ">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-end leading-6">
-              what <span className="text-orange-500 font-extrabold">SKILLS</span> <br /> <span className='text-2xl font-myfont2'>can i have ?</span>
-            </h1>
-          </div>
-        </motion.div>
-
-        {/* Skills Grid */}
-        <div className="grid-main text-white relative mx-auto w-full max-w-5xl md:h-auto h-max flex flex-col border border-gray-800 rounded-xl overflow-hidden backdrop-blur-sm bg-black/40">
-          {/* First row */}
-          <div className="grid-row grid grid-cols-1 md:grid-cols-3 border-b border-gray-800">
-            {gridContent.slice(0, 3).map((item, index) => (
-              <div
-                key={`row1-${index}`}
-                onClick={() => handleItemClick(index)}
-                className={`grid-item w-full px-6 py-8 flex flex-col justify-center items-center cursor-pointer transition-all duration-300 
+          {/* Skills Grid */}
+          <div className="grid-main text-white relative mx-auto w-full max-w-5xl md:h-auto h-max flex flex-col border border-gray-800 rounded-xl overflow-hidden backdrop-blur-sm bg-black/40">
+            {/* First row */}
+            <div className="grid-row grid grid-cols-1 md:grid-cols-3 border-b border-gray-800">
+              {gridContent.slice(0, 3).map((item, index) => (
+                <div
+                  key={`row1-${index}`}
+                  onClick={() => handleItemClick(index)}
+                  className={`grid-item w-full px-6 py-8 flex flex-col justify-center items-center cursor-pointer transition-all duration-300 
                   ${index < 3 ? 'md:border-r border-b md:border-b-0 border-gray-800' : 'border-b md:border-b-0'}`}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative z-10 text-center group"
                 >
-                  {item.icon}
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className={`text-sm text-gray-400 transition-all duration-300 
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="relative z-10 text-center group"
+                  >
+                    {item.icon}
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className={`text-sm text-gray-400 transition-all duration-300 
                     ${(isMobile && activeIndex === index) || (!isMobile && (isHovering ? activeIndex === index : true))
-                      ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}
-                  >
-                    {item.desc}
-                  </p>
-                </motion.div>
-              </div>
-            ))}
-          </div>
+                        ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}
+                    >
+                      {item.desc}
+                    </p>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
 
-          {/* Second row */}
-          <div className="grid-row grid grid-cols-1 md:grid-cols-4">
-            {gridContent.slice(4).map((item, index) => (
-              <div
-                key={`row2-${index}`}
-                onClick={() => handleItemClick(index + 3)}
-                className={`grid-item w-full px-6 py-8 flex flex-col justify-center items-center cursor-pointer transition-all duration-300
+            {/* Second row */}
+            <div className="grid-row grid grid-cols-1 md:grid-cols-4">
+              {gridContent.slice(4).map((item, index) => (
+                <div
+                  key={`row2-${index}`}
+                  onClick={() => handleItemClick(index + 3)}
+                  className={`grid-item w-full px-6 py-8 flex flex-col justify-center items-center cursor-pointer transition-all duration-300
                   ${index < 3 ? 'md:border-r border-b md:border-b-0 border-gray-800' : ''}`}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (index + 3) * 0.1 }}
-                  className="relative z-10 text-center group"
                 >
-                  {item.icon}
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className={`text-sm text-gray-400 transition-all duration-300 
-                    ${(isMobile && activeIndex === index + 3) || (!isMobile && (isHovering ? activeIndex === index + 3 : true))
-                      ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: (index + 3) * 0.1 }}
+                    className="relative z-10 text-center group"
                   >
-                    {item.desc}
-                  </p>
-                </motion.div>
-              </div>
-            ))}
+                    {item.icon}
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className={`text-sm text-gray-400 transition-all duration-300 
+                    ${(isMobile && activeIndex === index + 3) || (!isMobile && (isHovering ? activeIndex === index + 3 : true))
+                        ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}
+                    >
+                      {item.desc}
+                    </p>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* Highlight element - with improved visual effect */}
+          <div
+            className="highlight absolute top-0 left-0 pointer-events-none transition-all duration-300 ease-out opacity-20 rounded-lg"
+            ref={highlightRef}
+          ></div>
         </div>
-
-        {/* Highlight element - with improved visual effect */}
-        <div
-          className="highlight absolute top-0 left-0 pointer-events-none transition-all duration-300 ease-out opacity-20 rounded-lg"
-          ref={highlightRef}
-        ></div>
-
-      </div>
-      
+      </BackgroundBeamsWithCollision>
     </div>
+
   );
 };
 

@@ -290,7 +290,7 @@ const Projects = () => {
                 prevContainer.style.display = "block";
               }
             }
-          } 
+          }
 
 
           const firstSlideImgScale = getScaleForImage(0, currentImageIndex, imageSpecificProgress);
@@ -390,7 +390,7 @@ const Projects = () => {
 
 
   return (
-    <div className='text-white'>
+    <div className='text-white '>
       <section className='sticky-slider relative w-screen h-screen p-4 overflow-hidden'>
 
         <div className='slide-images absolute top-0 left-0 w-full h-full'>
@@ -406,21 +406,33 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen py-3 flex gap-8 border-b  border-gray-500 text-2xl md:text-3xl will-change-transform ">
+        <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b  border-gray-500 text-2xl md:text-3xl will-change-transform ">
 
           <div className="slide-title-prefix flex-1 hidden md:block">
             <p>prefix </p>
           </div>
 
-          <div className="slide-title relative flex-2 h-[22px] md:h-[40px] overflow-hidden">
+          <div className="slide-title  relative flex-2 h-[22px] md:h-[40px] overflow-hidden">
             <p id='title-text'
               style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
-            >
-              placeholder 2</p>
+            >1</p>
+
           </div>
 
-          <div className="slide-link flex justify-end flex-1">
-            <a href="#">Explore &#8599;</a>
+          <div className="slide-link flex justify-end order-1 md:order-none flex-1 min-w-[100px]">
+            <a
+              href="#"
+              className='
+        text-sm md:text-base 
+        px-3 py-1 md:px-4 md:py-2 
+        bg-white/10 hover:bg-white/20 
+        rounded-full 
+        transition-colors
+        whitespace-nowrap
+      '
+            >
+              Explore &#8599;
+            </a>
           </div>
 
         </div>
