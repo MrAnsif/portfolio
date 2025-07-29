@@ -67,10 +67,10 @@ const About = () => {
   }, []);
 
   return (
-    <div id="about" className="relative h-[150vh] w-screen md:h-[180vh] bg-black"> {/* Changed to explicit height based on 3 screens */}
+    <div id="about" className="relative h-[135vh] w-screen md:h-[165vh] bg-black"> {/* Changed to explicit height based on 3 screens */}
 
 
-      <svg className='absolute top-1/5 -translate-y-1/2 right-3 w-[80%] max-w-2xl' width="414" height="1898" fill="none">
+      <svg className='absolute top-1 -translate-y-1/2 right-3 w-[80%] max-w-2xl' width="414" height="1898" fill="none">
         <path className='face' fill="#fff" d="M123 1608c-3 7-2 20 1 19l1 1 3 4c1-1 0-4-1-4l-1-1v-1h-1c-1 2-2-1-2-5 0-9 4-16 11-19 3-2 4-1 2 1s-2 3 0 2l2-1h1c1 1 1 1 2-1l1-1 1 1h1l3 1 4 2 3 1 1 1 3 1 4 2 8 4c3 1 4 1 4-1 1-3 0-3-1-1v-2l1-2c2-1 4 1 2 3-1 1 0 1 2 2l2 2 1 1c2-1 10 1 10 2l1 2v3l1 2 1 1 2 3v3h1v1c-1 1-8-1-8-2-1-2-5-4-6-3v1l6 4c5 4 6 5 8 2 1-1 2-1 4 1l1 2-2-1h-1l-3 1v2h1c0-2 0-2 9 7 12 13 16 18 14 21v3c3 3 6 10 5 11l1 1c2 0 2 0 2-2l-5-12c-2-1-2-3 0-3 4-1 2-15-4-22-5-5-7-6-9-3s-2 3-2 1l-5-7c-5-5-9-14-7-15l-3-4c-4-3-5-4-9-4s-5-2-3-5c1-2 0-3-1-4-3-3-7-3-13-2h-8l3 1c1 0 2 1 2 3 2 4 1 5-2 2-2-3-3-3-6-4l-4-1-5-2c-5-1-6-2-2-2l2-1-5 1h-8c-2-1-9 6-11 9Zm47-3c2 2 2 4 0 6h-2l-1-3-1-2v-3l4 2Zm44 38 3 3 3 3v3l1 3 1 3c2 3 1 4-1 4s-3-1-4-3l-2-4c-1-1-1-2 1-2l-2-1c-3-1-3-1-3-5s1-6 3-4Zm-119 0-1 3c-1 1-1 4 1 5l-1 2 1 2 1 4v4c0 1 1 2 2 1l-1-2v-2c2-1 1-5-1-6v-2l-1-2v-2l2-3c-1-1 1-2 2-1v2c-1 1-1 1 0 0l1-2 1-2 2-2 3-3 3-1 3-1 2-1h1l3-1h5c2-1 2-1 0-1h-3c-2-2-5-1-9 1l-7 3c-4 0-8 4-9 7Zm7-4-3 3-1-1 4-2Z" />
         <path className='face' fill="#fff" d="m138 1609 2-1c3-3 2-3-1-1l-1 2Zm-41 42h2c2-3 3-1 2 5v7c1 2 1 1 2-6 0-10 0-11 1-10h1l-1-1-2 1c0 2 0 2-1 1-2 0-3 1-4 3Zm54-51 3 1c3 0 2 0-1-1h-2Zm-52 69v14l2 6 5 4c2 3 4 4 5 4v-1c-2-1-1-3 1-2l2-1h1v4c1 2 9 7 11 6l2 1 2-1 2-2h1l-4-1h-6c-1 0-4-2-6-5l-1-3h-3l-5 1-1-1-2-2-1-1v-2c-1-1-2-8-1-9v-3l-1 2c-1 5-3 4-2-1v-5l1-1 1-2c0-4-1-3-3 1Zm2 15 1 2v2c-1 0-2-4-1-5v1Z" />
         <path className='face' fill="#fff" d="m112 1690 3-1c1-2 1-2-1-2l-3 1 1 2Zm55-39-2 3c-1 2-2 6 0 6v-2c1-3 2-5 3-3l2-1c2-2 1-4-1-2v-1l4-2 2-1 2-3c2-3 2-3 0-3l-10 9Z" />
@@ -82,7 +82,7 @@ const About = () => {
       </svg>
 
       {/* Content sections */}
-      <div className="h-[65vh] md:h-[90vh] w-full grid place-content-center text-6xl relative z-10 text-[#efb6a4]">
+      <div className="h-[45vh] md:h-[60vh] md:pt-10 w-full grid place-content-center text-6xl md:text-7xl relative z-10 text-[#efb6a4]">
         <h1>About Me</h1>
       </div>
 

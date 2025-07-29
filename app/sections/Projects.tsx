@@ -107,7 +107,6 @@ const Projects = () => {
       const transitionStart = currentScrollPosition;
       const transitionEnd = transitionStart + scrollDistancePerTransition;
 
-      // type declare for TS
 
 
       transitionRanges.push({
