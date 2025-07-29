@@ -6,21 +6,20 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from '@studio-freight/lenis'
 
-
 const Projects = () => {
-
   gsap.registerPlugin(ScrollTrigger)
 
   useEffect(() => {
-
     const lenis = new Lenis();
 
-    lenis.on("scroll", ScrollTrigger.update);
+    const scrollUpdateHandler = () => ScrollTrigger.update();
+    lenis.on("scroll", scrollUpdateHandler);
 
-    gsap.ticker.add((time) => {
+    const tickerHandler = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
 
+    gsap.ticker.add(tickerHandler);
     gsap.ticker.lagSmoothing(0);
 
     const slideImages = document.querySelector(".slide-images")
@@ -36,13 +35,20 @@ const Projects = () => {
 
     const firstSlideImg = document.querySelector("#img-1 img")
 
+    // Cache DOM elements for better performance
+    const imgContainers: HTMLElement[] = [];
+    const stripElements: HTMLElement[][] = [];
+    const imageElements: HTMLImageElement[][] = [];
+
     for (let i = 1; i < totalSlides; i++) {
       const imgContainer = document.createElement("div");
       imgContainer.className = "img-container";
       imgContainer.id = `img-container-${i + 1}`;
-      imgContainer.style.opacity = "0"; // Hide initially
-      imgContainer.style.display = "none"; // Also hide from DOM flow
+      imgContainer.style.opacity = "0";
+      imgContainer.style.display = "none";
 
+      const strips: HTMLElement[] = [];
+      const images: HTMLImageElement[] = [];
 
       for (let j = 0; j < stripsCount; j++) {
         const strip = document.createElement("div");
@@ -64,12 +70,18 @@ const Projects = () => {
         const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
         const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
 
-        (strip as HTMLElement).style.clipPath = `polygon(0% ${stripLowerBound}%, 100% ${stripLowerBound}%, 100% ${stripUpperBound - 0.1}%, 0% ${stripUpperBound - 0.1}%)`;
+        strip.style.clipPath = `polygon(0% ${stripLowerBound}%, 100% ${stripLowerBound}%, 100% ${stripUpperBound - 0.1}%, 0% ${stripUpperBound - 0.1}%)`;
 
         strip.appendChild(img)
         imgContainer.appendChild(strip)
+
+        strips.push(strip);
+        images.push(img);
       }
 
+      imgContainers.push(imgContainer);
+      stripElements.push(strips);
+      imageElements.push(images);
 
       if (slideImages) {
         console.log(`Appending container ${i} with image ${slides[i].image}`);
@@ -89,7 +101,6 @@ const Projects = () => {
       initialScrollDelay +
       finalScrollDelay;
 
-    // const transitionRanges: number[] = [];
     let currentScrollPosition = initialScrollDelay;
 
     type TransitionRange = {
@@ -102,12 +113,9 @@ const Projects = () => {
 
     const transitionRanges: TransitionRange[] = [];
 
-
     for (let i = 0; i < transitionCount; i++) {
       const transitionStart = currentScrollPosition;
       const transitionEnd = transitionStart + scrollDistancePerTransition;
-
-
 
       transitionRanges.push({
         transition: i,
@@ -196,10 +204,9 @@ const Projects = () => {
             duration: 0.5,
             ease: "power3.out",
             onComplete: () => {
-              currentTitleIndex = index;  // Update the current title index
-              isAnimating = false;  // End animation
+              currentTitleIndex = index;
+              isAnimating = false;
 
-              // Check if a queued animation exists and perform it
               if (queuedTitleIndex !== null && queuedTitleIndex !== currentTitleIndex) {
                 const nextIndex = queuedTitleIndex
                 queuedTitleIndex = null;
@@ -223,9 +230,10 @@ const Projects = () => {
     }
 
     let lastImageProgress = 0;
+    let rafId: number | null = null;
+    let pendingUpdate = false;
 
-
-    ScrollTrigger.create({
+    const scrollTriggerInstance = ScrollTrigger.create({
       trigger: ".sticky-slider",
       start: "top top",
       end: `+=${totalScrollDistance}vh`,
@@ -244,90 +252,74 @@ const Projects = () => {
 
           const correctTitleIndex = getTitleIndexForProgress(imageProgress);
 
-
           if (correctTitleIndex !== currentTitleIndex) {
             queuedTitleIndex = correctTitleIndex;
             if (!isAnimating) {
               animateTitleChange(correctTitleIndex, scrollDirection);
             }
           }
+
           if (scrollDirection === "down") {
-            // Scrolling down - show current and next containers
-            if (currentImageIndex > 0) {
-              const currentContainer = document.getElementById(`img-container-${currentImageIndex + 1}`);
-              if (currentContainer) {
-                currentContainer.style.display = "block";
-                currentContainer.style.opacity = "1";
-              }
+            if (currentImageIndex > 0 && imgContainers[currentImageIndex - 1]) {
+              const currentContainer = imgContainers[currentImageIndex - 1];
+              currentContainer.style.display = "block";
+              currentContainer.style.opacity = "1";
             }
-            if (currentImageIndex < totalSlides - 1) {
-              const nextContainer = document.getElementById(`img-container-${currentImageIndex + 2}`);
-              if (nextContainer) {
-                nextContainer.style.display = "block";
-              }
+            if (currentImageIndex < totalSlides - 1 && imgContainers[currentImageIndex]) {
+              const nextContainer = imgContainers[currentImageIndex];
+              nextContainer.style.display = "block";
             }
           } else {
-            // Scrolling up - hide the container that's being scrolled away from
-            if (currentImageIndex < totalSlides - 2) {
-              const nextContainer = document.getElementById(`img-container-${currentImageIndex + 3}`);
-              if (nextContainer) {
-                nextContainer.style.display = "none";
-                nextContainer.style.opacity = "0";
-              }
+            if (currentImageIndex < totalSlides - 2 && imgContainers[currentImageIndex + 1]) {
+              const nextContainer = imgContainers[currentImageIndex + 1];
+              nextContainer.style.display = "none";
+              nextContainer.style.opacity = "0";
             }
-            // Ensure current and previous containers are visible
-            if (currentImageIndex > 0) {
-              const currentContainer = document.getElementById(`img-container-${currentImageIndex + 1}`);
-              if (currentContainer) {
-                currentContainer.style.display = "block";
-                currentContainer.style.opacity = "1";
-              }
+            if (currentImageIndex > 0 && imgContainers[currentImageIndex - 1]) {
+              const currentContainer = imgContainers[currentImageIndex - 1];
+              currentContainer.style.display = "block";
+              currentContainer.style.opacity = "1";
             }
-            if (currentImageIndex > 1) {
-              const prevContainer = document.getElementById(`img-container-${currentImageIndex}`);
-              if (prevContainer) {
-                prevContainer.style.display = "block";
-              }
+            if (currentImageIndex > 1 && imgContainers[currentImageIndex - 2]) {
+              const prevContainer = imgContainers[currentImageIndex - 2];
+              prevContainer.style.display = "block";
             }
           }
-
 
           const firstSlideImgScale = getScaleForImage(0, currentImageIndex, imageSpecificProgress);
 
           if (firstSlideImg) {
             (firstSlideImg as HTMLElement).style.transform = `scale(${firstSlideImgScale})`;
           }
+
           for (let i = 1; i < totalSlides; i++) {
             const imgIndex = i + 1;
             const transitionIndex = imgIndex - 2;
+            const containerIndex = i - 1;
 
-            const imgContainer = document.getElementById(`img-container-${imgIndex}`);
-
-            if (!imgContainer) continue
+            const imgContainer = imgContainers[containerIndex];
+            if (!imgContainer) continue;
 
             imgContainer.style.opacity = "1";
             imgContainer.style.zIndex = `${totalSlides - i}`;
 
-            const strips = imgContainer.querySelectorAll(".strip");
-            const images = imgContainer.querySelectorAll("img");
-
+            const strips = stripElements[containerIndex];
+            const images = imageElements[containerIndex];
 
             if (transitionIndex < currentImageIndex) {
-              // Fully reveal the strip for images before the current image
               strips.forEach((strip, stripIndex) => {
                 const stripPositionFromBottom = stripsCount - stripIndex - 1;
                 const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
                 const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
 
-                (strip as HTMLElement).style.clipPath = `polygon(
-              0% ${stripLowerBound}%,
-              100% ${stripLowerBound}%,
-              100% ${stripUpperBound - 0.1}%,
-              0% ${stripUpperBound - 0.1}%
-            )`;
+                strip.style.clipPath = `polygon(
+                  0% ${stripLowerBound}%,
+                  100% ${stripLowerBound}%,
+                  100% ${stripUpperBound - 0.1}%,
+                  0% ${stripUpperBound - 0.1}%
+                )`;
               })
             } else if (transitionIndex > currentImageIndex) {
-              // Apply strip animation for images after the current image
               strips.forEach((strip, stripIndex) => {
                 const stripPositionFromBottom = stripsCount - stripIndex - 1;
                 const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
@@ -340,15 +332,14 @@ const Projects = () => {
                 const currentStripUpperBound =
                   stripLowerBound - (stripLowerBound - (stripUpperBound - 0.1)) * adjustedProgress;
 
-                (strip as HTMLElement).style.clipPath = `polygon(
-              0% ${stripLowerBound}%,
-              100% ${stripLowerBound}%,
-              100% ${currentStripUpperBound}%,
-              0% ${currentStripUpperBound}%
-            )`;
+                strip.style.clipPath = `polygon(
+                  0% ${stripLowerBound}%,
+                  100% ${stripLowerBound}%,
+                  100% ${currentStripUpperBound}%,
+                  0% ${currentStripUpperBound}%
+                )`;
               });
             } else {
-              // Apply strip animation for the current image
               strips.forEach((strip, stripIndex) => {
                 const stripPositionFromBottom = stripsCount - stripIndex - 1;
                 const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
@@ -361,12 +352,12 @@ const Projects = () => {
                 const currentStripUpperBound =
                   stripLowerBound - (stripLowerBound - (stripUpperBound - 0.1)) * adjustedProgress;
 
-                (strip as HTMLElement).style.clipPath = `polygon(
-              0% ${stripLowerBound}%,
-              100% ${stripLowerBound}%,
-              100% ${currentStripUpperBound}%,
-              0% ${currentStripUpperBound}%
-            )`;
+                strip.style.clipPath = `polygon(
+                  0% ${stripLowerBound}%,
+                  100% ${stripLowerBound}%,
+                  100% ${currentStripUpperBound}%,
+                  0% ${currentStripUpperBound}%
+                )`;
               });
             }
 
@@ -377,7 +368,7 @@ const Projects = () => {
             )
 
             images.forEach((img) => {
-              (img as HTMLImageElement).style.transform = `scale(${imgScale})`
+              img.style.transform = `scale(${imgScale})`
             })
           }
           lastImageProgress = imageProgress
@@ -385,13 +376,19 @@ const Projects = () => {
       }
     });
 
+    return () => {
+      lenis.off("scroll", scrollUpdateHandler);
+      gsap.ticker.remove(tickerHandler);
+      scrollTriggerInstance.kill();
+      gsap.killTweensOf(titleElement);
+      lenis.destroy();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, [])
-
 
   return (
     <div className='text-white '>
       <section className='sticky-slider relative w-screen h-screen p-4 overflow-hidden'>
-
         <div className='slide-images absolute top-0 left-0 w-full h-full'>
           <div className="img absolute top-0 left-0 w-full h-full" id='img-1'>
             <img
@@ -405,38 +402,34 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b  border-gray-500 text-2xl md:text-3xl will-change-transform ">
-
+        <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b border-gray-500 text-2xl md:text-3xl will-change-transform ">
           <div className="slide-title-prefix flex-1 hidden md:block">
             <p>prefix </p>
           </div>
 
-          <div className="slide-title  relative flex-2 h-[22px] md:h-[40px] overflow-hidden">
+          <div className="slide-title relative flex-2 h-[22px] md:h-[40px] overflow-hidden">
             <p id='title-text'
               style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
             >1</p>
-
           </div>
 
           <div className="slide-link flex justify-end order-1 md:order-none flex-1 min-w-[100px]">
             <a
               href="#"
               className='
-        text-sm md:text-base 
-        px-3 py-1 md:px-4 md:py-2 
-        bg-white/10 hover:bg-white/20 
-        rounded-full 
-        transition-colors
-        whitespace-nowrap
-      '
+                text-sm md:text-base 
+                px-3 py-1 md:px-4 md:py-2 
+                bg-white/10 hover:bg-white/20 
+                rounded-full 
+                transition-colors
+                whitespace-nowrap
+              '
             >
               Explore &#8599;
             </a>
           </div>
-
         </div>
       </section>
-
     </div>
   )
 }
