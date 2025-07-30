@@ -117,10 +117,11 @@ const Contact = () => {
   return (
 
     <div className='bg-black md:py-10 rounded-b-[100px] text-center'>
-      <section className='main relative w-screen h-[110dvh] md:h-[150dvh] flex justify-center items-center flex-col'>
+      <section className='main relative w-screen h-[40dvh] md:h-[50dvh] flex justify-center items-center flex-col'>
         <div className="text-white absolute top-0 left-1/2 -translate-x-1/2 md:text-6xl text-4xl py-4 font-bold w-full ">
           <h1>Contact Me</h1>
         </div>
+        {/* 
         <div className="main-content absolute top-1/2 left-1/2 -translate-1/2 flex flex-col items-center">
 
           <div className="copy mx-4 flex flex-col justify-center items-center text-2xl text-white">
@@ -168,7 +169,7 @@ const Contact = () => {
           </div>
 
         </div>
-        {generateRows()}
+        {generateRows()} */}
       </section>
     </div>
   )

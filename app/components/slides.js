@@ -15,11 +15,11 @@ const slides = [
     image: "/images/img-prj (3).webp",
     url: "/projects/courtyard-retreat"
   },
-  {
-    title: "4",
-    image: "/images/img-prj (4).webp",
-    url: "/projects/arched-corridor"
-  },
+  // {
+  //   title: "4",
+  //   image: "/images/img-prj (4).webp",
+  //   url: "/projects/arched-corridor"
+  // },
   // {
   //   title: "5",
   //   image: "/images/img-prj (5).webp",
