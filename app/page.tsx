@@ -3,10 +3,6 @@
 import dynamic from "next/dynamic";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
-// import Skills from "./sections/Skills";
-// import Projects from "./sections/Projects";
-// import Contact from "./sections/Contact";
-
 const Skills = dynamic(()=>import('./sections/Skills'))
 const Projects = dynamic(()=>import('./sections/Projects'))
 const Contact = dynamic(()=>import('./sections/Contact'))

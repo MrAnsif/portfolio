@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
+import DynamicText from '@/components/kokonutui/dynamic-text';
 
 const Preload = () => {
 
@@ -83,8 +84,9 @@ const Preload = () => {
                     <div className="loader-2 bar h-[40px] relative bg-white  w-[250px]" ></div>
                 </div>
 
-                {/* Counter numbers */}
-
+                <div className="absolute top-3/4 right-0">
+                    <DynamicText />
+                </div>
             </div>
         </div>
     );
