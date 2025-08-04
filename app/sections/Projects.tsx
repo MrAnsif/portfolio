@@ -230,8 +230,8 @@ const Projects = () => {
     }
 
     let lastImageProgress = 0;
-    let rafId: number | null = null;
-    let pendingUpdate = false;
+    // let rafId: number | null = null;
+    // let pendingUpdate = false;
 
     const scrollTriggerInstance = ScrollTrigger.create({
       trigger: ".sticky-slider",

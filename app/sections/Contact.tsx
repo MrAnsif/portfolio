@@ -6,7 +6,7 @@ import React from 'react'
 const Contact = () => {
 
   const Icons = {
-    linkedin: (props: any) => (
+    linkedin: ( ) => (
       <svg
         width="86"
         height="86"
@@ -29,7 +29,7 @@ const Contact = () => {
         />
       </svg>
     ),
-    github: (props: any) => (
+    github: () => (
       <svg
         width="86"
         height="86"
@@ -67,7 +67,7 @@ const Contact = () => {
             </div>
             <div className="group flex items-center justify-center">
               <FlipLink href="https://github.com/mransif/">Github</FlipLink>
-              <Icons.github fill="red" />
+              <Icons.github />
             </div>
           </section>
         </div>
