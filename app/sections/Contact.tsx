@@ -76,7 +76,7 @@ const Contact = () => {
             </div>
           </section>
           <div className="">
-            <h1 className='text-neutral-300 '>A few names I'm proud to have worked with,</h1>
+            <h1 className='text-neutral-300 '>A few names I am proud to have worked with,</h1>
            
             <CarouselAnimation/>
           </div>

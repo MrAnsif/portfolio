@@ -76,7 +76,7 @@ const Projects = () => {
         imgContainer.appendChild(strip)
 
         strips.push(strip);
-        images.push(img);
+        images.push(img); 
       }
 
       imgContainers.push(imgContainer);
