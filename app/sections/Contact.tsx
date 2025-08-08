@@ -1,5 +1,4 @@
 "use client"
-import CarouselAnimation from '@/components/CarouselAnimation';
 import FlipLink from '@/components/ui/text-effect-flipper'
 import React from 'react'
 
@@ -56,7 +55,7 @@ const Contact = () => {
   return (
 
     <div className='bg-black md:py-10 rounded-b-[100px] text-center'>
-      <section className='main relative w-screen h-[70dvh] md:h-[80dvh] flex justify-center items-center flex-col'>
+      <section className='main relative w-screen h-[60dvh] md:h-[70dvh] flex justify-center items-center flex-col'>
         <div className="text-white absolute top-0 md:text-8xl sm:text-5xl text-4xl py-4 font-bold w-full ">
 
           <div className=" flex items-center gap-2 px-8">
@@ -75,11 +74,7 @@ const Contact = () => {
               <Icons.github />
             </div>
           </section>
-          <div className="">
-            <h1 className='text-neutral-300 '>A few names I am proud to have worked with,</h1>
-           
-            <CarouselAnimation/>
-          </div>
+         
         </div>
       </section>
     </div>
