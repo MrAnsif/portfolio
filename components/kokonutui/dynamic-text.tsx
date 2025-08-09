@@ -48,7 +48,7 @@ const DynamicText = () => {
 
                 return nextIndex;
             });
-        }, 600);
+        }, 450);
 
         return () => clearInterval(interval);
     }, [isAnimating]);
