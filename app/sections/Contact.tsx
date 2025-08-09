@@ -49,14 +49,33 @@ const Contact = () => {
         />
       </svg>
     ),
+    email: () => (
+      <svg
+        width="86"
+        height="86"
+        viewBox="0 0 86 86"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          width="86"
+          height="86"
+          className="fill-[#D9D9D9] transition-all duration-500 ease-in-out group-hover:fill-orange-600"
+          rx="14"
+        />
+        <path
+          className="!fill-black transition-all duration-500 ease-in-out group-hover:!fill-white"
+          d="M16 26C16 23.7909 17.7909 22 20 22H66C68.2091 22 70 23.7909 70 26V60C70 62.2091 68.2091 64 66 64H20C17.7909 64 16 62.2091 16 60V26ZM20 26V28.7639L43 44.2361L66 28.7639V26H20ZM66 32.2361L43 47.7639L20 32.2361V60H66V32.2361Z"
+        />
+      </svg>
+    )
   }
 
 
   return (
 
     <div className='bg-black md:py-10 rounded-b-[100px] text-center'>
-      <section className='main relative w-screen h-[60dvh] md:h-[70dvh] flex justify-center items-center flex-col'>
-        <div className="text-white absolute top-0 md:text-8xl sm:text-5xl text-4xl py-4 font-bold w-full ">
+      <section className='main relative w-screen h-[60dvh] md:h-[70dvh] flex justify-between items-center flex-col py-4'>
+        <div className="text-white absolute md:text-8xl sm:text-5xl text-5xl py-4 font-bold w-full ">
 
           <div className=" flex items-center gap-2 px-8">
             <div className="w-10 h-10 md:w-16 md:h-16 bg-orange-600 rounded-full"></div>
@@ -73,8 +92,11 @@ const Contact = () => {
               <FlipLink href="https://github.com/mransif/">Github</FlipLink>
               <Icons.github />
             </div>
+            <div className="group flex items-center justify-center">
+              <Icons.email />
+              <FlipLink href="mailto:ansifpta2003@gmail.com">Email</FlipLink>
+            </div>
           </section>
-         
         </div>
       </section>
     </div>

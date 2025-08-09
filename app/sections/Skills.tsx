@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision';
+import { Bot, Code2, GitBranch, Monitor, Server } from 'lucide-react';
 
 const Skills = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -26,14 +27,12 @@ const Skills = () => {
 
   useEffect(() => {
     const highlightColors = [
-      "#FF4500", // Orange-Red
-      "#FF5722", // Deep Orange
-      "#FF7043", // Lighter Orange
-      "#E64A19", // Dark Orange
-      "#FF3D00", // Bright Orange
-      "#DD2C00", // Dark Orange-Red
-      "#FF8A65", // Light Orange
-      "#FFAB91", // Very Light Orange
+      "rgba(255, 69, 0, 0.15)", // Orange-Red with transparency
+      "rgba(255, 87, 34, 0.15)", // Deep Orange
+      "rgba(255, 112, 67, 0.15)", // Lighter Orange
+      "rgba(230, 74, 25, 0.15)", // Dark Orange
+      "rgba(255, 140, 0, 0.15)", // Dark Orange for AI section
+      "rgba(255, 69, 0, 0.20)", // Slightly more vibrant for the new section
     ];
 
     const container = containerRef.current;
@@ -65,17 +64,19 @@ const Skills = () => {
       };
 
       const moveHighlight = (e: MouseEvent) => {
-        setIsHovering(true);
-        const hoveredElement = document.elementFromPoint(e.clientX, e.clientY);
+        if (!isMobile) {
+          setIsHovering(true);
+          const hoveredElement = document.elementFromPoint(e.clientX, e.clientY);
 
-        if (hoveredElement && hoveredElement.classList.contains("grid-item")) {
-          moveToElement(hoveredElement as HTMLElement);
-        } else if (
-          hoveredElement &&
-          hoveredElement.parentElement &&
-          hoveredElement.parentElement.classList.contains("grid-item")
-        ) {
-          moveToElement(hoveredElement.parentElement as HTMLElement);
+          if (hoveredElement && hoveredElement.classList.contains("grid-item")) {
+            moveToElement(hoveredElement as HTMLElement);
+          } else if (
+            hoveredElement &&
+            hoveredElement.parentElement &&
+            hoveredElement.parentElement.classList.contains("grid-item")
+          ) {
+            moveToElement(hoveredElement.parentElement as HTMLElement);
+          }
         }
       };
 
@@ -83,7 +84,9 @@ const Skills = () => {
         setIsHovering(false);
       };
 
-      moveToElement(firstItem);
+      if (!isMobile) {
+        moveToElement(firstItem);
+      }
       container.addEventListener("mousemove", moveHighlight);
       container.addEventListener("mouseleave", handleMouseLeave);
 
@@ -92,19 +95,19 @@ const Skills = () => {
         container.removeEventListener("mouseleave", handleMouseLeave);
       };
     }
-  }, []);
+  }, [isMobile]);
 
   // Click handler for mobile
   const handleItemClick = (index: number) => {
     if (isMobile) {
-      setActiveIndex(index);
+      setActiveIndex(activeIndex === index ? null : index);
 
       const gridItems = containerRef.current?.querySelectorAll(".grid-item");
       if (gridItems && gridItems[index]) {
         const element = gridItems[index] as HTMLElement;
         const highlight = highlightRef.current;
 
-        if (element && highlight) {
+        if (element && highlight && activeIndex !== index) {
           const rect = element.getBoundingClientRect();
           const containerRect = containerRef.current?.getBoundingClientRect() || { left: 0, top: 0 };
 
@@ -120,187 +123,143 @@ const Skills = () => {
   // Content for grid items - your development skills
   const gridContent = [
     {
-      title: "Frontend Development",
-      desc: "React, Next.js, TypeScript, Tailwind CSS",
+      title: "Programming Languages",
+      desc: "Python, JavaScript, TypeScript, HTML & CSS",
       icon: (
-        <svg className="w-8 h-8 mb-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4.75L19.25 9L12 13.25L4.75 9L12 4.75Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M9.25 11.5L4.75 14L12 18.25L19.25 14L14.75 11.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <Code2/>
+      )
+    },
+    {
+      title: "Frontend Development",
+      desc: "React.js, Next.js, GSAP, Lenis, Tailwind CSS",
+      icon: (
+        <Monitor/>
       )
     },
     {
       title: "Backend Development",
-      desc: "Node.js, Express, Python, PostgreSQL",
+      desc: "Node.js, Express.js, MongoDB, REST APIs",
       icon: (
-        <svg className="w-8 h-8 mb-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 4L12 12L4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M4 4V20H20V4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <Server/>
       )
     },
     {
-      title: "UI/UX Design",
-      desc: "Figma, Adobe XD, Responsive Design",
+      title: "Version Control",
+      desc: "Git, GitHub workflows & collaboration",
       icon: (
-        <svg className="w-8 h-8 mb-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M12 8V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M8 12H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
+        <GitBranch/>
       )
     },
     {
-      title: "Mobile Development",
-      desc: "React Native, Flutter, iOS, Android",
+      title: "AI & Automation",
+      desc: "AI API Integration, Agent Building, MCP Usage, Automation Scripts",
       icon: (
-        <svg className="w-8 h-8 mb-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="7" y="4" width="10" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="7" y1="8" x2="17" y2="8" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="7" y1="16" x2="17" y2="16" stroke="currentColor" strokeWidth="1.5" />
-        </svg>
-      )
-    },
-    {
-      title: "DevOps",
-      desc: "Docker, AWS, CI/CD, GitHub Actions",
-      icon: (
-        <svg className="w-8 h-8 mb-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )
-    },
-    {
-      title: "Testing",
-      desc: "Jest, Cypress, React Testing Library",
-      icon: (
-        <svg className="w-8 h-8 mb-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 12L11 14L15 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
-        </svg>
-      )
-    },
-    {
-      title: "Database",
-      desc: "MongoDB, Firebase, Redis, GraphQL",
-      icon: (
-        <svg className="w-8 h-8 mb-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 6H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M4 10H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M4 14H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M4 18H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      )
-    },
-    {
-      title: "Performance",
-      desc: "Web Vitals, Lighthouse, Optimization",
-      icon: (
-        <svg className="w-8 h-8 mb-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M12 18V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M4 12H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M18 12H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M16.24 7.76L14.12 9.88" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M14.12 14.12L16.24 16.24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M7.76 16.24L9.88 14.12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M9.88 9.88L7.76 7.76" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      )
+        <Bot/>
+      ),
+      isNew: true
     }
   ];
 
   return (
     <div className="relative w-full min-h-[100svh] bg-black overflow-hidden">
       <BackgroundBeamsWithCollision>
-
         {/* Main content */}
-        <div className="container relative  w-full min-h-[100svh] flex flex-col justify-center items-center px-4 md:px-8 py-12 md:py-16" ref={containerRef}>
+        <div className="container relative w-full min-h-[100svh] flex flex-col justify-center items-center px-4 md:px-8 py-12 md:py-16" ref={containerRef}>
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12 md:mb-16 w-full"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center mb-16 md:mb-20 w-full"
           >
             <div className=" flex ">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-end leading-6  flex">
                 <span className=''>
                   what <span className="text-orange-500 font-extrabold">SKILLS</span> <br /> <span className='text-2xl font-myfont2'>can i have</span>
                 </span>
-                <p className='text-white  text-9xl font-light font-myfont2 -translate-y-9 rotate-15'>?</p>
+                <motion.div
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: [0, 10, -10, 15, 0] }}
+                  transition={{ duration: 1, repeat: Infinity, repeatDelay: 3 }}
+                  className='text-white text-7xl md:text-9xl font-light -translate-y-4 md:-translate-y-9'
+                >
+                  <p className='text-white text-9xl font-light font-myfont2 -translate-y-4 rotate-15'>?</p>
+                </motion.div>
               </h1>
             </div>
           </motion.div>
 
-          {/* Skills Grid */}
-          <div className="grid-main text-white relative mx-auto w-full max-w-5xl md:h-auto h-max flex flex-col border border-gray-800 rounded-xl overflow-hidden backdrop-blur-sm bg-black/40">
-            {/* First row */}
-            <div className="grid-row grid grid-cols-1 md:grid-cols-3 border-b border-gray-800">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid-main text-white relative mx-auto w-full max-w-6xl border border-white/10 rounded-2xl overflow-hidden"
+          >
+            {/* First row - 3 items */}
+            <div className="grid-row grid grid-cols-1 md:grid-cols-3">
               {gridContent.slice(0, 3).map((item, index) => (
-                <div
+                <motion.div
                   key={`row1-${index}`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   onClick={() => handleItemClick(index)}
-                  className={`grid-item w-full px-6 py-8 flex flex-col justify-center items-center cursor-pointer transition-all duration-300 
-                  ${index < 3 ? 'md:border-r border-b md:border-b-0 border-gray-800' : 'border-b md:border-b-0'}`}
+                  className={`grid-item group w-full px-8 py-12 flex flex-col justify-center items-center cursor-pointer transition-all duration-500 hover:bg-white/5 border-b border-white/10
+                  ${index < 2 ? 'md:border-r border-white/10' : ''}`}
                 >
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="relative z-10 text-center group"
-                  >
-                    {item.icon}
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className={`text-sm text-gray-400 transition-all duration-300 
-                    ${(isMobile && activeIndex === index) || (!isMobile && (isHovering ? activeIndex === index : true))
-                        ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}
+                  <div className="relative z-10 text-left">
+                    <div className="text-orange-500 group-hover:text-orange-400  duration-300 group-hover:scale-90 transform transition-transform">
+                      {item.icon}
+                      <h3 className="text-sm md:text-base font-bold mb-4 group-hover:text-orange-400 transition-colors duration-300">{item.title}</h3>
+                    </div>
+                    <p className={`text-xl md:text-2xl text-gray-300 leading-relaxed transition-all duration-500 group-hover:text-white
+                    ${isMobile ? 'opacity-100' : ((isHovering ? activeIndex === index : true) ? 'opacity-100' : 'opacity-70')}`}
                     >
                       {item.desc}
                     </p>
-                  </motion.div>
-                </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
 
-            {/* Second row */}
-            <div className="grid-row grid grid-cols-1 md:grid-cols-4">
-              {gridContent.slice(4).map((item, index) => (
-                <div
+            {/* Second row - 2 items */}
+            <div className="grid-row grid grid-cols-1 md:grid-cols-2">
+              {gridContent.slice(3).map((item, index) => (
+                <motion.div
                   key={`row2-${index}`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
                   onClick={() => handleItemClick(index + 3)}
-                  className={`grid-item w-full px-6 py-8 flex flex-col justify-center items-center cursor-pointer transition-all duration-300
-                  ${index < 3 ? 'md:border-r border-b md:border-b-0 border-gray-800' : ''}`}
+                  className={`grid-item group w-full px-8 py-12 flex flex-col justify-center items-center cursor-pointer transition-all duration-500 hover:bg-white/5
+                  ${index === 0 ? 'md:border-r border-white/10' : ''}`}
                 >
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: (index + 3) * 0.1 }}
-                    className="relative z-10 text-center group"
-                  >
-                    {item.icon}
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className={`text-sm text-gray-400 transition-all duration-300 
-                    ${(isMobile && activeIndex === index + 3) || (!isMobile && (isHovering ? activeIndex === index + 3 : true))
-                        ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}
+                  <div className="relative z-10 text-left">
+                    <div className="text-orange-500 group-hover:text-orange-400 duration-300 group-hover:scale-90 transform transition-transform">
+                      {item.icon}
+                      <h3 className="text-sm md:text-base font-bold mb-4 group-hover:text-orange-400 transition-colors duration-300">{item.title}</h3>
+                    </div>
+                    <p className={`text-xl md:text-2xl text-gray-300 leading-relaxed transition-all duration-500 group-hover:text-white
+                    ${isMobile ? 'opacity-100' : ((isHovering ? activeIndex === index + 3 : true) ? 'opacity-100' : 'opacity-70')}`}
                     >
                       {item.desc}
                     </p>
-                  </motion.div>
-                </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Highlight element - with improved visual effect */}
-          <div
-            className="highlight absolute top-0 left-0 pointer-events-none transition-all duration-300 ease-out opacity-20 rounded-lg"
-            ref={highlightRef}
-          ></div>
+          {/* Highlight element - with modern glow effect */}
+          {!isMobile && (
+            <div
+              className="highlight absolute top-0 left-0 pointer-events-none transition-all duration-500 ease-out opacity-30 rounded-2xl blur-sm"
+              ref={highlightRef}
+            ></div>
+          )}
         </div>
       </BackgroundBeamsWithCollision>
     </div>
-
   );
 };
 

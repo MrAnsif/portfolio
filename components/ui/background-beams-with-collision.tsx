@@ -32,7 +32,7 @@ export const BackgroundBeamsWithCollision = ({
       translateX: 100,
       duration: 7,
       repeatDelay: 7,
-      className: "h-6",
+      className: "h-6 rotate-45 border border-gray-300",
     },
     {
       initialX: 400,
@@ -40,20 +40,21 @@ export const BackgroundBeamsWithCollision = ({
       duration: 5,
       repeatDelay: 14,
       delay: 4,
+      className: "rotate-20",
     },
     {
       initialX: 800,
       translateX: 800,
       duration: 11,
       repeatDelay: 2,
-      className: "h-20",
+      className: "h-20  ",
     },
     {
       initialX: 1000,
       translateX: 1000,
       duration: 4,
       repeatDelay: 2,
-      className: "h-12",
+      className: "h-12 -rotate-30",
     },
     {
       initialX: 1200,
@@ -61,7 +62,7 @@ export const BackgroundBeamsWithCollision = ({
       duration: 6,
       repeatDelay: 4,
       delay: 2,
-      className: "h-6",
+      className: "h-6 rotate-20",
     },
   ];
 
