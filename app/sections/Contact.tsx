@@ -73,9 +73,9 @@ const Contact = () => {
 
   return (
 
-    <div className='bg-black md:py-10 rounded-b-[100px] text-center'>
-      <section className='main relative w-screen h-[60dvh] md:h-[70dvh] flex justify-between items-center flex-col py-4'>
-        <div className="text-white absolute md:text-8xl sm:text-5xl text-5xl py-4 font-bold w-full ">
+    <div className='bg-black md:py-10 rounded-b-[100px] text-center shadow-2xl shadow-black'>
+      <section className='main relative w-screen h-[70dvh] md:h-[70dvh] flex justify-between items-center flex-col py-4'>
+        <div className="text-white absolute md:text-8xl sm:text-5xl text-4xl py-4 font-bold w-full ">
 
           <div className=" flex items-center gap-2 px-8">
             <div className="w-10 h-10 md:w-16 md:h-16 bg-orange-600 rounded-full"></div>

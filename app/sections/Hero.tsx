@@ -2,16 +2,23 @@
 
 import React, { useEffect } from 'react'
 import './Hero.css'
-import { CubesData } from '../components/CubesData.js'
+import { CubesDatalg } from '../components/CubesData.js'
+import { CubesDataSm } from '../components/CubesDataSm';
+
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis'
 import Image from 'next/image';
 
-
 const Hero = () => {
 
   useEffect(() => {
+
+    const getCubesData = () => {
+      return window.innerWidth <= 768 ? CubesDataSm : CubesDatalg;
+    };
+    const cubesData = getCubesData();
+
     const lenis = new Lenis()
     gsap.registerPlugin(ScrollTrigger);
 
@@ -84,7 +91,7 @@ const Hero = () => {
 
         const firstPhaseProgress = Math.min(self.progress * 2, 1)
         const secondPhaseProgress = self.progress >= 0.5 ? (self.progress - 0.5) * 2 : 0
-        Object.entries(CubesData).forEach(([cubeclass, data]) => {
+        Object.entries(cubesData).forEach(([cubeclass, data]) => {
           const cube = document.querySelector(`.${cubeclass}`) as HTMLElement
           const { initial, final } = data
 
@@ -238,7 +245,7 @@ const Hero = () => {
             <p className='text-[10px] !font-light tracking-wide pt-16 text-[#e4bfb4] '>- scroll carefully, its smooth -</p>
           </div>
         </div>
-        <div className="header-2 absolute top-1/2 left-1/2 text-center w-full text-black">
+        <div className="header-2 absolute top-1/2 left-1/2 text-center p-2 text-black bg-white/5 rounded-2xl backdrop-blur-sm">
           <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
             welcome to my corner<br className="hidden sm:block" /> of the internet.
           </h1>

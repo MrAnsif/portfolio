@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision';
-import { Bot, Code2, GitBranch, Monitor, Server } from 'lucide-react';
+import { Bot, Code, Code2, GitBranch, Monitor, Server } from 'lucide-react';
 
 const Skills = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -124,14 +124,14 @@ const Skills = () => {
   const gridContent = [
     {
       title: "Programming Languages",
-      desc: "Python, JavaScript, TypeScript, HTML & CSS",
+      desc: "Python, JavaScript, TypeScript",
       icon: (
-        <Code2/>
+        <Code/>
       )
     },
     {
-      title: "Frontend Development",
-      desc: "React.js, Next.js, GSAP, Lenis, Tailwind CSS",
+      title: "Web Stack",
+      desc: "React.js, Next.js, Tailwind CSS,  HTML & CSS",
       icon: (
         <Monitor/>
       )
@@ -253,7 +253,7 @@ const Skills = () => {
           {/* Highlight element - with modern glow effect */}
           {!isMobile && (
             <div
-              className="highlight absolute top-0 left-0 pointer-events-none transition-all duration-500 ease-out opacity-30 rounded-2xl blur-sm"
+              className="highlight absolute top-0 left-0 pointer-events-none transition-all duration-500 ease-out opacity-60  blur-sm"
               ref={highlightRef}
             ></div>
           )}
