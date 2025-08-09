@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision';
-import { Bot, Code, Code2, GitBranch, Monitor, Server } from 'lucide-react';
+import { Bot, Code, GitBranch, Monitor, Server } from 'lucide-react';
 
 const Skills = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
