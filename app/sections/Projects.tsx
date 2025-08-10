@@ -64,6 +64,7 @@ const Projects = () => {
         img.src = slides[i].image;
         img.alt = slides[i].title;
         img.style.transform = "scale(1.25)";
+        img.style.objectFit = "cover";
 
         const stripPositionFromBottom = stripsCount - j - 1;
 
@@ -404,7 +405,7 @@ const Projects = () => {
 
         <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b border-gray-500 text-2xl md:text-3xl will-change-transform ">
           <div className="slide-title-prefix flex-1 hidden md:block">
-            <p>prefix </p>
+            <p>Project </p>
           </div>
 
           <div className="slide-title relative flex-2 h-[22px] md:h-[40px] overflow-hidden">
@@ -435,3 +436,4 @@ const Projects = () => {
 }
 
 export default Projects
+
