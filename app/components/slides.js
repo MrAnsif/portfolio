@@ -1,19 +1,19 @@
 
 const slides = [
   {
-    title: "1",
+    title: "AOT",
     image: "/images/img-prj (1).webp",
-    url: "/projects/desert-oasis"
+    url: "https://aot-blue.vercel.app/"
   },
   {
-    title: "2",
+    title: "Avishkar",
     image: "/images/img-prj (2).webp",
-    url: "/projects/domed-sanctuary"
+    url: "https://www.avishkar.live/"
   },
   {
-    title: "3",
+    title: "College Mock Test",
     image: "/images/img-prj (3).webp",
-    url: "/projects/courtyard-retreat"
+    url: "https://musaliarcollege.in/"
   },
   // {
   //   title: "4",
