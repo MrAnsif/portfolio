@@ -67,7 +67,7 @@ const About = () => {
   }, []);
 
   return (
-    <div id="about" className="relative h-[135vh] w-screen md:h-[165vh] bg-black"> {/* Changed to explicit height based on 3 screens */}
+    <div id="about" className="relative h-[135vh] w-screen md:h-[165vh] bg-black"> 
 
 
       <svg className='absolute top-1 -translate-y-1/2 right-3 w-[80%] max-w-2xl' width="414" height="1898" fill="none">
@@ -81,7 +81,6 @@ const About = () => {
         <path className='lines' stroke="#fff" strokeWidth="3" d="m3 1693 206-205 202 202-205 205L3 1693ZM209 0v1487" />
       </svg>
 
-      {/* Content sections */}
       <div className="h-[45vh] md:h-[60vh] md:pt-10 w-full grid place-content-center text-6xl md:text-7xl relative z-10 text-[#efb6a4]">
         <h1>About Me</h1>
       </div>
