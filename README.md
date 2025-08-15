@@ -69,7 +69,7 @@ Before running the application, ensure you have the following installed:
     yarn dev
     ```
 
-    This will start the development server at `http://localhost:3000/`.
+    This will start the development server at `http://localhost:3000`.
 
 2.  **Build for production:**
 
