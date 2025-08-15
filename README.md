@@ -126,7 +126,7 @@ The positions and rotations of the 3D cubes in the Hero section are configured i
             top: 50,
             left: 15,
             rotateX: 360,
-            rotateY: 363,
+            rotateY: 360,
             rotateZ: 0,
             Z: 0
           }
@@ -172,7 +172,7 @@ The project slides and their corresponding image URLs are defined in:
       {
         title: "1",
         image: "/images/img-prj (1).webp",
-        url: "/projects/desert-oasis"
+        url: "/projects_url.com"
       },
     // ... other slides
     ];
