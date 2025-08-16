@@ -93,7 +93,7 @@ const Menu = () => {
             </Link>
           </div>
           <div className="menu-close " onClick={toggleMenu}>
-            <p className='text-black cursor-pointer'>Close</p>
+            <p className='text-black font-bold cursor-pointer'>Close</p>
           </div>
         </div>
 
@@ -140,7 +140,7 @@ const Menu = () => {
           </div>
           {/* Adjusted menu-preview to align items-end */}
           <div className="menu-preview flex-grow-[4] md:flex justify-end items-end hidden">
-            <p>View something</p>
+            <p>In Focus</p>
           </div>
         </div>
       </div>

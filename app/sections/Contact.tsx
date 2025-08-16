@@ -73,7 +73,11 @@ const Contact = () => {
 
   return (
 
-    <div className='bg-black md:py-10 rounded-b-[80px] text-center shadow-2xl shadow-black'>
+    <div style={{
+      background: "radial-gradient(125% 125% at 50% 10%, #000000 40%, #550A00 100%)",
+
+    }}
+      className='bg-black md:py-10 rounded-b-[80px] text-center shadow-2xl shadow-black'>
       <section className='main relative w-screen h-[70vh] md:h-[70vh] flex justify-between items-center flex-col py-4'>
         <div className="text-white absolute md:text-8xl sm:text-5xl text-4xl py-4 font-bold w-full ">
 
@@ -96,9 +100,11 @@ const Contact = () => {
               <Icons.email />
               <FlipLink href="mailto:ansifpta2003@gmail.com">Email</FlipLink>
             </div>
+
           </section>
         </div>
       </section>
+
     </div>
   )
 }
