@@ -72,6 +72,9 @@ export const BackgroundBeamsWithCollision = ({
         "bg-black dark:from-neutral-950 relative flex items-center w-full justify-center overflow-hidden",
         className
       )}
+      style={{
+        background: "radial-gradient(125% 125% at 50% 10%, #000000 40%, #310500 100%)",
+      }}
     >
       {beams.map((beam, index) => (
         <BeamAnimation
@@ -81,7 +84,7 @@ export const BackgroundBeamsWithCollision = ({
       ))}
 
       {children}
-      
+
       <div
         ref={containerRef}
         className="absolute bottom-0 bg-neutral-100 w-full inset-x-0 pointer-events-none"

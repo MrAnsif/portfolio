@@ -126,35 +126,35 @@ const Skills = () => {
       title: "Programming Languages",
       desc: "Python, JavaScript, TypeScript",
       icon: (
-        <Code/>
+        <Code />
       )
     },
     {
       title: "Web Stack",
       desc: "React.js, Next.js, Tailwind CSS,  HTML & CSS",
       icon: (
-        <Monitor/>
+        <Monitor />
       )
     },
     {
       title: "Backend Development",
       desc: "Node.js, Express.js, MongoDB, REST APIs",
       icon: (
-        <Server/>
+        <Server />
       )
     },
     {
       title: "Version Control",
       desc: "Git, GitHub workflows & collaboration",
       icon: (
-        <GitBranch/>
+        <GitBranch />
       )
     },
     {
       title: "AI & Automation",
       desc: "AI API Integration, Agent Building, MCP Usage, Automation Scripts",
       icon: (
-        <Bot/>
+        <Bot />
       ),
       isNew: true
     }
