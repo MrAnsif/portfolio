@@ -55,7 +55,7 @@ export default function LogoCloud() {
                                 <img
                                     className="mx-auto h-6 w-fit invert"
                                     src="https://html.tailus.io/blocks/customers/openai.svg"
-                                    alt="OpenAI Logo"
+                                    alt="OpenAI "
                                     height="24"
                                     width="auto"
                                 />
