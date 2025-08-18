@@ -17,7 +17,7 @@ This repository contains the source code for my personal portfolio website.
 
 *   **Next.js:** A React framework for building server-rendered and static websites.
 *   **React:** A JavaScript library for building user interfaces.
-*   **GSAP (GreenSock Animation Platform):** A JavaScript library for creating high-performance animations.
+*   **GSAP :** A JavaScript library for creating high-performance animations.
 *   **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
 *   **Framer Motion:** A production-ready motion library for React.
 *   **Lenis:** A JavaScript library for smooth scrolling.
