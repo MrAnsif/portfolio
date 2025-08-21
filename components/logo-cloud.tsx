@@ -46,7 +46,7 @@ export default function LogoCloud() {
                                 <img
                                     className="mx-auto h-5 w-fit invert"
                                     src="https://html.tailus.io/blocks/customers/nike.svg"
-                                    alt="Nike Logo"
+                                    alt="Nike "
                                     height="20"
                                     width="auto"
                                 />
