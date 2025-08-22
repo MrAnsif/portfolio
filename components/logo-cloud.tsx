@@ -37,7 +37,7 @@ export default function LogoCloud() {
                                 <img
                                     className="mx-auto h-4 w-fit invert"
                                     src="https://html.tailus.io/blocks/customers/github.svg"
-                                    alt="GitHub Logo"
+                                    alt="GitHub "
                                     height="16"
                                     width="auto"
                                 />
