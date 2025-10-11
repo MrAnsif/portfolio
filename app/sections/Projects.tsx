@@ -192,7 +192,7 @@ const Projects = () => {
 
       exploreLink.href = newUrl
 
-      gsap.to(titleElement, {
+      gsap.to([titleElement, desElement], {
         y: outY,
         duration: 0.5,
         ease: "power3.out",
@@ -203,7 +203,7 @@ const Projects = () => {
           }
           gsap.set(titleElement, { y: inY });
 
-          gsap.to(titleElement, {
+          gsap.to([titleElement, desElement], {
             y: "0%",
             duration: 0.5,
             ease: "power3.out",
@@ -433,8 +433,12 @@ const Projects = () => {
             </a>
           </div>
         </div>
-        <p id='des-text' className='text-base text-neutral-700 absolute top-2/3 left-1/2 -translate-x-1/2 z-50 bg-white/40 rounded-xl p-3 max-w-80 md:max-w-2xl '
-        >MERN stack doc project. A sleek documentation hub that organizes API references, guides, and changelogs into a single interactive platform. Built for speed and clarity.</p>
+        <div className='absolute overflow-hidden bg-white/50 rounded-xl top-2/3 left-1/2 -translate-x-1/2 p-3 max-w-80 md:max-w-2xl '>
+
+          <p id='des-text' className='text-base text-neutral-700 relative'
+            style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
+          >MERN stack doc project. A sleek documentation hub that organizes API references, guides, and changelogs into a single interactive platform. Built for speed and clarity.</p>
+        </div>
       </section>
     </div>
   )
