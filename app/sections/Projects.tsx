@@ -24,6 +24,7 @@ const Projects = () => {
 
     const slideImages = document.querySelector(".slide-images")
     const titleElement = document.getElementById("title-text") as HTMLElement | null;
+    const desElement = document.getElementById("des-text") as HTMLElement | null;
     const exploreLink = document.querySelector(".slide-link a") as HTMLAnchorElement
 
     const totalSlides = slides.length
@@ -77,7 +78,7 @@ const Projects = () => {
         imgContainer.appendChild(strip)
 
         strips.push(strip);
-        images.push(img); 
+        images.push(img);
       }
 
       imgContainers.push(imgContainer);
@@ -181,6 +182,7 @@ const Projects = () => {
 
       isAnimating = true;
       const newTitle = slides[index].title;
+      const newDes = slides[index].description
       const newUrl = slides[index].url;
 
       const outY = direction === "down" ? "-120%" : "120%";
@@ -195,8 +197,9 @@ const Projects = () => {
         duration: 0.5,
         ease: "power3.out",
         onComplete: () => {
-          if (titleElement) {
+          if (titleElement && desElement) {
             titleElement.textContent = newTitle;
+            desElement.textContent = newDes;
           }
           gsap.set(titleElement, { y: inY });
 
@@ -408,10 +411,10 @@ const Projects = () => {
             <p>Project </p>
           </div>
 
-          <div className="slide-title relative flex-2 h-[22px] md:h-[40px] overflow-hidden">
-            <p id='title-text'
+          <div className="slide-title relative flex-2 overflow-hidden ">
+            <p id='title-text' className=''
               style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
-            >1</p>
+            >AOT</p>
           </div>
 
           <div className="slide-link flex justify-end order-1 md:order-none flex-1 min-w-[100px]">
@@ -430,6 +433,8 @@ const Projects = () => {
             </a>
           </div>
         </div>
+        <p id='des-text' className='text-base text-neutral-700 absolute top-2/3 left-1/2 -translate-x-1/2 z-50 bg-white/40 rounded-xl p-3 max-w-80 md:max-w-2xl '
+        >MERN stack doc project. A sleek documentation hub that organizes API references, guides, and changelogs into a single interactive platform. Built for speed and clarity.</p>
       </section>
     </div>
   )
