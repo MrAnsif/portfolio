@@ -89,7 +89,7 @@ const About = () => {
       <div className="h-[75vh] md:h-[90vh] relative z-10 text-white mx-10 ">
         <p className=' max-w-96 md:max-w-4xl text-balance text-lg md:text-2xl ml-4 md:ml-10'><span className='font-serif italic'>Hi, Myself Ansif Muhammed.</span>  <br />a full-stack developer with experience in both frontend and backend development. Most of my work comes from freelance projects, where I have built everything from<span className='font-serif italic'> planning to deployment.</span> <br /> I also integrate AI into my workflow-not as a shortcut, but to speed up research, automate repetitive tasks, and <span className='font-serif italic'>keep projects moving efficiently.</span></p>
         <div className='md:translate-y-56'>
-          <LogoCloud />
+          {/* <LogoCloud /> */}
         </div>
         {/* <p className='font-myfont3 text-2xl absolute -bottom-10 md:bottom-5 left-1/2 md:-translate-x-1/2'>It’s not much, just everything I am.</p> */}
       </div>
