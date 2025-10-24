@@ -2,7 +2,7 @@
 const slides = [
   {
     title: "AOT",
-    description: "MERN stack doc project. A sleek documentation hub that organizes API references, guides, and changelogs into a single interactive platform. Built for speed and clarity.",
+    description: "AOT is a full-stack MERN project that lets patients book appointments, doctors manage schedules, and admins oversee operations. It features JWT authentication, Razorpay payments, Cloudinary image storage, and an AI chatbot powered by the Gemini API.",
     image: "/images/img-prj (1).webp",
     url: "https://aot-blue.vercel.app/"
   },
@@ -17,17 +17,7 @@ const slides = [
     description: "MERN stack project 3. A next-gen documentation tool blending markdown, AI suggestions, and live previews — turning technical docs into living knowledge bases.",
     image: "/images/img-prj (3).webp",
     url: "https://musaliarcollege.in/"
-  },
-  // {
-  //   title: "4",
-  //   image: "/images/img-prj (4).webp",
-  //   url: "/projects/arched-corridor"
-  // },
-  // {
-  //   title: "5",
-  //   image: "/images/img-prj (5).webp",
-  //   url: "/projects/illuminated-grotto"
-  // }
+  }
 ];
 
 export default slides;

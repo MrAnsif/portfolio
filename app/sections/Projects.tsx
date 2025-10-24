@@ -408,7 +408,7 @@ const Projects = () => {
 
         <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b border-gray-500 text-2xl md:text-3xl will-change-transform ">
           <div className="slide-title-prefix flex-1 hidden md:block">
-            <p>Project </p>
+            <p>Projects </p>
           </div>
 
           <div className="slide-title relative flex-2 overflow-hidden ">
@@ -433,11 +433,11 @@ const Projects = () => {
             </a>
           </div>
         </div>
-        <div className='absolute overflow-hidden bg-white/50 rounded-xl top-2/3 left-1/2 -translate-x-1/2 p-3 max-w-80 md:max-w-2xl '>
+        <div className='absolute overflow-hidden rounded-xl top-2/3 left-1/2 -translate-x-1/2 p-3 w-7xl max-w-80 md:max-w-2xl '>
 
-          <p id='des-text' className='text-base text-neutral-700 relative'
+          <p id='des-text' className='text-base text-neutral-200 font-sans relative'
             style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
-          >MERN stack doc project. A sleek documentation hub that organizes API references, guides, and changelogs into a single interactive platform. Built for speed and clarity.</p>
+          >AOT is a full-stack MERN project that lets patients book appointments, doctors manage schedules, and admins oversee operations. It features JWT authentication, Razorpay payments, Cloudinary image storage, and an AI chatbot powered by the Gemini API.</p>
         </div>
       </section>
     </div>
