@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './About.css'
 import Image from 'next/image';
-import LogoCloud from '@/components/logo-cloud'
+// import LogoCloud from '@/components/logo-cloud'
 
 const About = () => {
   useEffect(() => {
@@ -82,7 +82,7 @@ const About = () => {
         <path className='lines' stroke="#fff" strokeWidth="3" d="m3 1693 206-205 202 202-205 205L3 1693ZM209 0v1487" />
       </svg>
 
-      <div className="h-[45vh] md:h-[60vh] md:pt-10 w-full grid place-content-center text-6xl md:text-7xl relative z-10 text-[#FECFAF]">
+      <div className="h-[45vh] md:h-[60vh] md:pt-10 w-full grid place-content-center text-6xl md:text-8xl lg:text-9xl relative z-10 text-[#FECFAF]">
         <h1>About Me</h1>
       </div>
 
