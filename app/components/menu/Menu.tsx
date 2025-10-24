@@ -15,6 +15,12 @@ const menuLinks = [
   { path: 'contact', label: 'Contact' },
 ]
 
+const social = [
+  { path: 'https://www.linkedin.com/in/ansif1/', label: 'LinkedIn', logo: '/images/linkedin.webp' },
+  { path: 'https://github.com/mransif', label: 'GitHub', logo: '/images/github.webp' },
+  { path: 'mailto:ansifpta2003@gmail.com', label: 'Email', logo: '/images/mail.webp' }
+]
+
 const Menu = () => {
   const container = useRef(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -54,12 +60,12 @@ const Menu = () => {
     }
   }, [isMenuOpen])
 
-  
+
 
   return (
     <div className='menu-container ' ref={container}>
 
-      <div className="menu-bar fixed top-0 left-0 w-screen p-8 flex justify-between items-center z-40 text-white">
+      <div className="menu-bar fixed top-0 left-0 w-screen px-8 py-7 flex justify-between items-center z-40 text-white backdrop-blur-lg bg-black/10 rounded-b-3xl">
         <div className="menu-logo" >
           <Link href="/" className=" cursor-pointer">
             <Image
@@ -71,8 +77,21 @@ const Menu = () => {
             />
           </Link>
         </div>
-        <div className="menu-open" onClick={toggleMenu}>
-          <p className=" cursor-pointer">Menu</p>
+        <div className='flex gap-4 md:gap-5'>
+          {social.map((e, i) => (
+            <a href={e.path} target="_blank" rel="noopener noreferrer" key={i} className="cursor-pointer w-7 h-7 transition-transform duration-300 ease-out hover:-translate-y-1" >
+              <Image
+                src={e.logo}
+                width={44}
+                height={44}
+                alt={e.label}
+                className=''
+              />
+            </a>
+          ))}
+          <div className="menu-open pl-7 md:pl-14" onClick={toggleMenu}>
+            <p className=" cursor-pointer">Menu</p>
+          </div>
         </div>
       </div>
 
@@ -97,7 +116,7 @@ const Menu = () => {
           </div>
         </div>
 
-        <div className="flex flex-grow w-full h-full items-end "> 
+        <div className="flex flex-grow w-full h-full items-end ">
           <div className="menu-close-icon flex-grow-[2] items-start cursor-pointer hidden md:flex " >
             <p className='text-[100px] [-webkit-text-stroke:3px_#E85102] ' onClick={toggleMenu}>&#x2715;</p>
           </div>
