@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html >
       <body>
         <Preload />
-        <Menu />
+        {/* <Menu /> */}
         {children}
         <Footer />
       </body>
