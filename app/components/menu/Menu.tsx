@@ -6,6 +6,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import Image from 'next/image';
+// import GradualBlur from '../../../components/GradualBlur'
 
 const menuLinks = [
   { path: 'hero', label: 'Home' },
@@ -63,7 +64,7 @@ const Menu = () => {
 
 
   return (
-    <div className='menu-container ' ref={container}>
+    <div className='menu-container ' ref={container} >
 
       <div className="menu-bar fixed top-0 left-0 w-screen px-8 py-7 flex justify-between items-center z-40 text-white backdrop-blur-lg bg-black/10 rounded-b-3xl">
         <div className="menu-logo" >
@@ -153,16 +154,25 @@ const Menu = () => {
               </div>
               <div className="menu-info-col flex-grow-[1] flex flex-col justify-end ">
                 <p className='!lowercase'>ansifpta2003@gmail.com</p>
-                {/* <p>+123 456 7890</p> */}
               </div>
             </div>
           </div>
-          {/* Adjusted menu-preview to align items-end */}
           <div className="menu-preview flex-grow-[4] md:flex justify-end items-end hidden">
             <p>In Focus</p>
           </div>
         </div>
       </div>
+
+      {/* <GradualBlur
+        target="parent"
+        position="top"
+        height="18rem"
+        strength={2}
+        divCount={5}
+        curve="bezier"
+        exponential={true}
+        opacity={1}
+      /> */}
     </div>
   )
 }

@@ -9,6 +9,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis'
 import Image from 'next/image';
+import { Link001 } from "../../components/ui/skiper-ui/skiper40";
 
 const Hero = () => {
 
@@ -165,21 +166,21 @@ const Hero = () => {
 
         <div className="cubes absolute top-0 left-0 w-screen h-screen  " style={{ transformStyle: 'preserve-3d', perspective: '10000px' }}>
           <div className="cube cube-1 absolute w-[150px] h-[150px] top-[-55%] left-[37.5%]" style={{ transformStyle: 'preserve-3d', transform: 'translate3d(-50%, -50%, -30000px) rotateX(360deg) rotateY(-360deg) rotateZ(-48deg)' }}>
-            <div className="front absolute w-full h-full bg-amber-50 transform" style={{ transform: 'translateZ(75px)'}}></div>
-            <div className="back absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)'}}></div>
-            <div className="right absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)'}}></div>
-            <div className="left absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)'}}></div>
-            <div className="top absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)'}}></div>
-            <div className="bottom absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)'}}></div>
+            <div className="front absolute w-full h-full bg-amber-50 transform" style={{ transform: 'translateZ(75px)' }}></div>
+            <div className="back absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)' }}></div>
+            <div className="right absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)' }}></div>
+            <div className="left absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)' }}></div>
+            <div className="top absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)' }}></div>
+            <div className="bottom absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)' }}></div>
           </div>
 
           <div className="cube cube-2 absolute w-[150px] h-[150px] top-[-35%] left-[32.5%]" style={{ transformStyle: 'preserve-3d', transform: 'translate3d(-50%, -50%, -30000px) rotateX(-180deg) rotateY(180deg) rotateZ(90deg)' }}>
-            <div className="front absolute w-full h-full bg-amber-50 transform" style={{ transform: 'translateZ(75px)'}}></div>
-            <div className="back absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)'}}></div>
-            <div className="right absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)'}}></div>
-            <div className="left absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)'}}></div>
-            <div className="top absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)'}}></div>
-            <div className="bottom absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)'}}></div>
+            <div className="front absolute w-full h-full bg-amber-50 transform" style={{ transform: 'translateZ(75px)' }}></div>
+            <div className="back absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(180deg) translateZ(75px)' }}></div>
+            <div className="right absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(90deg) translateZ(75px)' }}></div>
+            <div className="left absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateY(-90deg) translateZ(75px)' }}></div>
+            <div className="top absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateX(90deg) translateZ(75px)' }}></div>
+            <div className="bottom absolute w-full h-full bg-amber-50 transform" style={{ transform: 'rotateX(-90deg) translateZ(75px)' }}></div>
           </div>
 
           <div className="cube cube-3 absolute w-[150px] h-[150px] top-[65%] left-[50%]" style={{ transformStyle: 'preserve-3d', transform: 'translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(90deg) rotateZ(-180deg)' }}>
@@ -229,7 +230,7 @@ const Hero = () => {
               </div>
 
               <div className="w-full -mt-1 md:-mt-2 ">
-                <span className="block text-8xl md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tight font-myfont text-transparent bg-gradient-to-b from-gray-100 to-gray-300/80 bg-clip-text animate-gradient-shift leading-none">
+                <span className="block text-8xl md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tight font-myfont1 italic text-transparent bg-gradient-to-b from-gray-100 to-gray-300/80 bg-clip-text animate-gradient-shift leading-none">
                   Ansif
                 </span>
               </div>
@@ -239,7 +240,9 @@ const Hero = () => {
                   a software developer
                 </span>
               </div>
+            <Link001 className='mt-7' href="/Ansif_resume.pdf">My Resume</Link001>
             </div>
+             
           </div>
           <div className='flex items-center justify-end flex-col '>
             <p className='text-[10px] !font-light tracking-wide pt-16 text-[#e4bfb4] '>- scroll carefully, its smooth -</p>
@@ -249,7 +252,7 @@ const Hero = () => {
           <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
             welcome to my corner<br className="hidden sm:block" /> of the internet.
           </h1>
-          
+
         </div>
 
       </section>
