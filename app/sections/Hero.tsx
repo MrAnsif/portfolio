@@ -240,7 +240,7 @@ const Hero = () => {
                   a software developer
                 </span>
               </div>
-            <Link001 className='mt-7' href="/Ansif_resume.pdf">My Resume</Link001>
+            <Link001 className='mt-7' href="/files/Ansif_resume.pdf">My Resume</Link001>
             </div>
              
           </div>
