@@ -202,6 +202,7 @@ const Projects = () => {
             desElement.textContent = newDes;
           }
           gsap.set(titleElement, { y: inY });
+          gsap.set(desElement, { y: inY }); 
 
           gsap.to([titleElement, desElement], {
             y: "0%",
@@ -411,15 +412,16 @@ const Projects = () => {
             <p>Projects </p>
           </div>
 
-          <div className="slide-title relative flex-2 overflow-hidden ">
+          <div className="slide-title relative flex-2 overflow-hidden">
             <p id='title-text' className=''
               style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
-            >AOT</p>
+            ></p>
           </div>
 
           <div className="slide-link flex justify-end order-1 md:order-none flex-1 min-w-[100px]">
             <a
               href="#"
+              target='_blank'
               className='
                 text-sm md:text-base 
                 px-3 py-1 md:px-4 md:py-2 
@@ -435,9 +437,9 @@ const Projects = () => {
         </div>
         <div className='absolute overflow-hidden rounded-xl top-2/3 left-1/2 -translate-x-1/2 p-3 w-7xl max-w-80 md:max-w-2xl '>
 
-          <p id='des-text' className='text-base text-neutral-200 font-sans relative'
+          <p id='des-text' className='text-base text-neutral-200 font-sans relative bg-[#C5A46D] p-3 rounded-xl '
             style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
-          >AOT is a full-stack MERN project that lets patients book appointments, doctors manage schedules, and admins oversee operations. It features JWT authentication, Razorpay payments, Cloudinary image storage, and an AI chatbot powered by the Gemini API.</p>
+          ></p>
         </div>
       </section>
     </div>
