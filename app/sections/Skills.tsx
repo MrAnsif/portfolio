@@ -123,42 +123,33 @@ const Skills = () => {
   // Content for grid items - your development skills
   const gridContent = [
     {
-      title: "Programming Languages",
-      desc: "Python, JavaScript, TypeScript",
-      icon: (
-        <Code />
-      )
+      title: "Programming Languages & Data",
+      desc: "JavaScript, TypeScript, Python, SQL",
+      icon: <Code />
     },
     {
-      title: "Web Stack",
-      desc: "React.js, Next.js, Tailwind CSS,  HTML & CSS",
-      icon: (
-        <Monitor />
-      )
+      title: "Frontend Development",
+      desc: "React.js, Next.js, Tailwind CSS, Vite, GSAP, Lenis, ShadCN, HTML & CSS",
+      icon: <Monitor />
     },
     {
-      title: "Backend Development",
-      desc: "Node.js, Express.js, MongoDB, REST APIs",
-      icon: (
-        <Server />
-      )
+      title: "Backend & Database",
+      desc: "Node.js, Express.js, MongoDB, PostgreSQL, Prisma, REST APIs, JWT",
+      icon: <Server />
     },
     {
-      title: "Version Control",
-      desc: "Git, GitHub workflows & collaboration",
-      icon: (
-        <GitBranch />
-      )
-    },
-    {
-      title: "AI & Automation",
-      desc: "AI API Integration, Agent Building, MCP Usage, Automation Scripts",
-      icon: (
-        <Bot />
-      ),
+      title: "AI & Integrations",
+      desc: "OpenRouter AI models, Gemini API",
+      icon: <Bot />,
       isNew: true
+    },
+    {
+      title: "DevOps & Tools",
+      desc: "Git, GitHub, Vercel, Render, Railway, Supabase, Cloudinary, Clerk, Stripe",
+      icon: <GitBranch />
     }
   ];
+
 
   return (
     <div className="relative w-full min-h-[100svh] bg-black overflow-hidden">

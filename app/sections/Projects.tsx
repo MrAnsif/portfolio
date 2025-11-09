@@ -408,11 +408,11 @@ const Projects = () => {
         </div>
 
         <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b border-gray-500 text-2xl md:text-3xl will-change-transform ">
-          <div className="slide-title-prefix flex-1 hidden md:block">
+          <div className="slide-title-prefix flex-1 hidden md:block text-shadow-lg/20">
             <p>Projects </p>
           </div>
 
-          <div className="slide-title relative flex-2 overflow-hidden">
+          <div className="slide-title relative flex-2 overflow-hidden text-neutral-200 text-shadow-lg/50">
             <p id='title-text' className=''
               style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
             ></p>
@@ -425,7 +425,7 @@ const Projects = () => {
               className='
                 text-sm md:text-base 
                 px-3 py-1 md:px-4 md:py-2 
-                bg-white/10 hover:bg-white/20 
+                bg-neutral-500/30 hover:bg-neutral-500/20 
                 rounded-full 
                 transition-colors
                 whitespace-nowrap
@@ -437,7 +437,7 @@ const Projects = () => {
         </div>
         <div className='absolute overflow-hidden rounded-xl top-2/3 left-1/2 -translate-x-1/2 p-3 w-7xl max-w-80 md:max-w-2xl '>
 
-          <p id='des-text' className='text-base text-neutral-200 font-sans relative bg-[#C5A46D] p-3 rounded-xl '
+          <p id='des-text' className='text-base text-neutral-200 font-sans relative bg-[#a1875b] p-3 rounded-[2px] text-center '
             style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
           ></p>
         </div>
