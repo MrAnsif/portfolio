@@ -5,6 +5,7 @@ import slides from '../components/slides.js'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from '@studio-freight/lenis'
+import { Link001 } from '@/components/ui/skiper-ui/skiper40'
 
 const Projects = () => {
   gsap.registerPlugin(ScrollTrigger)
@@ -25,7 +26,9 @@ const Projects = () => {
     const slideImages = document.querySelector(".slide-images")
     const titleElement = document.getElementById("title-text") as HTMLElement | null;
     const desElement = document.getElementById("des-text") as HTMLElement | null;
-    const exploreLink = document.querySelector(".slide-link a") as HTMLAnchorElement
+    const exploreLink = document.querySelector(".slide-link a") as HTMLAnchorElement;
+    const gitLink = document.querySelector(".git-link a") as HTMLAnchorElement;
+
 
     const totalSlides = slides.length
     const stripsCount = 25
@@ -184,6 +187,7 @@ const Projects = () => {
       const newTitle = slides[index].title;
       const newDes = slides[index].description
       const newUrl = slides[index].url;
+      const newGitLink = slides[index].gitLink
 
       const outY = direction === "down" ? "-120%" : "120%";
       const inY = direction === "down" ? "120%" : "-120%";
@@ -191,6 +195,7 @@ const Projects = () => {
       gsap.killTweensOf(titleElement);
 
       exploreLink.href = newUrl
+      gitLink.href = newGitLink
 
       gsap.to([titleElement, desElement], {
         y: outY,
@@ -202,7 +207,7 @@ const Projects = () => {
             desElement.textContent = newDes;
           }
           gsap.set(titleElement, { y: inY });
-          gsap.set(desElement, { y: inY }); 
+          gsap.set(desElement, { y: inY });
 
           gsap.to([titleElement, desElement], {
             y: "0%",
@@ -235,8 +240,6 @@ const Projects = () => {
     }
 
     let lastImageProgress = 0;
-    // let rafId: number | null = null;
-    // let pendingUpdate = false;
 
     const scrollTriggerInstance = ScrollTrigger.create({
       trigger: ".sticky-slider",
@@ -408,33 +411,28 @@ const Projects = () => {
         </div>
 
         <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b border-gray-500 text-2xl md:text-3xl will-change-transform ">
-          <div className="slide-title-prefix flex-1 hidden md:block text-shadow-lg/20">
+          <div className="slide-title-prefix flex-1 text-[#ff8f5f] hidden md:block text-shadow-lg/20">
             <p>Projects </p>
           </div>
 
-          <div className="slide-title relative flex-2 overflow-hidden text-neutral-200 text-shadow-lg/50">
+          <div className="slide-title relative flex-2 overflow-hidden text-[#f3d8a8] text-shadow-lg/50">
             <p id='title-text' className=''
               style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
             ></p>
           </div>
 
-          <div className="slide-link flex justify-end order-1 md:order-none flex-1 min-w-[100px]">
-            <a
-              href="#"
-              target='_blank'
-              className='
-                text-sm md:text-base 
-                px-3 py-1 md:px-4 md:py-2 
-                bg-neutral-500/30 hover:bg-neutral-500/20 
-                rounded-full 
-                transition-colors
-                whitespace-nowrap
-              '
-            >
-              Explore &#8599;
-            </a>
+          <div className='flex gap-5'>
+
+            <div className="git-link flex order-1 md:order-none flex-1 ">
+              <Link001 className='text-xl text-[#ff8f5f] text-shadow-lg/20' href="#">Github</Link001>
+            </div>
+
+            <div className="slide-link flex justify-end order-1 md:order-none flex-1 ">
+              <Link001 className='text-xl text-[#ff8f5f] text-shadow-lg/20' href="#">Live</Link001>
+            </div>
           </div>
         </div>
+
         <div className='absolute overflow-hidden rounded-xl top-2/3 left-1/2 -translate-x-1/2 p-3 w-7xl max-w-80 md:max-w-2xl '>
 
           <p id='des-text' className='text-base text-neutral-200 font-sans relative bg-[#a1875b] p-3 rounded-[2px] text-center '
