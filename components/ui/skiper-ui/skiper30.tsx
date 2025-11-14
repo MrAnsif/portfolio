@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const images = [
@@ -18,6 +19,28 @@ const images = [
 const Skiper30 = () => {
   const gallery = useRef<HTMLDivElement>(null);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
+
+  const [status, setStatus] = useState("")
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
+    setStatus("")
+
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    }
+
+    const res = await fetch("/api/send-mail", {
+      method: "POST",
+      headers: { "Content-Type": "Application/Json" },
+      body: JSON.stringify(formData)
+    })
+
+    const data = await res.json()
+    setStatus(data.status ? "Mail send successfully." : "Something went wrong.")
+  }
 
   const { scrollYProgress } = useScroll({
     target: gallery,
@@ -63,13 +86,34 @@ const Skiper30 = () => {
         <Column images={[images[6], images[7], images[8]]} y={y3} />
         <Column images={[images[6], images[7], images[8]]} y={y4} />
       </div>
-      <div className="font-geist relative flex h-screen items-center justify-center gap-2">
-        <div className="absolute left-1/2 top-[10%] grid -translate-x-1/2 content-start justify-items-center gap-6 text-center ">
-          <span className="relative max-w-[12ch] text-xs uppercase leading-tight opacity-40 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:from-white after:to-black after:content-['']">
-            Updating soon...
-          </span>
+      <div className="grid grid-cols-2 h-screen">
+
+        <div className="bg-amber-100 ">
+          {/* <Image
+              alt="Contact image"
+              src="/images/img (27).svg"
+              width={128}
+              height={128}
+              
+            /> */}
+        </div>
+        <div className="bg-[#F2EDE6] relative h-screen p-10">
+          <h1 className="font-bold text-6xl">Get in Touch</h1>
+
+          <div className="border-l-2 border-t-2 border-black bg-[#F2EDE6] p-12 w-[93%] h-3/4 bottom-0 right-0 absolute">
+            <form action="submit" onSubmit={handleSubmit} className="grid text-xl">
+              <label className="pb-2">Full Name</label>
+              <input name="name" placeholder="Your name" required className="input border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
+              <label className="pb-2">E-mail</label>
+              <input name="email" placeholder="Your email" required className="input border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
+              <label className="pb-2"> Message</label>
+              <input name="message" placeholder="Message" required className="textarea border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
+              <button type="submit" className="border bg-black text-white p-2">Send</button>
+            </form>
+          </div>
         </div>
       </div>
+      {/* </div> */}
     </main>
   );
 };
