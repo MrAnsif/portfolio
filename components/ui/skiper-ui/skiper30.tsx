@@ -101,14 +101,14 @@ const Skiper30 = () => {
           <h1 className="font-bold text-6xl">Get In Touch</h1>
 
           <div className="border-l-2 border-t-2 border-black bg-[#F2EDE6] p-12 w-[93%] h-3/4 bottom-0 right-0 absolute">
-            <form action="submit" onSubmit={handleSubmit} className="grid text-xl">
+            <form onSubmit={handleSubmit} className="grid text-xl">
               <label className="pb-2">Full Name</label>
               <input name="name" placeholder="Your name" required className="input border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
               <label className="pb-2">E-mail</label>
               <input name="email" placeholder="Your email" required className="input border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
               <label className="pb-2"> Message</label>
               <input name="message" placeholder="Message" required className="textarea border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
-              <button type="submit" className="border bg-black text-white p-2">
+              <button type="submit" className="border bg-black text-white p-2" disabled={status === 'loading'}>
                 {status === "" && (
                   'Sent'
                 )}
@@ -125,7 +125,6 @@ const Skiper30 = () => {
           </div>
         </div>
       </div>
-      {/* </div> */}
     </main>
   );
 };
