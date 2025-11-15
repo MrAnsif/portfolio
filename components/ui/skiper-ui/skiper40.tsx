@@ -180,16 +180,16 @@ const Link004 = ({
     <a
       href={href}
       className={cn(
-        "group relative flex items-center",
+        "group relative flex  items-center",
         className,
         "before:pointer-events-none before:absolute before:left-0 before:w-full before:bg-white before:content-['']",
         "before:origin-right before:scale-x-0 before:transition-all before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)]",
         "before:origin-center md:before:bottom-0",
-        "before:z-1 px-2 before:h-0 before:scale-x-100 before:mix-blend-difference hover:before:h-[1.4em]",
+        "before:z-1 md:px-3 lg:px-6 before:h-0 before:scale-x-100 before:mix-blend-difference hover:before:h-[1.4em]",
       )}
     >
       {children}
-      <svg
+      {/* <svg
         className="z-0 ml-[0.6em] mt-[0em] size-[0.55em] translate-y-1 opacity-0 transition-all duration-300 [motion-reduce:transition-none] group-hover:translate-y-0 group-hover:rotate-45 group-hover:opacity-100 motion-reduce:transition-none"
         fill="none"
         viewBox="0 0 10 10"
@@ -203,7 +203,7 @@ const Link004 = ({
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
-      </svg>
+      </svg> */}
     </a>
   );
 };

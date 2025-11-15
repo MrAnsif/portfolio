@@ -21,27 +21,26 @@ const Skiper30 = () => {
 
   const [status, setStatus] = useState("")
 
+  const formRef = useRef<HTMLFormElement | null>(null);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
+    const form = formRef.current!;
+    const formData = new FormData(form);
 
     setStatus("loading")
 
     const res = await fetch("/api/send-mail", {
       method: "POST",
       headers: { "Content-Type": "Application/Json" },
-      body: JSON.stringify({ name, email, message })
+      body: JSON.stringify(Object.fromEntries(formData))
     })
 
     const result = await res.json()
 
     if (result.success) {
       setStatus("success");
-      e.currentTarget.reset();
+      form.reset();
     } else {
       setStatus("error");
     }
@@ -101,19 +100,19 @@ const Skiper30 = () => {
           <h1 className="font-bold text-6xl">Get In Touch</h1>
 
           <div className="border-l-2 border-t-2 border-black bg-[#F2EDE6] p-12 w-[93%] h-3/4 bottom-0 right-0 absolute">
-            <form onSubmit={handleSubmit} className="grid text-xl">
+            <form ref={formRef} onSubmit={handleSubmit} className="grid text-xl">
               <label className="pb-2">Full Name</label>
               <input name="name" placeholder="Your name" required className="input border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
               <label className="pb-2">E-mail</label>
               <input name="email" placeholder="Your email" required className="input border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
               <label className="pb-2"> Message</label>
               <input name="message" placeholder="Message" required className="textarea border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
-              <button type="submit" className="border bg-black text-white p-2" disabled={status === 'loading'}>
+              <button type="submit" className="border bg-black hover:bg-neutral-800 text-white p-2" disabled={status === 'loading'}>
                 {status === "" && (
-                  'Sent'
+                  'Send'
                 )}
                 {status === "loading" && (
-                  'Senting...'
+                  'Sending...'
                 )}
                 {status === "success" && (
                   'Message sent successfully!'

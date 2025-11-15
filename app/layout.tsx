@@ -15,10 +15,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html >
       <head>
-        {/* Google tag (gtag.js) */}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-5GJ9FB09QJ"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -26,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-5GJ9FB09QJ', {
+            gtag('config', ${process.env.NEXT_PUBLIC_GA_ID}, {
               page_path: window.location.pathname,
             });
           `}

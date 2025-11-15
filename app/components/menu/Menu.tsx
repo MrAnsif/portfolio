@@ -6,11 +6,12 @@ import { Link as ScrollLink } from 'react-scroll';
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import Image from 'next/image';
+import { Link004 } from '@/components/ui/skiper-ui/skiper40';
 // import GradualBlur from '../../../components/GradualBlur'
 
 const menuLinks = [
   { path: 'hero', label: 'Home' },
-  { path: 'about', label: 'About Me' },
+  { path: 'about', label: 'AboutMe' },
   { path: 'skills', label: 'Skills' },
   { path: 'projects', label: 'Projects' },
   { path: 'contact', label: 'Contact' },
@@ -66,19 +67,19 @@ const Menu = () => {
   return (
     <div className='menu-container ' ref={container} >
 
-      <div className="menu-bar fixed top-0 left-0 w-screen px-8 py-7 flex justify-between items-center z-40 text-white backdrop-blur-lg bg-black/10 rounded-b-3xl">
-        <div className="menu-logo" >
+      <div className="menu-bar fixed top-0 left-0 w-screen px-8 py-5 grid grid-cols-3 items-center z-40 text-white backdrop-blur-lg bg-black/10 rounded-b-2xl">
+        <div className="menu-logo w-20" >
           <Link href="/" className=" cursor-pointer">
             <Image
               src="/images/name.webp"
               alt="Home"
-              width={64}
-              height={64}
+              width={164}
+              height={164}
               className=""
             />
           </Link>
         </div>
-        <div className='flex gap-4 md:gap-5'>
+        <div className='flex lg:justify-center gap-4 '>
           {social.map((e, i) => (
             <a href={e.path} target="_blank" rel="noopener noreferrer" key={i} className="cursor-pointer w-7 h-7 transition-transform duration-300 ease-out hover:-translate-y-1" >
               <Image
@@ -90,8 +91,21 @@ const Menu = () => {
               />
             </a>
           ))}
-          <div className="menu-open pl-7 md:pl-14" onClick={toggleMenu}>
+        </div>
+        <div className='flex justify-end gap-4 '>
+          
+          <div className="menu-open pl-7 md:pl-14 block md:hidden" onClick={toggleMenu}>
             <p className=" cursor-pointer">Menu</p>
+          </div>
+
+          <div className='hidden md:flex md:flex-row md:items-center '>
+            {
+              menuLinks.map((link, index) => (
+                <Link004 className="" key={index} href={`#${link.path}`}>
+                  {link.label}
+                </Link004>
+              ))
+            }
           </div>
         </div>
       </div>
@@ -162,17 +176,6 @@ const Menu = () => {
           </div>
         </div>
       </div>
-
-      {/* <GradualBlur
-        target="parent"
-        position="top"
-        height="18rem"
-        strength={2}
-        divCount={5}
-        curve="bezier"
-        exponential={true}
-        opacity={1}
-      /> */}
     </div>
   )
 }

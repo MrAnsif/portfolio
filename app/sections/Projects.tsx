@@ -411,7 +411,7 @@ const Projects = () => {
         </div>
 
         <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b border-gray-500 text-2xl md:text-3xl will-change-transform ">
-          <div className="slide-title-prefix flex-1 text-[#ff8f5f] hidden md:block text-shadow-lg/20">
+          <div className="slide-title-prefix flex-1 text-[#f3d8a8] hidden md:block text-shadow-lg/20">
             <p>Projects </p>
           </div>
 
@@ -421,14 +421,14 @@ const Projects = () => {
             ></p>
           </div>
 
-          <div className='flex gap-5'>
+          <div className='flex gap-2 md:gap-4'>
 
             <div className="git-link flex order-1 md:order-none flex-1 ">
-              <Link001 className='text-xl text-[#ff8f5f] text-shadow-lg/20' href="#">Github</Link001>
+              <Link001 className='text-xl text-[#f3d8a8] text-shadow-lg/20 bg-[#a1875b] px-2 rounded-t-[6px]' href="#">Github</Link001>
             </div>
 
             <div className="slide-link flex justify-end order-1 md:order-none flex-1 ">
-              <Link001 className='text-xl text-[#ff8f5f] text-shadow-lg/20' href="#">Live</Link001>
+              <Link001 className='text-xl text-[#f3d8a8] text-shadow-lg/20 bg-[#a1875b] px-2 rounded-t-[6px]' href="#">Live</Link001>
             </div>
           </div>
         </div>
