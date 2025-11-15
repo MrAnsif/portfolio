@@ -21,10 +21,10 @@ const Skiper30 = () => {
 
   const [status, setStatus] = useState("")
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
     const name = formData.get("name");
     const email = formData.get("email");
     const message = formData.get("message");
@@ -41,7 +41,7 @@ const Skiper30 = () => {
 
     if (result.success) {
       setStatus("success");
-      e.target.reset();
+      e.currentTarget.reset();
     } else {
       setStatus("error");
     }
