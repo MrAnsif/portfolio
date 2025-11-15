@@ -4,9 +4,9 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export async function POST(params) {
+export async function POST(req) {
     try {
-        const { name, email, message } = await params.json()
+        const { name, email, message } = await req.json()
 
         const data = await resend.emails.send({
             from: "Ansif Portfolio <onboarding@resend.dev>",
@@ -24,6 +24,6 @@ export async function POST(params) {
 
     } catch (error) {
         console.error('Error at mail API: ', error)
-        return NextResponse.json({ status: 500, error })
+        return NextResponse.json({success: false, error}, { status: 500})
     }
 }

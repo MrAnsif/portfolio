@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const images = [
@@ -24,22 +23,28 @@ const Skiper30 = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
-    setStatus("")
 
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
-    }
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    setStatus("loading")
 
     const res = await fetch("/api/send-mail", {
       method: "POST",
       headers: { "Content-Type": "Application/Json" },
-      body: JSON.stringify(formData)
+      body: JSON.stringify({ name, email, message })
     })
 
-    const data = await res.json()
-    setStatus(data.status ? "Mail send successfully." : "Something went wrong.")
+    const result = await res.json()
+
+    if (result.success) {
+      setStatus("success");
+      e.target.reset();
+    } else {
+      setStatus("error");
+    }
   }
 
   const { scrollYProgress } = useScroll({
@@ -86,19 +91,14 @@ const Skiper30 = () => {
         <Column images={[images[6], images[7], images[8]]} y={y3} />
         <Column images={[images[6], images[7], images[8]]} y={y4} />
       </div>
-      <div className="grid grid-cols-2 h-screen">
+      <div className="grid grid-cols-2 h-screen overflow-hidden">
 
-        <div className="bg-amber-100 ">
-          {/* <Image
-              alt="Contact image"
-              src="/images/img (27).svg"
-              width={128}
-              height={128}
-              
-            /> */}
+        <div className="bg-[#F2EDE6] h-full w-full flex items-center justify-center p-28">
+          <h1 className="text-7xl lg:text-9xl uppercase font-black leading-none"> <span className="font-myfont2">Drop</span> a <span className="bg-[#b43a11] text-white">me</span>ssage</h1>
         </div>
+
         <div className="bg-[#F2EDE6] relative h-screen p-10">
-          <h1 className="font-bold text-6xl">Get in Touch</h1>
+          <h1 className="font-bold text-6xl">Get In Touch</h1>
 
           <div className="border-l-2 border-t-2 border-black bg-[#F2EDE6] p-12 w-[93%] h-3/4 bottom-0 right-0 absolute">
             <form action="submit" onSubmit={handleSubmit} className="grid text-xl">
@@ -108,7 +108,19 @@ const Skiper30 = () => {
               <input name="email" placeholder="Your email" required className="input border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
               <label className="pb-2"> Message</label>
               <input name="message" placeholder="Message" required className="textarea border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
-              <button type="submit" className="border bg-black text-white p-2">Send</button>
+              <button type="submit" className="border bg-black text-white p-2">
+                {status === "" && (
+                  'Sent'
+                )}
+                {status === "loading" && (
+                  'Senting...'
+                )}
+                {status === "success" && (
+                  'Message sent successfully!'
+                )}{status === "error" && (
+                  'Failed to send message. Try again.'
+                )}
+              </button>
             </form>
           </div>
         </div>
