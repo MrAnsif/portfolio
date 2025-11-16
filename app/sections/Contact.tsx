@@ -79,7 +79,7 @@ const Contact = () => {
     }}
       className='bg-black md:py-10 rounded-b-[50px] md:rounded-b-[80px] text-center shadow-2xl shadow-black'>
       <section className='main relative w-screen h-[70vh] md:h-[75vh] flex justify-between items-center flex-col py-4'>
-        <div className="text-white absolute md:text-8xl sm:text-5xl text-4xl py-4 font-bold w-full ">
+        <div className="text-white absolute md:text-8xl text-6xl py-4 font-bold w-full ">
 
           <div className=" flex items-center gap-2 px-8">
             <div className="w-10 h-10 md:w-16 md:h-16 bg-orange-600 rounded-full"></div>

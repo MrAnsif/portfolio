@@ -43,6 +43,11 @@ const Skiper30 = () => {
     if (result.success) {
       setStatus("success");
       form.reset();
+
+      setTimeout(() => {
+        setStatus("");
+      }, 5000)
+
     } else {
       setStatus("error");
     }
@@ -118,7 +123,7 @@ const Skiper30 = () => {
     ">
             <form ref={formRef} onSubmit={handleSubmit} className="grid text-lg sm:text-xl">
 
-              <label className="pb-2">Full Name</label>
+              <label className="pb-2">Full Name*</label>
               <input
                 name="name"
                 placeholder="Your name"
@@ -126,7 +131,7 @@ const Skiper30 = () => {
                 className="border-b border-black mb-10 appearance-none focus:outline-none"
               />
 
-              <label className="pb-2">E-mail</label>
+              <label className="pb-2">E-mail*</label>
               <input
                 name="email"
                 placeholder="Your email"
@@ -134,7 +139,7 @@ const Skiper30 = () => {
                 className="border-b border-black mb-10 appearance-none focus:outline-none"
               />
 
-              <label className="pb-2">Message</label>
+              <label className="pb-2">Message*</label>
               <textarea
                 name="message"
                 placeholder="Message"
@@ -147,10 +152,10 @@ const Skiper30 = () => {
                 className=" bg-[#b43a11] hover:bg-[#98310f] text-white p-2"
                 disabled={status === 'loading'}
               >
-                {status === "" && 'Send'}
-                {status === "loading" && 'Sending...'}
-                {status === "success" && 'Message sent successfully!'}
-                {status === "error" && 'Failed to send message. Try again.'}
+                {status === "" && 'Send Now'}
+                {status === "loading" && 'Sending your message…'}
+                {status === "success" && 'Got it! I’ll get back to you soon.'}
+                {status === "error" && 'Didn’t go as planned — try once more.'}
               </button>
             </form>
           </div>
