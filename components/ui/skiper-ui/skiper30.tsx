@@ -1,18 +1,20 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const images = [
-  "https://picsum.photos/600/400?random=1",
-  "https://picsum.photos/600/400?random=2",
-  "https://picsum.photos/600/400?random=3",
-  "https://picsum.photos/600/400?random=4",
-  "https://picsum.photos/600/400?random=5",
-  "https://picsum.photos/600/400?random=6",
-  "https://picsum.photos/600/400?random=7",
-  "https://picsum.photos/600/400?random=8",
-  "https://picsum.photos/600/400?random=9",
+  "/images/toGit/toGit (4).webp",
+  "/images/toGit/toGit (7).webp",
+  "/images/toGit/toGit (5).webp",
+  "/images/toGit/toGit (8).webp",
+  "/images/toGit/toGit (10).webp",
+  "/images/toGit/toGit (9).webp",
+  "/images/toGit/toGit (1).webp",
+  "/images/toGit/toGit (2).webp",
+  "/images/toGit/toGit (6).webp",
+  "/images/toGit/toGit (3).webp",
 ];
 
 const Skiper30 = () => {
@@ -74,11 +76,12 @@ const Skiper30 = () => {
   return (
     <main className="w-full bg-[#ffffff] text-black relative">
       <div className="font-geist flex h-screen items-center justify-center gap-2">
-        <div className="absolute left-1/2 top-[10%] grid -translate-x-1/2 content-start justify-items-center gap-6 text-center ">
+        {/* <div className="absolute left-1/2 top-[10%] grid -translate-x-1/2 content-start justify-items-center gap-6 text-center ">
           <span className="relative max-w-[12ch] text-xs uppercase leading-tight opacity-40 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:from-white after:to-black after:content-['']">
             More Works
           </span>
-        </div>
+        </div> */}
+        Explore more of my work on GitHub.
       </div>
 
       <div
@@ -87,13 +90,13 @@ const Skiper30 = () => {
       >
         <Column images={[images[0], images[1], images[2]]} y={y} />
         <Column images={[images[3], images[4], images[5]]} y={y2} />
-        <Column images={[images[6], images[7], images[8]]} y={y3} />
+        <Column images={[images[9], images[2], images[9]]} y={y3} />
         <Column images={[images[6], images[7], images[8]]} y={y4} />
       </div>
       <div className="md:grid md:grid-cols-2 min-h-screen overflow-hidden bg-[linear-gradient(0deg,#000,#F2EDE6_72%)]">
 
         <div className=" h-full w-full hidden md:flex md:items-center justify-center p-10 lg:p-28">
-          <h1 className="text-5xl sm:text-6xl lg:text-9xl uppercase font-black leading-none text-center">
+          <h1 className="text-5xl sm:text-6xl lg:text-9xl uppercase font-black leading-none text-left">
             <span className="font-myfont2">Drop</span> a <span className="bg-[#b43a11] text-white">me</span>ssage
           </h1>
         </div>
@@ -171,9 +174,11 @@ const Column = ({ images, y }: ColumnProps) => {
     >
       {images.map((src, i) => (
         <div key={i} className="relative h-full w-full overflow-hidden">
-          <img
+          <Image
             src={`${src}`}
             alt="image"
+            width={1080}
+            height={1080}
             className="pointer-events-none object-cover"
           />
         </div>
