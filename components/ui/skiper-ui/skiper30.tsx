@@ -90,39 +90,69 @@ const Skiper30 = () => {
         <Column images={[images[6], images[7], images[8]]} y={y3} />
         <Column images={[images[6], images[7], images[8]]} y={y4} />
       </div>
-      <div className="grid grid-cols-2 h-screen overflow-hidden">
+      <div className="md:grid md:grid-cols-2 min-h-screen overflow-hidden bg-[linear-gradient(0deg,#000,#F2EDE6_72%)]">
 
-        <div className="bg-[#F2EDE6] h-full w-full flex items-center justify-center p-28">
-          <h1 className="text-7xl lg:text-9xl uppercase font-black leading-none"> <span className="font-myfont2">Drop</span> a <span className="bg-[#b43a11] text-white">me</span>ssage</h1>
+        <div className=" h-full w-full hidden md:flex md:items-center justify-center p-10 lg:p-28">
+          <h1 className="text-5xl sm:text-6xl lg:text-9xl uppercase font-black leading-none text-center">
+            <span className="font-myfont2">Drop</span> a <span className="bg-[#b43a11] text-white">me</span>ssage
+          </h1>
         </div>
 
-        <div className="bg-[#F2EDE6] relative h-screen p-10">
-          <h1 className="font-bold text-6xl">Get In Touch</h1>
+        <div className=" relative min-h-screen p-6 sm:p-10 " >
 
-          <div className="border-l-2 border-t-2 border-black bg-[#F2EDE6] p-12 w-[93%] h-3/4 bottom-0 right-0 absolute">
-            <form ref={formRef} onSubmit={handleSubmit} className="grid text-xl">
+          <h1 className="font-black text-6xl my-6">
+            Get <span className="md:font-myfont4 font-myfont2">In</span> Touch
+          </h1>
+
+          <div className="
+      border-l-2 border-t-2
+      border-black 
+      p-6 sm:p-10 md:p-12 
+      w-full md:w-[93%] 
+      relative md:absolute 
+      md:bottom-0 md:right-0 
+      md:h-3/4
+    ">
+            <form ref={formRef} onSubmit={handleSubmit} className="grid text-lg sm:text-xl">
+
               <label className="pb-2">Full Name</label>
-              <input name="name" placeholder="Your name" required className="input border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
+              <input
+                name="name"
+                placeholder="Your name"
+                required
+                className="border-b border-black mb-10 appearance-none focus:outline-none"
+              />
+
               <label className="pb-2">E-mail</label>
-              <input name="email" placeholder="Your email" required className="input border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
-              <label className="pb-2"> Message</label>
-              <input name="message" placeholder="Message" required className="textarea border-b border-black mb-14 appearance-none focus:outline-none focus:ring-0" />
-              <button type="submit" className="border bg-black hover:bg-neutral-800 text-white p-2" disabled={status === 'loading'}>
-                {status === "" && (
-                  'Send'
-                )}
-                {status === "loading" && (
-                  'Sending...'
-                )}
-                {status === "success" && (
-                  'Message sent successfully!'
-                )}{status === "error" && (
-                  'Failed to send message. Try again.'
-                )}
+              <input
+                name="email"
+                placeholder="Your email"
+                required
+                className="border-b border-black mb-10 appearance-none focus:outline-none"
+              />
+
+              <label className="pb-2">Message</label>
+              <textarea
+                name="message"
+                placeholder="Message"
+                required
+                className="border-b border-black mb-10 appearance-none focus:outline-none resize-none h-24"
+              />
+
+              <button
+                type="submit"
+                className=" bg-[#b43a11] hover:bg-[#98310f] text-white p-2"
+                disabled={status === 'loading'}
+              >
+                {status === "" && 'Send'}
+                {status === "loading" && 'Sending...'}
+                {status === "success" && 'Message sent successfully!'}
+                {status === "error" && 'Failed to send message. Try again.'}
               </button>
             </form>
           </div>
         </div>
+
       </div>
     </main>
   );
