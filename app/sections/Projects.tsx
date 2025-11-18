@@ -435,7 +435,7 @@ const Projects = () => {
 
         <div className='absolute overflow-hidden rounded-xl top-2/3 left-1/2 -translate-x-1/2 p-3 w-7xl max-w-80 md:max-w-2xl '>
 
-          <p id='des-text' className='text-base text-neutral-200 font-sans relative bg-[#a1875b] p-3 rounded-[2px] text-center '
+          <p id='des-text' className='text-base text-neutral-200 font-sans relative bg-[#a1875b] p-3 rounded-[2px] text-left '
             style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
           ></p>
         </div>

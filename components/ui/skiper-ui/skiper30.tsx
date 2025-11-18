@@ -79,8 +79,8 @@ const Skiper30 = () => {
   }, []);
 
   return (
-    <main className="w-full bg-[#A1875B] text-black relative">
-      <div className="h-screen flex flex-col lg:flex-row justify-between items-start lg:items-center p-3 border-2 border-black overflow-hidden">
+    <main className="w-full bg-black text-black relative">
+      <div className="h-screen flex flex-col lg:flex-row justify-between items-start lg:items-center p-3 border-b border-white overflow-hidden text-[#A1875B]">
 
         {/* LEFT SIDE */}
         <div className="font-bigFont leading-tight z-10 ">
@@ -88,7 +88,7 @@ const Skiper30 = () => {
             Explore more <br /> of
           </p>
 
-          <p className="uppercase text-7xl md:text-8xl lg:text-9xl">
+          <p className="uppercase text-7xl md:text-8xl lg:text-9xl text-[#b43a11]">
             my work
           </p>
 
@@ -97,18 +97,18 @@ const Skiper30 = () => {
           </p>
           
         </div>
-        <div className="w-full h-[3px] border-b border-black my-6 border-dashed lg:hidden"></div>
+        <div className="w-full h-[3px] border-b border-white my-6 border-dashed lg:hidden"></div>
 
 
         {/* RIGHT SIDE - HUGE GITHUB */}
         <div className="font-bigFont w-full flex-1 flex justify-end items-center overflow-hidden">
-          <div className="h-full w-[3px] border-r border-black mx-6 border-dashed lg:hidden"></div>
+          <div className="h-full w-[3px] border-r border-white mx-6 border-dashed lg:hidden"></div>
 
           <span
             className="
         uppercase leading-none tracking- 
         text-[clamp(190px,45vw,600px)]
-        block text-right
+        block text-right bg-[#b43a11] bg-clip-text text-transparent
       "
           >
             GitHub.
@@ -130,7 +130,7 @@ const Skiper30 = () => {
       <div className="md:grid md:grid-cols-2 min-h-screen overflow-hidden bg-[linear-gradient(0deg,#000,#F2EDE6_72%)]">
 
         <div className=" h-full w-full hidden md:flex md:items-center justify-center p-10 lg:p-28">
-          <h1 className="text-5xl sm:text-6xl lg:text-9xl uppercase font-black leading-none text-left">
+          <h1 className="text-5xl sm:text-6xl lg:text-9xl uppercase font-black leading-tight text-left ">
             <span className="font-myfont2">Drop</span> a <span className="bg-[#b43a11] text-white">me</span>ssage
           </h1>
         </div>
