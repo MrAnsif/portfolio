@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: 'myfont1';
-  src: url('../public/fonts/Lack-Regular.woff2') format('woff2');
+  src: url('../public/fonts/Lack-Regular.woff2') format('Redig-Regular.woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -39,6 +39,19 @@ body {
 .font-myfont3 {
   font-family: 'myfont3', sans-serif;
 }
+
+@font-face {
+  font-family: 'bigFont';
+  src: url('../public/fonts/Redig-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.font-bigFont {
+  font-family: 'bigFont', sans-serif;
+}
+
+
 
 ::selection {
   background-color: #b43a11;
