@@ -7,8 +7,8 @@ import Script from "next/script";
 import AnalyticsTracker from "../components/AnalyticsTracker";
 
 export const metadata = {
-  title: 'Ansif | Portfolio',
-  description: 'Portfolio of a Full stack developer.',
+  title: 'Ansif | MERN Stack Developer & Full stack Developer',
+  description: 'Portfolio of Ansif, MERN stack developer specializing in React, Next.js, full-stack developer and AI integrated smart web apps.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
