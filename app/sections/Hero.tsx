@@ -249,7 +249,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="header-2 absolute top-1/2 left-1/2 text-center p-2 text-black bg-white/5 rounded-2xl backdrop-blur-sm">
-          <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
+          <h1 className="font-extrabold font-myfont2 text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
             welcome to my corner<br className="hidden sm:block" /> of the internet.
           </h1>
 
@@ -257,7 +257,7 @@ const Hero = () => {
 
       </section>
 
-      <div className="w-screen h-[500dvh] absolute top-[60dvh] lg:top-[40dvh] left-0">
+      <div className="w-screen h-[500vh] absolute top-[60vh] lg:top-[40vh] left-0">
         <Image
           src='/images/orange-wave.svg'
           alt='orange-wave'
