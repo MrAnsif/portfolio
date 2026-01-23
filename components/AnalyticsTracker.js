@@ -9,6 +9,7 @@ export default function AnalyticsTracker() {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("config", "G-5GJ9FB09QJ", {
         page_path: pathname,
+        version_number: 1,
       });
     }
   }, [pathname]);

@@ -54,6 +54,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             gtag('js', new Date());
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
               page_path: window.location.pathname,
+              version_number: 1,
             });
           `}
         </Script>
