@@ -7,7 +7,7 @@ export default function AnalyticsTracker() {
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("config", "G-5GJ9FB09QJ", {
+      window.gtag("event", "page_view", {
         page_path: pathname,
         version_number: 1,
       });
