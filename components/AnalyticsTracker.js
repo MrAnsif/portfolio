@@ -8,8 +8,9 @@ export default function AnalyticsTracker() {
   useEffect(() => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", "page_view", {
+        page_location: window.location.href,
         page_path: pathname,
-        version_number: 1,
+        version_number: "1",
       });
     }
   }, [pathname]);

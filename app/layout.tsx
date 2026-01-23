@@ -53,8 +53,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+              page_location: window.location.href,
               page_path: window.location.pathname,
-              version_number: 1,
+              version_number: "1",
             });
           `}
         </Script>
