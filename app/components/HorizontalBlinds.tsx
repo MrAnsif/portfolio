@@ -44,6 +44,7 @@ const BLIND_COUNT = 30;
 const HorizontalBlinds = () => {
   const stageRef = useRef<HTMLDivElement>(null);
   const layersRef = useRef<HTMLDivElement>(null);
+  const scrollPromptRef = useRef<HTMLDivElement>(null);
 
   const textRefs = useRef<(HTMLElement | null)[]>([]);
   const progressRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -298,6 +299,19 @@ const HorizontalBlinds = () => {
           },
         });
 
+        if (scrollPromptRef.current) {
+          master!.to(
+            scrollPromptRef.current,
+            {
+              opacity: 0,
+              y: -25,
+              duration: 0.4,
+              ease: "power1.out",
+            },
+            0,
+          );
+        }
+
         blindsSets.forEach((blinds, index) => {
           master!.add(openBlinds(blinds));
 
@@ -456,6 +470,20 @@ const HorizontalBlinds = () => {
           ============================================= */}
 
           <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
+
+          {/* =============================================
+              INITIAL SCROLL PROMPT
+          ============================================= */}
+
+          <div
+            ref={scrollPromptRef}
+            className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4"
+          >
+            <p className="text-xl md:text-3xl font-light tracking-[0.35em] uppercase text-white/80 animate-pulse font-sans">
+              Scroll Down To Explore
+            </p>
+            <span className="mt-4 text-2xl text-white/50 animate-bounce font-sans">↓</span>
+          </div>
 
           {/* =============================================
               PROJECT INFORMATION
