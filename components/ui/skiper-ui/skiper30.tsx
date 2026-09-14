@@ -2,6 +2,7 @@
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const images = [
@@ -21,24 +22,24 @@ const Skiper30 = () => {
   const gallery = useRef<HTMLDivElement>(null);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
-  const [status, setStatus] = useState("")
+  const [status, setStatus] = useState("");
 
   const formRef = useRef<HTMLFormElement | null>(null);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const form = formRef.current!;
     const formData = new FormData(form);
 
-    setStatus("loading")
+    setStatus("loading");
 
     const res = await fetch("/api/send-mail", {
       method: "POST",
       headers: { "Content-Type": "Application/Json" },
-      body: JSON.stringify(Object.fromEntries(formData))
-    })
+      body: JSON.stringify(Object.fromEntries(formData)),
+    });
 
-    const result = await res.json()
+    const result = await res.json();
 
     if (result.success) {
       setStatus("success");
@@ -46,12 +47,11 @@ const Skiper30 = () => {
 
       setTimeout(() => {
         setStatus("");
-      }, 5000)
-
+      }, 5000);
     } else {
       setStatus("error");
     }
-  }
+  };
 
   const { scrollYProgress } = useScroll({
     target: gallery,
@@ -65,7 +65,6 @@ const Skiper30 = () => {
   const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
 
   useEffect(() => {
-
     const resize = () => {
       setDimension({ width: window.innerWidth, height: window.innerHeight });
     };
@@ -81,7 +80,6 @@ const Skiper30 = () => {
   return (
     <main className="w-full bg-black text-black relative">
       <div className="h-screen flex flex-col lg:flex-row justify-between items-start lg:items-center p-3 border-b border-white overflow-hidden text-[#A1875B]">
-
         {/* LEFT SIDE */}
         <div className="font-bigFont leading-tight z-10 ">
           <p className="text-6xl md:text-7xl lg:text-8xl">
@@ -92,31 +90,26 @@ const Skiper30 = () => {
             my work
           </p>
 
-          <p className="text-6xl md:text-7xl lg:text-8xl">
-            on
-          </p>
-          
+          <p className="text-6xl md:text-7xl lg:text-8xl">on</p>
         </div>
         <div className="w-full h-[3px] border-b border-white my-6 border-dashed lg:hidden"></div>
-
 
         {/* RIGHT SIDE - HUGE GITHUB */}
         <div className="font-bigFont w-full flex-1 flex justify-end items-center overflow-hidden">
           <div className="h-full w-[3px] border-r border-white mx-6 border-dashed lg:hidden"></div>
-
-          <span
-            className="
-        uppercase leading-none tracking- 
-        text-[clamp(190px,45vw,600px)]
-        block text-right bg-[#b43a11] bg-clip-text text-transparent
-      "
-          >
-            GitHub.
-          </span>
+          <Link href={"https://github.com/MrAnsif/"}>
+            <span
+              className="
+            uppercase  leading-none tracking- 
+            text-[clamp(190px,45vw,600px)]
+            block text-right bg-[#b43a11] bg-clip-text text-transparent
+            "
+            >
+              GitHub.
+            </span>
+          </Link>
         </div>
-
       </div>
-
 
       <div
         ref={gallery}
@@ -128,20 +121,20 @@ const Skiper30 = () => {
         <Column images={[images[6], images[7], images[8]]} y={y4} />
       </div>
       <div className="md:grid md:grid-cols-2 min-h-screen overflow-hidden bg-[linear-gradient(0deg,#000,#F2EDE6_72%)]">
-
         <div className=" h-full w-full hidden md:flex md:items-center justify-center p-10 lg:p-28">
           <h1 className="text-5xl sm:text-6xl lg:text-9xl uppercase font-black leading-tight text-left ">
-            <span className="font-myfont2">Drop</span> a <span className="bg-[#b43a11] text-white">me</span>ssage
+            <span className="font-myfont2">Drop</span> a{" "}
+            <span className="bg-[#b43a11] text-white">me</span>ssage
           </h1>
         </div>
 
-        <div className=" relative min-h-screen p-6 sm:p-10 " >
-
+        <div className=" relative min-h-screen p-6 sm:p-10 ">
           <h1 className="font-black text-6xl my-6">
             Get <span className="md:font-myfont4 font-myfont2">In</span> Touch
           </h1>
 
-          <div className="
+          <div
+            className="
       border-l-2 border-t-2
       border-black 
       p-6 sm:p-10 md:p-12 
@@ -149,9 +142,13 @@ const Skiper30 = () => {
       relative md:absolute 
       md:bottom-0 md:right-0 
       md:h-3/4
-    ">
-            <form ref={formRef} onSubmit={handleSubmit} className="grid text-lg sm:text-xl">
-
+    "
+          >
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="grid text-lg sm:text-xl"
+            >
               <label className="pb-2">Full Name*</label>
               <input
                 name="name"
@@ -179,17 +176,16 @@ const Skiper30 = () => {
               <button
                 type="submit"
                 className=" bg-[#b43a11] hover:bg-[#98310f] text-white p-2"
-                disabled={status === 'loading'}
+                disabled={status === "loading"}
               >
-                {status === "" && 'Send Now'}
-                {status === "loading" && 'Sending your message…'}
-                {status === "success" && 'Got it! I’ll get back to you soon.'}
-                {status === "error" && 'Didn’t go as planned — try once more.'}
+                {status === "" && "Send Now"}
+                {status === "loading" && "Sending your message…"}
+                {status === "success" && "Got it! I’ll get back to you soon."}
+                {status === "error" && "Didn’t go as planned — try once more."}
               </button>
             </form>
           </div>
         </div>
-
       </div>
     </main>
   );

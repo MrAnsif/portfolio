@@ -1,14 +1,14 @@
-'use client'
+"use client";
 
-import React, { useEffect } from 'react'
-import slides from '../components/slides.js'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Lenis from '@studio-freight/lenis'
-import { Link001 } from '@/components/ui/skiper-ui/skiper40'
+import React, { useEffect } from "react";
+import slides from "../components/slides.js";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "@studio-freight/lenis";
+import { Link001 } from "@/components/ui/skiper-ui/skiper40";
 
 const Projects = () => {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -23,21 +23,26 @@ const Projects = () => {
     gsap.ticker.add(tickerHandler);
     gsap.ticker.lagSmoothing(0);
 
-    const slideImages = document.querySelector(".slide-images")
-    const titleElement = document.getElementById("title-text") as HTMLElement | null;
-    const desElement = document.getElementById("des-text") as HTMLElement | null;
-    const exploreLink = document.querySelector(".slide-link a") as HTMLAnchorElement;
+    const slideImages = document.querySelector(".slide-images");
+    const titleElement = document.getElementById(
+      "title-text",
+    ) as HTMLElement | null;
+    const desElement = document.getElementById(
+      "des-text",
+    ) as HTMLElement | null;
+    const exploreLink = document.querySelector(
+      ".slide-link a",
+    ) as HTMLAnchorElement;
     const gitLink = document.querySelector(".git-link a") as HTMLAnchorElement;
 
-
-    const totalSlides = slides.length
-    const stripsCount = 25
-    let currentTitleIndex = 1
+    const totalSlides = slides.length;
+    const stripsCount = 25;
+    let currentTitleIndex = 1;
     let queuedTitleIndex: number | null = null;
-    const titleChangeThreshold = 0.5
-    let isAnimating = false
+    const titleChangeThreshold = 0.5;
+    let isAnimating = false;
 
-    const firstSlideImg = document.querySelector("#img-1 img")
+    const firstSlideImg = document.querySelector("#img-1 img");
 
     // Cache DOM elements for better performance
     const imgContainers: HTMLElement[] = [];
@@ -72,13 +77,14 @@ const Projects = () => {
 
         const stripPositionFromBottom = stripsCount - j - 1;
 
-        const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
+        const stripLowerBound =
+          (stripPositionFromBottom + 1) * (100 / stripsCount);
         const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
 
         strip.style.clipPath = `polygon(0% ${stripLowerBound}%, 100% ${stripLowerBound}%, 100% ${stripUpperBound - 0.1}%, 0% ${stripUpperBound - 0.1}%)`;
 
-        strip.appendChild(img)
-        imgContainer.appendChild(strip)
+        strip.appendChild(img);
+        imgContainer.appendChild(strip);
 
         strips.push(strip);
         images.push(img);
@@ -165,11 +171,16 @@ const Projects = () => {
       return imageProgress;
     }
 
-    function getScaleForImage(imageIndex: number, currentImageIndex: number, progress: number): number {
+    function getScaleForImage(
+      imageIndex: number,
+      currentImageIndex: number,
+      progress: number,
+    ): number {
       if (imageIndex > currentImageIndex) return 1.25;
       if (imageIndex < currentImageIndex - 1) return 1;
 
-      const totalProgress = imageIndex === currentImageIndex ? progress : 1 + progress;
+      const totalProgress =
+        imageIndex === currentImageIndex ? progress : 1 + progress;
       return 1.25 - (0.25 * totalProgress) / 2;
     }
 
@@ -185,17 +196,17 @@ const Projects = () => {
 
       isAnimating = true;
       const newTitle = slides[index].title;
-      const newDes = slides[index].description
+      const newDes = slides[index].description;
       const newUrl = slides[index].url;
-      const newGitLink = slides[index].gitLink
+      const newGitLink = slides[index].gitLink;
 
       const outY = direction === "down" ? "-120%" : "120%";
       const inY = direction === "down" ? "120%" : "-120%";
 
       gsap.killTweensOf(titleElement);
 
-      exploreLink.href = newUrl
-      gitLink.href = newGitLink
+      exploreLink.href = newUrl;
+      gitLink.href = newGitLink;
 
       gsap.to([titleElement, desElement], {
         y: outY,
@@ -217,15 +228,18 @@ const Projects = () => {
               currentTitleIndex = index;
               isAnimating = false;
 
-              if (queuedTitleIndex !== null && queuedTitleIndex !== currentTitleIndex) {
-                const nextIndex = queuedTitleIndex
+              if (
+                queuedTitleIndex !== null &&
+                queuedTitleIndex !== currentTitleIndex
+              ) {
+                const nextIndex = queuedTitleIndex;
                 queuedTitleIndex = null;
                 animateTitleChange(nextIndex, direction);
               }
-            }
-          })
-        }
-      })
+            },
+          });
+        },
+      });
     }
 
     function getTitleIndexForProgress(imageProgress: number): number {
@@ -254,9 +268,10 @@ const Projects = () => {
         const imageProgress = calculateImageProgress(self.progress);
 
         if (typeof imageProgress === "number") {
-          const scrollDirection = imageProgress > lastImageProgress ? "down" : "up";
+          const scrollDirection =
+            imageProgress > lastImageProgress ? "down" : "up";
           const currentImageIndex = Math.floor(imageProgress);
-          const imageSpecificProgress = imageProgress - currentImageIndex
+          const imageSpecificProgress = imageProgress - currentImageIndex;
 
           const correctTitleIndex = getTitleIndexForProgress(imageProgress);
 
@@ -273,12 +288,18 @@ const Projects = () => {
               currentContainer.style.display = "block";
               currentContainer.style.opacity = "1";
             }
-            if (currentImageIndex < totalSlides - 1 && imgContainers[currentImageIndex]) {
+            if (
+              currentImageIndex < totalSlides - 1 &&
+              imgContainers[currentImageIndex]
+            ) {
               const nextContainer = imgContainers[currentImageIndex];
               nextContainer.style.display = "block";
             }
           } else {
-            if (currentImageIndex < totalSlides - 2 && imgContainers[currentImageIndex + 1]) {
+            if (
+              currentImageIndex < totalSlides - 2 &&
+              imgContainers[currentImageIndex + 1]
+            ) {
               const nextContainer = imgContainers[currentImageIndex + 1];
               nextContainer.style.display = "none";
               nextContainer.style.opacity = "0";
@@ -294,10 +315,15 @@ const Projects = () => {
             }
           }
 
-          const firstSlideImgScale = getScaleForImage(0, currentImageIndex, imageSpecificProgress);
+          const firstSlideImgScale = getScaleForImage(
+            0,
+            currentImageIndex,
+            imageSpecificProgress,
+          );
 
           if (firstSlideImg) {
-            (firstSlideImg as HTMLElement).style.transform = `scale(${firstSlideImgScale})`;
+            (firstSlideImg as HTMLElement).style.transform =
+              `scale(${firstSlideImgScale})`;
           }
 
           for (let i = 1; i < totalSlides; i++) {
@@ -317,8 +343,10 @@ const Projects = () => {
             if (transitionIndex < currentImageIndex) {
               strips.forEach((strip, stripIndex) => {
                 const stripPositionFromBottom = stripsCount - stripIndex - 1;
-                const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
-                const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
+                const stripUpperBound =
+                  stripPositionFromBottom * (100 / stripsCount);
+                const stripLowerBound =
+                  (stripPositionFromBottom + 1) * (100 / stripsCount);
 
                 strip.style.clipPath = `polygon(
                   0% ${stripLowerBound}%,
@@ -326,19 +354,23 @@ const Projects = () => {
                   100% ${stripUpperBound - 0.1}%,
                   0% ${stripUpperBound - 0.1}%
                 )`;
-              })
+              });
             } else if (transitionIndex > currentImageIndex) {
               strips.forEach((strip, stripIndex) => {
                 const stripPositionFromBottom = stripsCount - stripIndex - 1;
-                const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
-                const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
+                const stripUpperBound =
+                  stripPositionFromBottom * (100 / stripsCount);
+                const stripLowerBound =
+                  (stripPositionFromBottom + 1) * (100 / stripsCount);
                 const stripDelay = (stripIndex / stripsCount) * 0.5;
                 const adjustedProgress = Math.max(
                   0,
-                  Math.min(1, (imageSpecificProgress - stripDelay) * 2)
+                  Math.min(1, (imageSpecificProgress - stripDelay) * 2),
                 );
                 const currentStripUpperBound =
-                  stripLowerBound - (stripLowerBound - (stripUpperBound - 0.1)) * adjustedProgress;
+                  stripLowerBound -
+                  (stripLowerBound - (stripUpperBound - 0.1)) *
+                    adjustedProgress;
 
                 strip.style.clipPath = `polygon(
                   0% ${stripLowerBound}%,
@@ -350,15 +382,19 @@ const Projects = () => {
             } else {
               strips.forEach((strip, stripIndex) => {
                 const stripPositionFromBottom = stripsCount - stripIndex - 1;
-                const stripLowerBound = (stripPositionFromBottom + 1) * (100 / stripsCount);
-                const stripUpperBound = stripPositionFromBottom * (100 / stripsCount);
+                const stripLowerBound =
+                  (stripPositionFromBottom + 1) * (100 / stripsCount);
+                const stripUpperBound =
+                  stripPositionFromBottom * (100 / stripsCount);
                 const stripDelay = (stripIndex / stripsCount) * 0.5;
                 const adjustedProgress = Math.max(
                   0,
-                  Math.min(1, (imageSpecificProgress - stripDelay) * 2)
+                  Math.min(1, (imageSpecificProgress - stripDelay) * 2),
                 );
                 const currentStripUpperBound =
-                  stripLowerBound - (stripLowerBound - (stripUpperBound - 0.1)) * adjustedProgress;
+                  stripLowerBound -
+                  (stripLowerBound - (stripUpperBound - 0.1)) *
+                    adjustedProgress;
 
                 strip.style.clipPath = `polygon(
                   0% ${stripLowerBound}%,
@@ -372,16 +408,16 @@ const Projects = () => {
             const imgScale = getScaleForImage(
               transitionIndex,
               currentImageIndex,
-              imageSpecificProgress
-            )
+              imageSpecificProgress,
+            );
 
             images.forEach((img) => {
-              img.style.transform = `scale(${imgScale})`
-            })
+              img.style.transform = `scale(${imgScale})`;
+            });
           }
-          lastImageProgress = imageProgress
+          lastImageProgress = imageProgress;
         }
-      }
+      },
     });
 
     return () => {
@@ -390,59 +426,74 @@ const Projects = () => {
       scrollTriggerInstance.kill();
       gsap.killTweensOf(titleElement);
       lenis.destroy();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [])
+  }, []);
 
   return (
-    <div className='text-white '>
-      <section className='sticky-slider relative w-screen h-screen p-4 overflow-hidden'>
-        <div className='slide-images absolute top-0 left-0 w-full h-full'>
-          <div className="img absolute top-0 left-0 w-full h-full" id='img-1'>
+    <div className="text-white ">
+      <section className="sticky-slider relative w-screen h-screen p-4 overflow-hidden">
+        <div className="absolute inset-0 bg-black/30  z-10 pointer-events-none" />
+
+        <div className="slide-images absolute top-0 left-0 w-full h-full">
+          <div className="img absolute top-0 left-0 w-full h-full" id="img-1">
             <img
-              className='w-full h-full object-cover origin-center absolute top-0 left-0 '
-              style={{ transition: 'transform 0.1s ease-out' }}
-              src='/images/img-prj (1).webp'
-              alt='image 1'
+              className="w-full h-full object-cover origin-center absolute top-0 left-0 "
+              style={{ transition: "transform 0.1s ease-out" }}
+              src="/images/img-prj (1).webp"
+              alt="image 1"
               width={1200}
               height={1200}
             />
           </div>
         </div>
 
-        <div className="slide-info absolute top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b border-gray-500 text-2xl md:text-3xl will-change-transform ">
-          <div className="slide-title-prefix flex-1 text-[#f3d8a8] hidden md:block text-shadow-lg/20">
+        <div className="slide-info absolute z-20 top-1/2 left-0 -translate-y-1/2 w-screen px-5 py-3 flex gap-8 border-b border-gray-500 text-2xl md:text-3xl will-change-transform ">
+          <div className="slide-title-prefix flex-1 hidden md:block text-shadow-lg/20">
             <p>Projects </p>
           </div>
 
-          <div className="slide-title relative flex-2 overflow-hidden text-[#f3d8a8] text-shadow-lg/50">
-            <p id='title-text' className=''
-              style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
+          <div className="slide-title relative flex-2 overflow-hidden text-shadow-lg/50">
+            <p
+              id="title-text"
+              className="backdrop-blur-lg max-w-min p-1 rounded-md"
+              style={{
+                clipPath: "polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)",
+              }}
             ></p>
           </div>
 
-          <div className='flex gap-2 md:gap-4'>
-
+          <div className="flex gap-2 md:gap-4">
             <div className="git-link flex order-1 md:order-none flex-1 ">
-              <Link001 className='text-xl text-[#f3d8a8] text-shadow-lg/20 bg-[#a1875b] px-2 rounded-t-[6px]' href="#">Github</Link001>
+              <Link001
+                className="text-xl  text-shadow-lg/20 px-2 rounded-t-[6px]"
+                href="#"
+              >
+                Github
+              </Link001>
             </div>
 
             <div className="slide-link flex justify-end order-1 md:order-none flex-1 ">
-              <Link001 className='text-xl text-[#f3d8a8] text-shadow-lg/20 bg-[#a1875b] px-2 rounded-t-[6px]' href="#">Live</Link001>
+              <Link001
+                className="text-xl text-shadow-lg/20 px-2 rounded-t-[6px]"
+                href="#"
+              >
+                Live
+              </Link001>
             </div>
           </div>
         </div>
 
-        <div className='absolute overflow-hidden rounded-xl top-2/3 left-1/2 -translate-x-1/2 p-3 w-7xl max-w-80 md:max-w-2xl '>
-
-          <p id='des-text' className='text-base text-neutral-200 font-sans relative bg-[#a1875b] p-3 rounded-[2px] text-left '
-            style={{ clipPath: 'polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)' }}
+        <div className="absolute overflow-hidden z-20 rounded-xl backdrop-blur-lg top-2/3 left-1/2 -translate-x-1/2 p-3 w-7xl max-w-80 md:max-w-2xl ">
+          <p
+            id="des-text"
+            className="text-md md:text-lg text-neutral-200 font-sans relative p-3 rounded-[2px] text-left "
+            style={{ clipPath: "polygon(0, 0, 100%, 0, 100%, 100%, 0%, 100%)" }}
           ></p>
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Projects
-
+export default Projects;
