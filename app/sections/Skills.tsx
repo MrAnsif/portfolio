@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision';
+// import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision';
 import { Bot, Code, GitBranch, Monitor, Server } from 'lucide-react';
 
 const Skills = () => {
