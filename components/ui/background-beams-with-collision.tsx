@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import React, { useRef } from "react";
+import React from "react";
 
 export const BackgroundBeamsWithCollision = ({
   children,
