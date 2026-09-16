@@ -483,7 +483,7 @@ const HorizontalBlinds = () => {
             className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4"
           >
             <p className="text-md md:text-lg font-light tracking-[0.35em] uppercase text-white/80  font-sans">
-              Scroll Down To Explore
+              Scroll down to explore my work
             </p>
           </div>
 

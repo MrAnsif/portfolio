@@ -152,104 +152,104 @@ const Skills = () => {
 
 
   return (
-    <div className="relative w-full min-h-[100svh] bg-black overflow-hidden">
-      <BackgroundBeamsWithCollision>
-        {/* Main content */}
-        <div className="container relative w-full min-h-[100svh] flex flex-col justify-center items-center px-4 md:px-8 py-12 md:py-16" ref={containerRef}>
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center mb-16 md:mb-20 w-full"
-          >
-            <div className=" flex ">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-end leading-6  flex">
-                <span className=''>
-                  what <span className="text-orange-500 font-extrabold">SKILLS</span> <br /> <span className='text-2xl font-myfont2'>can i have</span>
-                </span>
-                <motion.div
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: [0, 10, -10, 15, 0] }}
-                  transition={{ duration: 1, repeat: Infinity, repeatDelay: 3 }}
-                  className='text-white text-7xl md:text-9xl font-light -translate-y-4 md:-translate-y-9'
-                >
-                  <p className='text-white text-9xl font-light font-myfont2 -translate-y-4 rotate-15'>?</p>
-                </motion.div>
-              </h1>
-            </div>
-          </motion.div>
+    <div className="relative w-full min-h-[100svh] bg-transparent overflow-hidden">
+      {/* <BackgroundBeamsWithCollision> */}
+      {/* Main content */}
+      <div className="container relative w-full min-h-[100svh] flex flex-col justify-center items-center px-4 md:px-8 py-12 md:py-16" ref={containerRef}>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-16 md:mb-20 w-full"
+        >
+          <div className=" flex ">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-end leading-6  flex">
+              <span className=''>
+                what <span className="text-orange-500 font-extrabold">SKILLS</span> <br /> <span className='text-2xl font-myfont2'>can i have</span>
+              </span>
+              <motion.div
+                initial={{ rotate: 0 }}
+                animate={{ rotate: [0, 10, -10, 15, 0] }}
+                transition={{ duration: 1, repeat: Infinity, repeatDelay: 3 }}
+                className='text-white text-7xl md:text-9xl font-light -translate-y-4 md:-translate-y-9'
+              >
+                <p className='text-white text-9xl font-light font-myfont2 -translate-y-4 rotate-15'>?</p>
+              </motion.div>
+            </h1>
+          </div>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid-main text-white relative mx-auto w-full max-w-6xl border border-white/10 rounded-2xl overflow-hidden"
-          >
-            {/* First row - 3 items */}
-            <div className="grid-row grid grid-cols-1 md:grid-cols-3">
-              {gridContent.slice(0, 3).map((item, index) => (
-                <motion.div
-                  key={`row1-${index}`}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  onClick={() => handleItemClick(index)}
-                  className={`grid-item group w-full px-8 py-12 flex flex-col justify-center items-center cursor-pointer transition-all duration-500 hover:bg-white/5 border-b border-white/10
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="grid-main text-white relative mx-auto w-full max-w-6xl overflow-hidden"
+        >
+          {/* First row - 3 items */}
+          <div className="grid-row grid grid-cols-1 md:grid-cols-3">
+            {gridContent.slice(0, 3).map((item, index) => (
+              <motion.div
+                key={`row1-${index}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                onClick={() => handleItemClick(index)}
+                className={`grid-item group w-full px-8 py-12 flex flex-col justify-center items-center cursor-pointer transition-all duration-500 hover:bg-white/5 
                   ${index < 2 ? 'md:border-r border-white/10' : ''}`}
-                >
-                  <div className="relative z-10 text-left">
-                    <div className="text-orange-500 group-hover:text-orange-400  duration-300 group-hover:scale-90 transform transition-transform">
-                      {item.icon}
-                      <h3 className="text-sm md:text-base font-bold mb-4 group-hover:text-orange-400 transition-colors duration-300">{item.title}</h3>
-                    </div>
-                    <p className={`text-xl md:text-2xl text-gray-300 leading-relaxed transition-all duration-500 group-hover:text-white
+              >
+                <div className="relative z-10 text-left">
+                  <div className="text-orange-500 group-hover:text-orange-400  duration-300 group-hover:scale-90 transform transition-transform">
+                    {item.icon}
+                    <h3 className="text-sm md:text-base font-bold mb-4 group-hover:text-orange-400 transition-colors duration-300">{item.title}</h3>
+                  </div>
+                  <p className={`text-xl md:text-2xl text-gray-300 leading-relaxed transition-all duration-500 group-hover:text-white
                     ${isMobile ? 'opacity-100' : ((isHovering ? activeIndex === index : true) ? 'opacity-100' : 'opacity-70')}`}
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-            {/* Second row - 2 items */}
-            <div className="grid-row grid grid-cols-1 md:grid-cols-2">
-              {gridContent.slice(3).map((item, index) => (
-                <motion.div
-                  key={`row2-${index}`}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                  onClick={() => handleItemClick(index + 3)}
-                  className={`grid-item group w-full px-8 py-12 flex flex-col justify-center items-center cursor-pointer transition-all duration-500 hover:bg-white/5
+          {/* Second row - 2 items */}
+          <div className="grid-row grid grid-cols-1 md:grid-cols-2">
+            {gridContent.slice(3).map((item, index) => (
+              <motion.div
+                key={`row2-${index}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                onClick={() => handleItemClick(index + 3)}
+                className={`grid-item group w-full px-8 py-12 flex flex-col justify-center items-center cursor-pointer transition-all duration-500 hover:bg-white/5
                   ${index === 0 ? 'md:border-r border-white/10' : ''}`}
-                >
-                  <div className="relative z-10 text-left">
-                    <div className="text-orange-500 group-hover:text-orange-400 duration-300 group-hover:scale-90 transform transition-transform">
-                      {item.icon}
-                      <h3 className="text-sm md:text-base font-bold mb-4 group-hover:text-orange-400 transition-colors duration-300">{item.title}</h3>
-                    </div>
-                    <p className={`text-xl md:text-2xl text-gray-300 leading-relaxed transition-all duration-500 group-hover:text-white
-                    ${isMobile ? 'opacity-100' : ((isHovering ? activeIndex === index + 3 : true) ? 'opacity-100' : 'opacity-70')}`}
-                    >
-                      {item.desc}
-                    </p>
+              >
+                <div className="relative z-10 text-left">
+                  <div className="text-orange-500 group-hover:text-orange-400 duration-300 group-hover:scale-90 transform transition-transform">
+                    {item.icon}
+                    <h3 className="text-sm md:text-base font-bold mb-4 group-hover:text-orange-400 transition-colors duration-300">{item.title}</h3>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                  <p className={`text-xl md:text-2xl text-gray-300 leading-relaxed transition-all duration-500 group-hover:text-white
+                    ${isMobile ? 'opacity-100' : ((isHovering ? activeIndex === index + 3 : true) ? 'opacity-100' : 'opacity-70')}`}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-          {/* Highlight element - with modern glow effect */}
-          {!isMobile && (
-            <div
-              className="highlight absolute top-0 left-0 pointer-events-none transition-all duration-500 ease-out opacity-60  blur-sm"
-              ref={highlightRef}
-            ></div>
-          )}
-        </div>
-      </BackgroundBeamsWithCollision>
+        {/* Highlight element - with modern glow effect */}
+        {!isMobile && (
+          <div
+            className="highlight absolute top-0 left-0 pointer-events-none transition-all duration-500 ease-out opacity-60  blur-sm"
+            ref={highlightRef}
+          ></div>
+        )}
+      </div>
+      {/* </BackgroundBeamsWithCollision> */}
     </div>
   );
 };
