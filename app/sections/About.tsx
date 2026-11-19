@@ -83,11 +83,13 @@ const About = () => {
       </svg> */}
 
       <div className="h-[45vh] md:h-[60vh] md:pt-10 w-full grid place-content-center text-6xl md:text-8xl lg:text-9xl relative z-10 text-[#FECFAF]">
-        <h1>About Me</h1>
+        <h2 className="text-6xl md:text-8xl lg:text-9xl ">About Me</h2>
       </div>
 
-      <div className="h-[75vh] md:h-[90vh] relative z-10 text-white mx-10 ">
-        <p className=' max-w-96 md:max-w-4xl text-balance text-lg md:text-2xl ml-4 md:ml-10'><span className='font-serif italic'>Hi, Myself Ansif Muhammed.</span>  <br />a full-stack developer with experience in both frontend and backend development. Most of my work comes from freelance projects, where I have built everything from<span className='font-serif italic'> planning to deployment.</span> <br /> I also integrate AI into my workflow-not as a shortcut, but to speed up research, automate repetitive tasks, and <span className='font-serif italic'>keep projects moving efficiently.</span></p>
+      <div className="h-[75vh] md:h-[90vh] relative z-10 text-white mx-5 ">
+        <p className='max-w-96 md:max-w-4xl text-balance text-lg md:text-2xl ml-4 md:ml-10'>
+          <span className='font-serif italic'>Hi, I&apos;m Ansif Muhammed</span> — a Software Engineer and Full Stack Developer with expertise in building robust, modern web applications from frontend interfaces to scalable backend architectures. Most of my work spans freelance and full-stack software development, engineering complete solutions from <span className='font-serif italic'>initial concept and design to production deployment.</span> <br /> I specialize in React, Next.js, and modern full-stack ecosystems, integrating AI into my development workflow to accelerate research, automate complex routines, and <span className='font-serif italic'>deliver high-performance digital products.</span>
+        </p>
         <div className='md:translate-y-56'>
           {/* <LogoCloud /> */}
         </div>

@@ -83,7 +83,7 @@ const Contact = () => {
 
           <div className=" flex items-center gap-2 px-8">
             <div className="w-10 h-10 md:w-16 md:h-16 bg-orange-600 rounded-full"></div>
-            <h1>Contact Me</h1>
+            <h2>Contact Me</h2>
           </div>
         </div>
         <div className="pt-20">

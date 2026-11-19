@@ -20,7 +20,7 @@ const menuLinks = [
 
 const social = [
   { path: 'https://www.linkedin.com/in/ansif1/', label: 'LinkedIn', logo: '/images/linkedin.webp' },
-  { path: 'https://github.com/mransif', label: 'GitHub', logo: '/images/github.webp' },
+  { path: 'https://github.com/mransif/', label: 'GitHub', logo: '/images/github.webp' },
   { path: 'mailto:ansifpta2003@gmail.com', label: 'Email', logo: '/images/mail.webp' }
 ]
 
@@ -68,12 +68,12 @@ const Menu = () => {
   return (
     <div className='menu-container ' ref={container} >
 
-      <div className="menu-bar fixed top-0 left-0 w-screen px-8 py-5 grid grid-cols-3 items-center z-40 text-white backdrop-blur-lg bg-black/10 rounded-b-2xl">
+      <nav aria-label="Main Navigation" className="menu-bar fixed top-0 left-0 w-screen px-8 py-5 grid grid-cols-3 items-center z-40 text-white backdrop-blur-lg bg-black/10 rounded-b-2xl">
         <div className="menu-logo w-20" >
           <Link href="/" className=" cursor-pointer">
             <Image
               src="/images/name.webp"
-              alt="Home"
+              alt="Ansif Muhammed - Home"
               width={164}
               height={164}
               className=""
@@ -82,7 +82,14 @@ const Menu = () => {
         </div>
         <div className='flex lg:justify-center gap-4 '>
           {social.map((e, i) => (
-            <a href={e.path} target="_blank" rel="noopener noreferrer" key={i} className="cursor-pointer w-7 h-7 transition-transform duration-300 ease-out hover:-translate-y-1" >
+            <a
+              href={e.path}
+              target="_blank"
+              rel="noopener noreferrer me"
+              aria-label={`Ansif Muhammed on ${e.label}`}
+              key={i}
+              className="cursor-pointer w-7 h-7 transition-transform duration-300 ease-out hover:-translate-y-1"
+            >
               <Image
                 src={e.logo}
                 width={44}
@@ -109,7 +116,7 @@ const Menu = () => {
             }
           </div>
         </div>
-      </div>
+      </nav>
 
 
       {/* Added justify-between and items-start to menu-overlay */}
@@ -120,7 +127,7 @@ const Menu = () => {
             <Link href="/" className=" cursor-pointer">
               <Image
                 src="/images/name.webp"
-                alt="Go to Home"
+                alt="Ansif Muhammed - Home"
                 width={64}
                 height={64}
                 className="brightness-0"
@@ -163,9 +170,9 @@ const Menu = () => {
             </div>
             <div className="menu-info flex w-full items-end">
               <div className="menu-info-col flex-grow-[1] flex flex-col justify-end">
-                <a href="https://github.com/mransif" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/ansif1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://www.instagram.com/anzi_f7/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://github.com/mransif/" target="_blank" rel="noopener noreferrer me" aria-label="Ansif Muhammed on GitHub">GitHub</a>
+                <a href="https://www.linkedin.com/in/ansif1/" target="_blank" rel="noopener noreferrer me" aria-label="Ansif Muhammed on LinkedIn">LinkedIn</a>
+                <a href="https://www.instagram.com/anzi_f7/" target="_blank" rel="noopener noreferrer me" aria-label="Ansif Muhammed on Instagram">Instagram</a>
               </div>
               <div className="menu-info-col flex-grow-[1] flex flex-col justify-end ">
                 <p className='!lowercase'>ansifpta2003@gmail.com</p>

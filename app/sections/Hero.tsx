@@ -160,7 +160,7 @@ const Hero = () => {
       <section className='sticky-1 relative w-screen h-screen overflow-hidden  z-10'>
         <div className="logo absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 md:-translate-y-1/2 flex gap-[24px] ">
           <div className=' w-[50vh] md:w-80'>
-            <img src="/images/logo-nobg.webp" alt="" />
+            <Image src="/images/logo-nobg.webp" alt="Ansif Muhammed Brand Logo" width={320} height={320} priority className="w-full h-auto" />
           </div>
         </div>
 
@@ -222,36 +222,35 @@ const Hero = () => {
 
         <div className="header-1 absolute top-4/6 left-1/2 w-full px-4">
           <div className="max-w-5xl mx-auto relative">
-            <div className="flex flex-col items-start">
+            <h1 className="flex flex-col items-start">
               <div className="self-start">
                 <span className="block text-sm md:text-base lg:text-lg font-medium text-gray-300">
                   Hey, this is
                 </span>
               </div>
 
-              <div className="w-full -mt-1 md:-mt-2 ">
-                <span className="block text-8xl md:text-[12rem] lg:text-[15rem] font-extrabold tracking-tight font-myfont1 italic text-transparent bg-gradient-to-b from-gray-100 to-gray-300/80 bg-clip-text animate-gradient-shift leading-none">
-                  Ansif
+              <div className="w-full -mt-1 md:-mt-2">
+                <span className="block text-5xl sm:text-6xl md:text-[6rem] lg:text-[8.5rem] xl:text-[10rem] font-extrabold tracking-tight font-myfont1 italic text-transparent bg-gradient-to-b from-gray-100 to-gray-300/80 bg-clip-text animate-gradient-shift leading-none">
+                  Ansif Muhammed
                 </span>
               </div>
 
-              <div className="self-end mt-2 md:-mt-6">
+              <div className="self-end mt-2 md:-mt-4">
                 <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-[#EFB6A4]">
-                  a software developer
+                  Software Engineer
                 </span>
               </div>
+            </h1>
             <Link001 className='mt-7 text-[#EFB6A4]' href="/files/Ansif_resume.pdf">My Resume</Link001>
-            </div>
-             
           </div>
-          <div className='flex items-center justify-end flex-col '>
-            <p className='text-[10px] !font-light tracking-wide pt-16 text-[#e4bfb4] '>- scroll carefully, its smooth -</p>
+          <div className='flex items-center justify-end flex-col'>
+            <p className='text-[10px] !font-light tracking-wide pt-16 text-[#e4bfb4]'>- scroll carefully, its smooth -</p>
           </div>
         </div>
         <div className="header-2 absolute top-1/2 left-1/2 text-center p-2 text-black bg-white/5 rounded-2xl backdrop-blur-sm">
-          <h1 className="font-extrabold font-myfont2 text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
+          <p className="font-extrabold font-myfont2 text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
             welcome to my corner<br className="hidden sm:block" /> of the internet.
-          </h1>
+          </p>
 
         </div>
 

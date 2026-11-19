@@ -164,7 +164,7 @@ const Skills = () => {
           className="text-center mb-16 md:mb-20 w-full"
         >
           <div className=" flex ">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-end leading-6  flex">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-end leading-6  flex">
               <span className=''>
                 what <span className="text-orange-500 font-extrabold">SKILLS</span> <br /> <span className='text-2xl font-myfont2'>can i have</span>
               </span>
@@ -176,7 +176,7 @@ const Skills = () => {
               >
                 <p className='text-white text-9xl font-light font-myfont2 -translate-y-4 rotate-15'>?</p>
               </motion.div>
-            </h1>
+            </h2>
           </div>
         </motion.div>
 

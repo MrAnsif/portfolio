@@ -2,7 +2,6 @@
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const images = [
@@ -97,7 +96,12 @@ const Skiper30 = () => {
         {/* RIGHT SIDE - HUGE GITHUB */}
         <div className="font-bigFont w-full flex-1 flex justify-end items-center overflow-hidden">
           <div className="h-full w-[3px] border-r border-white mx-6 border-dashed lg:hidden"></div>
-          <Link href={"https://github.com/MrAnsif/"}>
+          <a
+            href="https://github.com/mransif/"
+            target="_blank"
+            rel="noopener noreferrer me"
+            aria-label="Ansif Muhammed on GitHub"
+          >
             <span
               className="
             uppercase  leading-none tracking- 
@@ -107,7 +111,7 @@ const Skiper30 = () => {
             >
               GitHub.
             </span>
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -122,16 +126,16 @@ const Skiper30 = () => {
       </div>
       <div className="md:grid md:grid-cols-2 min-h-screen overflow-hidden bg-[linear-gradient(0deg,#000,#F2EDE6_72%)]">
         <div className=" h-full w-full hidden md:flex md:items-center justify-center p-10 lg:p-28">
-          <h1 className="text-5xl sm:text-6xl lg:text-9xl uppercase font-black leading-tight text-left ">
+          <h2 className="text-5xl sm:text-6xl lg:text-9xl uppercase font-black leading-tight text-left ">
             <span className="font-myfont2">Drop</span> a{" "}
             <span className="bg-[#b43a11] text-white">me</span>ssage
-          </h1>
+          </h2>
         </div>
 
         <div className=" relative min-h-screen p-6 sm:p-10 ">
-          <h1 className="font-black text-6xl my-6">
+          <h2 className="font-black text-6xl my-6">
             Get <span className="md:font-myfont4 font-myfont2">In</span> Touch
-          </h1>
+          </h2>
 
           <div
             className="
@@ -206,7 +210,7 @@ const Column = ({ images, y }: ColumnProps) => {
         <div key={i} className="relative h-full w-full overflow-hidden">
           <Image
             src={`${src}`}
-            alt="image"
+            alt="Ansif Muhammed Portfolio Project Showcase"
             width={1080}
             height={1080}
             className="pointer-events-none object-cover"

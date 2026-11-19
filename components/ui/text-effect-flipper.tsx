@@ -7,21 +7,30 @@ const STAGGER = 0.025
 interface FlipLinkProps {
   children: string
   href: string
+  rel?: string
+  ariaLabel?: string
 }
 
-const FlipLink: React.FC<FlipLinkProps> = ({ children, href }) => {
+const FlipLink: React.FC<FlipLinkProps> = ({
+  children,
+  href,
+  rel = "noopener noreferrer me",
+  ariaLabel,
+}) => {
   return (
     <motion.a
       initial="initial"
       whileHover="hovered"
       target="_blank"
+      rel={rel}
       href={href}
+      aria-label={ariaLabel || `Ansif Muhammed on ${children}`}
       className="relative block overflow-hidden whitespace-nowrap text-4xl font-semibold uppercase text-white dark:text-white/90 sm:text-5xl md:text-6xl "
       style={{
         lineHeight: 0.75,
       }}
     >
-      <div>
+      <div aria-hidden="true">
         {children.split("").map((l, i) => (
           <motion.span
             variants={{
@@ -44,7 +53,7 @@ const FlipLink: React.FC<FlipLinkProps> = ({ children, href }) => {
           </motion.span>
         ))}
       </div>
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         {children.split("").map((l, i) => (
           <motion.span
             variants={{
