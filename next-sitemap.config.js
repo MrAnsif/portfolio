@@ -1,6 +1,6 @@
 /** next-sitemap.config.js */
 module.exports = {
-  siteUrl: 'https://ansif.tech',
+  siteUrl: 'https://portfolio-ansif.vercel.app',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,

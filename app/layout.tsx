@@ -23,7 +23,7 @@ export const metadata = {
     title: 'Ansif | MERN Stack Developer',
     description:
       'Portfolio of Ansif, MERN and Next.js developer building AI-powered full-stack applications.',
-    url: 'https://ansif.tech',
+    url: 'https://portfolio-ansif.vercel.app',
     siteName: 'Ansif Portfolio',
     images: [
       {
@@ -68,8 +68,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Ansif",
-              "url": "https://ansif.tech",
-              "logo": "https://ansif.tech/icon.png"
+              "url": "https://portfolio-ansif.vercel.app",
+              "logo": "https://portfolio-ansif.vercel.app/icon.png"
             }),
           }}
         />
